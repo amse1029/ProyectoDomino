@@ -13,14 +13,19 @@ public class Broker {
             int puerto = 5000;
             ServerSocket brockerSocket = new ServerSocket(puerto);
             
+            // Bucle que acepta conexiones de clientes y crea hilos para manejar las conexiones
             while(true){
-                Socket clientSocket = brockerSocket.accept();
-                System.out.println("Conexión aceptada por " + clientSocket.getInetAddress());
                 
+                //Acepta la conexión del cliente
+                Socket clientSocket = brockerSocket.accept();
+                //Muestra la ip del cliente
+                System.out.println("Conexión aceptada por " + clientSocket.getInetAddress());
+                //Conecta al servidor del localhost
                 Socket serverSocket = new Socket("localhost",9999);
                 
-                new Thread(new BrokerThread(clientSocket, clientSocket)).start();
-                new Thread(new BrokerThread(clientSocket, clientSocket)).start();
+                //Hilos que manejan la comunicación entre el cliente y el servidor
+                new Thread(new BrokerThread(clientSocket, serverSocket)).start();
+                new Thread(new BrokerThread(serverSocket, clientSocket)).start();
             }
 
         } catch (IOException e) {
