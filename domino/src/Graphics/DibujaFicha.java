@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
-public class Ficha extends JPanel {
+public class DibujaFicha extends JPanel {
     
     private int valorIzquierda;
     private int valorDerecha;
@@ -12,7 +12,7 @@ public class Ficha extends JPanel {
     int recY;
 
     
-    public Ficha(int leftValue, int rightValue) {
+    public DibujaFicha(int leftValue, int rightValue) {
         valorIzquierda = leftValue;
         valorDerecha = rightValue;
         recX = 0;
