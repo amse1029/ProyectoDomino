@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class FrmConfPartida extends javax.swing.JFrame {
 
+    IConfPartida presenter = new ConfPartidaPresenter();
     
     /**
      * Creates new form FrmConfPartida
@@ -132,11 +133,10 @@ public class FrmConfPartida extends javax.swing.JFrame {
     public void abrirPantConf() {
         this.setVisible(true);
     }
-
-    public void guardaConf() {
-        
-    }
     
+    public void selectGuardar() {
+        presenter.selectGuardar();
+    }
     public void muestraMsjError() {
         JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", 
                 JOptionPane.ERROR_MESSAGE);

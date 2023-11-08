@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import MVP.IJugador;
+import MVP.JugadorPresenter;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,6 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class FrmJugador extends javax.swing.JFrame {
 
+    IJugador presenter = new JugadorPresenter();
     /**
      * Creates new form FrmJugador
      */
@@ -112,16 +115,15 @@ public class FrmJugador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListoActionPerformed
-        FrmLobby lobby = new FrmLobby();
-        lobby.setVisible(true);
+        
     }//GEN-LAST:event_btnListoActionPerformed
 
     public void abrirPantJugador() {
-         FrmJugador frm = new FrmJugador();
-        frm.setVisible(true);
+        this.setVisible(true);
     }
 
     public void selectIniciar() {
+        presenter.selectIniciar();
     }
 
     public void muestraMsjError() {

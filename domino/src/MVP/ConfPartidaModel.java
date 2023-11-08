@@ -29,9 +29,9 @@ public class ConfPartidaModel {
         this.partida = partida;
     }
     
-    
-
     public void guardaConfiguracion() {
+        partida.setCantFichas(cantFichas);
+        partida.setCantJugadores(cantJugadores);
         
     }
 }

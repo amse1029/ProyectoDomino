@@ -5,12 +5,16 @@
  */
 package GUI;
 
+import MVP.ILobby;
+import MVP.LobbyPresenter;
+
 /**
  *
  * @author usuario
  */
 public class FrmLobby extends javax.swing.JFrame {
 
+    ILobby presenter = new LobbyPresenter();
     /**
      * Creates new form FrmLobby
      */
@@ -83,10 +87,11 @@ public class FrmLobby extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     public void abrirPantLobby(){
-       
+       this.setVisible(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

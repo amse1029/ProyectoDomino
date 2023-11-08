@@ -17,11 +17,12 @@ public class JugadorPresenter implements IJugador {
 
     @Override
     public void selectIniciar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        model.validarNombre();
+        model.guardarJugador();
     }
 
     @Override
     public void abrirPantallaJug() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        frmJugador.abrirPantJugador();
     }
 }
