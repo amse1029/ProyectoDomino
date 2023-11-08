@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import MVP.ConfPartidaPresenter;
+import MVP.IConfPartida;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,6 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class FrmConfPartida extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form FrmConfPartida
      */
@@ -33,7 +36,7 @@ public class FrmConfPartida extends javax.swing.JFrame {
         lblCantFichas = new javax.swing.JLabel();
         lblCantJug = new javax.swing.JLabel();
         cbxFichas = new javax.swing.JComboBox<>();
-        btnCrearPartida = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
         cbxJugadores = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -56,11 +59,11 @@ public class FrmConfPartida extends javax.swing.JFrame {
         cbxFichas.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
         cbxFichas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2", "3", "4", "5", "6", "7" }));
 
-        btnCrearPartida.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
-        btnCrearPartida.setText("Crear partida");
-        btnCrearPartida.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearPartidaActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
 
@@ -93,7 +96,7 @@ public class FrmConfPartida extends javax.swing.JFrame {
                                 .addGap(48, 48, 48))))
                     .addGroup(pnlFondoLayout.createSequentialGroup()
                         .addGap(230, 230, 230)
-                        .addComponent(btnCrearPartida)))
+                        .addComponent(btnGuardar)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         pnlFondoLayout.setVerticalGroup(
@@ -108,7 +111,7 @@ public class FrmConfPartida extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(cbxFichas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
-                        .addComponent(btnCrearPartida)
+                        .addComponent(btnGuardar)
                         .addGap(30, 30, 30))
                     .addGroup(pnlFondoLayout.createSequentialGroup()
                         .addComponent(lblCantJug)
@@ -122,23 +125,25 @@ public class FrmConfPartida extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCrearPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearPartidaActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-        this.abrirPantConf();
-    }//GEN-LAST:event_btnCrearPartidaActionPerformed
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     public void abrirPantConf() {
-        FrmConfPartida frm = new FrmConfPartida();
-        frm.setVisible(true);
+        this.setVisible(true);
     }
 
+    public void guardaConf() {
+        
+    }
+    
     public void muestraMsjError() {
         JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", 
                 JOptionPane.ERROR_MESSAGE);
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCrearPartida;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JComboBox<String> cbxFichas;
     private javax.swing.JComboBox<String> cbxJugadores;
     private javax.swing.JLabel lblCantFichas;

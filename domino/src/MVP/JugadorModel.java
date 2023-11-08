@@ -12,15 +12,18 @@ import dominio.Jugador;
  * @author usuario
  */
 public class JugadorModel {
-    Jugador jugador;
 
+    private String nombre;
+    
     public JugadorModel() {
     }
 
-    public JugadorModel(Jugador jugador) {
-        this.jugador = jugador;
+    public JugadorModel(String nombre) {
+        this.nombre = nombre;
     }
-    
-    public void validarNombre(){}//EN CONSTRUCCION
-    public void guardarJugador(){}//EN CONSTRUCCION
+
+    public void validarNombre(){
+    }
+    public void guardarJugador(){
+    }
 }

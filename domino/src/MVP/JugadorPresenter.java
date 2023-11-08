@@ -11,7 +11,7 @@ import GUI.FrmJugador;
  *
  * @author usuario
  */
-public class JugadorPresenter implements IJugadorView {
+public class JugadorPresenter implements IJugador {
     FrmJugador frmJugador;
     JugadorModel model;
 

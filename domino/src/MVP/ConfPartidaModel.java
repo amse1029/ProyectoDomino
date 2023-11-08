@@ -13,10 +13,25 @@ import dominio.Partida;
  */
 public class ConfPartidaModel {
 
-    int cantFichas;
-    int cantJugadores;
+    private int cantFichas;
+    private int cantJugadores;
+    private Partida partida;
 
-    public void guardaConfiguracion(int cantFichas, int cantJugadores) {
+    public ConfPartidaModel() {
+    }
+
+    public ConfPartidaModel(int cantFichas, int cantJugadores) {
+        this.cantFichas = cantFichas;
+        this.cantJugadores = cantJugadores;
+    }
+
+    public ConfPartidaModel(Partida partida) {
+        this.partida = partida;
+    }
+    
+    
+
+    public void guardaConfiguracion() {
         
     }
 }

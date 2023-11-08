@@ -9,12 +9,8 @@ package MVP;
  *
  * @author usuario
  */
-public class PrincipalModel {
+public interface IConfPartida {
     
-    public void setTablero(){
-        //CONSTRUCCION
-    }
-    public void setPozo(){
-        //CONSTRUCCION
-    }
+    public void abrirPantallaConf();
+    public void selectGuardar();
 }

@@ -11,13 +11,33 @@ import GUI.FrmPrincipal;
  *
  * @author usuario
  */
-public class PrincipalPresenter implements IPrincipalView{
-    FrmPrincipal frmPartida;
-    PrincipalModel model;
+public class PrincipalPresenter implements IPrincipal {
+    
+    private ConfPartidaPresenter presenterConfPartida = new ConfPartidaPresenter();
+    private FrmPrincipal frmPrincipal = new FrmPrincipal();
+
+    public PrincipalPresenter() {
+    }
+
+    public PrincipalPresenter(ConfPartidaPresenter presenterConfPartida) {
+        this.presenterConfPartida = presenterConfPartida;
+    }
 
     @Override
     public void selectCrearPartida() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        abrirPantPartida();
     }
+
+    @Override
+    public void abrirPantPartida() {
+        presenterConfPartida.abrirPantallaConf();
+    }
+
+    @Override
+    public void abrirPantPrincipal() {
+        frmPrincipal.abrirPantalla();
+    }
+    
+    
 
 }

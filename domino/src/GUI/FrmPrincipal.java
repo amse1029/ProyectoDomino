@@ -4,12 +4,17 @@
  */
 package GUI;
 
+import MVP.IPrincipal;
+import MVP.PrincipalPresenter;
+
 /**
  *
  * @author alexa
  */
 public class FrmPrincipal extends javax.swing.JFrame {
 
+    private IPrincipal presenter = new PrincipalPresenter();
+    
     /**
      * Creates new form FrmPrincipal
      */
@@ -87,62 +92,29 @@ public class FrmPrincipal extends javax.swing.JFrame {
         getContentPane().add(pnlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 460));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCrearPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearPartidaActionPerformed
-        this.abrirPantPartida();
+        this.selectCrearPartida();
     }//GEN-LAST:event_btnCrearPartidaActionPerformed
 
     private void btnUnirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnirseActionPerformed
         // TODO add your handling code here:
-        FrmJugador frm = new FrmJugador();
-        frm.setVisible(true);
     }//GEN-LAST:event_btnUnirseActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmPrincipal().setVisible(true);
-            }
-        });
+  
+    public void abrirPantalla() {
+        this.setVisible(true);
     }
-    public void abrirPantPartida() {
-        FrmConfPartida frm = new FrmConfPartida();
-        frm.setVisible(true);
-    }//EN CONSTRUCCIÓN
+//    public void abrirPantConfPartida() {
+//        FrmConfPartida frm = new FrmConfPartida();
+//        frm.setVisible(true);
+//    }
 
     public void selectCrearPartida() {
-    }//EN CONSTRUCCIÓN
+        presenter.selectCrearPartida();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearPartida;
     private javax.swing.JButton btnUnirse;

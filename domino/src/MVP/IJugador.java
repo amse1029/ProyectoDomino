@@ -9,8 +9,8 @@ package MVP;
  *
  * @author usuario
  */
-public interface IConfPartidaView {
+public interface IJugador {
     
-    public boolean abrirPantallaConf();
-    public void selectGuardar();
+    public void selectIniciar ();
+    public void abrirPantallaJug ();
 }

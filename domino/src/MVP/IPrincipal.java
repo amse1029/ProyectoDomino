@@ -9,8 +9,9 @@ package MVP;
  *
  * @author usuario
  */
-public interface IJugadorView {
+public interface IPrincipal {
     
-    public void selectIniciar ();
-    public void abrirPantallaJug ();
+    public void selectCrearPartida();
+    public void abrirPantPartida();
+    public void abrirPantPrincipal();
 }

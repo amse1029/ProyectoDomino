@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author alexa
@@ -115,12 +117,16 @@ public class FrmJugador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListoActionPerformed
 
     public void abrirPantJugador() {
+         FrmJugador frm = new FrmJugador();
+        frm.setVisible(true);
     }
 
     public void selectIniciar() {
     }
 
     public void muestraMsjError() {
+        JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", 
+                JOptionPane.ERROR_MESSAGE);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnListo;

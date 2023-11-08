@@ -11,9 +11,13 @@ import GUI.FrmConfPartida;
  *
  * @author usuario
  */
-public class ConfPartidaPresenter implements IConfPartidaView{
-    FrmConfPartida frmConfPartida;
-    ConfPartidaModel model;
+public class ConfPartidaPresenter implements IConfPartida {
+    
+    FrmConfPartida frmConfPartida = new FrmConfPartida();
+    private ConfPartidaModel model = new ConfPartidaModel();
+
+    public ConfPartidaPresenter() {
+    }
 
     public ConfPartidaPresenter(FrmConfPartida frmConfPartida, ConfPartidaModel model) {
         this.frmConfPartida = frmConfPartida;
@@ -22,11 +26,11 @@ public class ConfPartidaPresenter implements IConfPartidaView{
 
     @Override
     public void selectGuardar() {
-        
+        model.guardaConfiguracion();
     }
 
     @Override
-    public boolean abrirPantallaConf() {
-        return true;
+    public void abrirPantallaConf() {
+        frmConfPartida.abrirPantConf();
     }
 }

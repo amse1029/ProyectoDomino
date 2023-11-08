@@ -4,15 +4,19 @@
  */
 package MVP;
 
+import GUI.FrmLobby;
+
 /**
  *
  * @author alexa
  */
 public class LobbyPresenter implements ILobby {
 
+    private FrmLobby frmLobby;
+    
     @Override
     public void abrirPantLobby() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        frmLobby.abrirPantLobby();
     }
     
 }
