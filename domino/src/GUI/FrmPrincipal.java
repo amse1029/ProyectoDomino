@@ -103,17 +103,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void btnUnirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnirseActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUnirseActionPerformed
-
   
     public void abrirPantalla() {
         this.setVisible(true);
     }
-//    public void abrirPantConfPartida() {
-//        FrmConfPartida frm = new FrmConfPartida();
-//        frm.setVisible(true);
-//    }
 
     public void selectCrearPartida() {
+        this.dispose();
         presenter.selectCrearPartida();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -64,6 +64,7 @@ public class Partida {
         this.cantJugadores = cantJugadores;
     }
     
+    
     //TODOS ESTOS METODOS SE VAN IMPLEMENTAR EN SUS RESPECTIVAS CLASES, AQUI
     //SOLO SE LLAMARAN
     //Este metodo va a validar la ficha que se quiere poner en el tablero si es 
@@ -80,4 +81,9 @@ public class Partida {
     //public void cambiarTurno(){}
     //public void notificarCambioTurno(){}
     //public void actTablero(){}
+
+    @Override
+    public String toString() {
+        return "Partida{" + "cantFichas=" + cantFichas + ", cantJugadores=" + cantJugadores + '}';
+    }
 }

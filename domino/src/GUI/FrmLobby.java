@@ -6,7 +6,6 @@
 package GUI;
 
 import MVP.ILobby;
-import MVP.LobbyPresenter;
 
 /**
  *
@@ -14,11 +13,13 @@ import MVP.LobbyPresenter;
  */
 public class FrmLobby extends javax.swing.JFrame {
 
-    ILobby presenter = new LobbyPresenter();
+    ILobby presenter;
+    
     /**
      * Creates new form FrmLobby
      */
-    public FrmLobby() {
+    public FrmLobby(ILobby presenter) {
+        this.presenter = presenter;
         initComponents();
     }
 

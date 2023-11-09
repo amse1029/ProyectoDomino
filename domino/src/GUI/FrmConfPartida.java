@@ -4,8 +4,8 @@
  */
 package GUI;
 
-import MVP.ConfPartidaPresenter;
 import MVP.IConfPartida;
+import MVP.IJugador;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,12 +14,17 @@ import javax.swing.JOptionPane;
  */
 public class FrmConfPartida extends javax.swing.JFrame {
 
-    IConfPartida presenter = new ConfPartidaPresenter();
+    IConfPartida presenter;
+    IJugador presenterJug;
+    
+//    private int cantFichas;
+//    private int cantJugadores;
     
     /**
      * Creates new form FrmConfPartida
      */
-    public FrmConfPartida() {
+    public FrmConfPartida(IConfPartida presenter) {
+        this.presenter = presenter;
         initComponents();
     }
 
@@ -124,19 +129,28 @@ public class FrmConfPartida extends javax.swing.JFrame {
         getContentPane().add(pnlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
+        this.selectGuardar();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     public void abrirPantConf() {
         this.setVisible(true);
     }
     
-    public void selectGuardar() {
-        presenter.selectGuardar();
+    public void abrirPantJug() {
+        presenterJug.abrirPantallaJug();
     }
+    
+    public void selectGuardar() {
+        int cantFichas = (int) this.cbxFichas.getSelectedItem();
+        int cantJugadores = (int) this.cbxJugadores.getSelectedItem();
+        presenter.selectGuardar(cantFichas, cantJugadores);
+        this.abrirPantJug();
+    }
+    
     public void muestraMsjError() {
         JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", 
                 JOptionPane.ERROR_MESSAGE);

@@ -13,14 +13,12 @@ import java.util.ArrayList;
  */
 public class Jugador {
     
-    BufferedImage avatar;
     private String nombre;
-    ArrayList <FichaJugador> fichas;
+    private ArrayList <FichaJugador> fichas;
 
-    public Jugador() {
-        this.avatar=avatar;
-        this.nombre=nombre;
-        this.fichas=fichas;
+    public Jugador(String nombre, ArrayList<FichaJugador> fichas) {
+        this.nombre = nombre;
+        this.fichas = fichas;
     }
 
     public String getNombre() {
@@ -39,14 +37,6 @@ public class Jugador {
         this.fichas = fichas;
     }
 
-    public BufferedImage getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(BufferedImage avatar) {
-        this.avatar = avatar;
-    }
-    
     public void restarFichasJugador(ArrayList<FichaJugador> fichas,Ficha fichaDelete){
         //EN CONSTRUCCION
         for(int i=0;i<fichas.size();i++){
@@ -62,4 +52,6 @@ public class Jugador {
     public void validarMano(){}//EN CONSTRUCCION
     public void tomarTurno(){}//EN CONSTRUCCION
     public void dibujarAvatar(){}//EN CONSTRUCCION
+    
+        
 }

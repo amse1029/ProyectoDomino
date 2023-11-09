@@ -12,8 +12,9 @@ import GUI.FrmJugador;
  * @author usuario
  */
 public class JugadorPresenter implements IJugador {
-    FrmJugador frmJugador;
-    JugadorModel model;
+    
+    private FrmJugador frmJugador = new FrmJugador(this);
+    private JugadorModel model = new JugadorModel();
 
     @Override
     public void selectIniciar() {

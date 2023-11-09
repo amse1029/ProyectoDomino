@@ -14,6 +14,7 @@ import dominio.Jugador;
 public class JugadorModel {
 
     private String nombre;
+    private Jugador jugador;
     
     public JugadorModel() {
     }
@@ -23,7 +24,9 @@ public class JugadorModel {
     }
 
     public void validarNombre(){
+
     }
+    
     public void guardarJugador(){
     }
 }

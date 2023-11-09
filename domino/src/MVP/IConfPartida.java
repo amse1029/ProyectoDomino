@@ -12,5 +12,5 @@ package MVP;
 public interface IConfPartida {
     
     public void abrirPantallaConf();
-    public void selectGuardar();
+    public void selectGuardar(int cantFichas, int cantJugadores);
 }

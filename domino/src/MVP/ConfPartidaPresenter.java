@@ -13,7 +13,7 @@ import GUI.FrmConfPartida;
  */
 public class ConfPartidaPresenter implements IConfPartida {
     
-    FrmConfPartida frmConfPartida = new FrmConfPartida();
+    FrmConfPartida frmConfPartida = new FrmConfPartida(this);
     private ConfPartidaModel model = new ConfPartidaModel();
 
     public ConfPartidaPresenter() {
@@ -25,8 +25,8 @@ public class ConfPartidaPresenter implements IConfPartida {
     }
 
     @Override
-    public void selectGuardar() {
-        model.guardaConfiguracion();
+    public void selectGuardar(int cantFichas, int cantJugadores) {
+        model.guardaConfiguracion(cantFichas, cantJugadores);
     }
 
     @Override
