@@ -14,7 +14,7 @@ import GUI.FrmPrincipal;
 public class PrincipalPresenter implements IPrincipal {
     
     private ConfPartidaPresenter presenterConfPartida = new ConfPartidaPresenter();
-    private FrmPrincipal frmPrincipal = new FrmPrincipal();
+    private FrmPrincipal frmPrincipal = new FrmPrincipal(this);
 
     public PrincipalPresenter() {
     }

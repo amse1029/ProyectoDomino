@@ -13,12 +13,13 @@ import MVP.PrincipalPresenter;
  */
 public class FrmPrincipal extends javax.swing.JFrame {
 
-    private IPrincipal presenter = new PrincipalPresenter();
+    private IPrincipal presenter;
     
     /**
      * Creates new form FrmPrincipal
      */
-    public FrmPrincipal() {
+    public FrmPrincipal(IPrincipal presenter) {
+        this.presenter = presenter;
         initComponents();
     }
 
