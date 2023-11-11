@@ -16,6 +16,9 @@ public class JugadorModel {
 
     private String nombre;
     private Jugador jugador;
+    private String nombreInicio = "";
+    private Jugador jugadorInicio = new Jugador(nombreInicio);
+    
     
     public JugadorModel() {
     }
@@ -24,14 +27,19 @@ public class JugadorModel {
         this.nombre = nombre;
     }
 
-    public void validarNombre(){
-        nombre = jugador.getNombre();
+    public void validarNombre(String nombre){
+        jugadorInicio.setNombre(nombre);
+        nombre = jugadorInicio.getNombre();
         if(nombre != " "){
             guardarJugador();
+            System.out.println(nombre);
+        }
+        else{
+            
         }
     }
     
     public void guardarJugador(){
-        jugador.setNombre(nombre);
+        jugadorInicio.setNombre(nombre);
     }
 }

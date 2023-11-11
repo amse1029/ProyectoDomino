@@ -20,6 +20,10 @@ public class Jugador {
         this.nombre = nombre;
         this.fichas = fichas;
     }
+    
+    public Jugador(String nombre){
+        this.nombre = nombre;
+    }
 
     public String getNombre() {
         return nombre;

@@ -6,6 +6,7 @@ package GUI;
 
 import MVP.IJugador;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -131,6 +132,11 @@ public class FrmJugador extends javax.swing.JFrame {
     public void muestraMsjError() {
         JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", 
                 JOptionPane.ERROR_MESSAGE);
+    }
+    
+    public String getTxtNombre(){
+        String nombre = txtNombre.getText();
+        return nombre;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnListo;
