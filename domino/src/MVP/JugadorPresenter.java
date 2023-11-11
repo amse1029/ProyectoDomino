@@ -19,7 +19,6 @@ public class JugadorPresenter implements IJugador {
     @Override
     public void selectIniciar() {
         model.validarNombre();
-        model.guardarJugador();
     }
 
     @Override

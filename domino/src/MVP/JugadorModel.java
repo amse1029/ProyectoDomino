@@ -7,6 +7,7 @@ package MVP;
 
 import dominio.Jugador;
 
+
 /**
  *
  * @author usuario
@@ -24,9 +25,13 @@ public class JugadorModel {
     }
 
     public void validarNombre(){
-
+        nombre = jugador.getNombre();
+        if(nombre != " "){
+            guardarJugador();
+        }
     }
     
     public void guardarJugador(){
+        jugador.setNombre(nombre);
     }
 }

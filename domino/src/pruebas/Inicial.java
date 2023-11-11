@@ -19,6 +19,5 @@ public class Inicial {
         
         PrincipalPresenter presenter = new PrincipalPresenter();
         presenter.abrirPantPrincipal();
-    }
-    
+    }  
 }

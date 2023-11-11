@@ -5,7 +5,7 @@
 package GUI;
 
 import MVP.IConfPartida;
-import MVP.IJugador;
+import MVP.ConfPartidaPresenter;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class FrmConfPartida extends javax.swing.JFrame {
 
     IConfPartida presenter;
-    IJugador presenterJug;
+    ConfPartidaPresenter jugadorPresenter;
     
 //    private int cantFichas;
 //    private int cantJugadores;
@@ -23,10 +23,12 @@ public class FrmConfPartida extends javax.swing.JFrame {
     /**
      * Creates new form FrmConfPartida
      */
-    public FrmConfPartida(IConfPartida presenter) {
+    public FrmConfPartida(IConfPartida presenter, ConfPartidaPresenter jugadorPresenter) {
         this.presenter = presenter;
+        this.jugadorPresenter = jugadorPresenter;
         initComponents();
     }
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -75,6 +77,11 @@ public class FrmConfPartida extends javax.swing.JFrame {
 
         cbxJugadores.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
         cbxJugadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2", "3", "4" }));
+        cbxJugadores.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxJugadoresActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlFondoLayout = new javax.swing.GroupLayout(pnlFondo);
         pnlFondo.setLayout(pnlFondoLayout);
@@ -136,19 +143,24 @@ public class FrmConfPartida extends javax.swing.JFrame {
         this.selectGuardar();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
+    private void cbxJugadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxJugadoresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxJugadoresActionPerformed
+    
     public void abrirPantConf() {
         this.setVisible(true);
     }
     
-    public void abrirPantJug() {
-        presenterJug.abrirPantallaJug();
-    }
-    
     public void selectGuardar() {
-        int cantFichas = (int) this.cbxFichas.getSelectedItem();
-        int cantJugadores = (int) this.cbxJugadores.getSelectedItem();
+        this.dispose();
+        int cantFichas = Integer.parseInt((String) this.cbxFichas.getSelectedItem());
+        int cantJugadores = Integer.parseInt((String) this.cbxJugadores.getSelectedItem());
         presenter.selectGuardar(cantFichas, cantJugadores);
-        this.abrirPantJug();
+        abrirPantJug();
+    }
+
+    public void abrirPantJug(){
+       jugadorPresenter.abrirPantallaJugador();
     }
     
     public void muestraMsjError() {

@@ -11,16 +11,19 @@ import GUI.FrmConfPartida;
  *
  * @author usuario
  */
-public class ConfPartidaPresenter implements IConfPartida {
+public abstract class ConfPartidaPresenter implements IConfPartida {
     
-    FrmConfPartida frmConfPartida = new FrmConfPartida(this);
-    private ConfPartidaModel model = new ConfPartidaModel();
+    FrmConfPartida frmConfPartida = new FrmConfPartida(this, this);
+    private ConfPartidaModel model = new ConfPartidaModel(); 
+    private JugadorPresenter jugadorPresenter = new JugadorPresenter(){};
+   
 
     public ConfPartidaPresenter() {
     }
 
-    public ConfPartidaPresenter(FrmConfPartida frmConfPartida, ConfPartidaModel model) {
+    public ConfPartidaPresenter(FrmConfPartida frmConfPartida, ConfPartidaModel model, JugadorPresenter jugadorPresenter) {
         this.frmConfPartida = frmConfPartida;
+        this.jugadorPresenter = jugadorPresenter;
         this.model = model;
     }
 
@@ -32,5 +35,9 @@ public class ConfPartidaPresenter implements IConfPartida {
     @Override
     public void abrirPantallaConf() {
         frmConfPartida.abrirPantConf();
+    }
+    
+    public void abrirPantallaJugador() {
+        jugadorPresenter.abrirPantallaJug();
     }
 }

@@ -12,16 +12,17 @@ import javax.swing.JOptionPane;
  * @author alexa
  */
 public class FrmJugador extends javax.swing.JFrame {
-
-    IJugador presenter;
     
+    IJugador presenterJug;
+   
     /**
      * Creates new form FrmJugador
      */
-    public FrmJugador(IJugador presenter) {
-        this.presenter = presenter;
+    public FrmJugador(IJugador presenterJug) {
+        this.presenterJug = presenterJug;
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -118,13 +119,13 @@ public class FrmJugador extends javax.swing.JFrame {
     private void btnListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListoActionPerformed
         this.selectIniciar();
     }//GEN-LAST:event_btnListoActionPerformed
-
+    
     public void abrirPantJugador() {
         this.setVisible(true);
     }
 
     public void selectIniciar() {
-        presenter.selectIniciar();
+        presenterJug.selectIniciar();
     }
 
     public void muestraMsjError() {

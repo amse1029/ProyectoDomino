@@ -10,7 +10,7 @@ package MVP;
  * @author usuario
  */
 public interface IJugador {
-    
-    public void selectIniciar ();
+
     public void abrirPantallaJug ();
+    public void selectIniciar ();
 }

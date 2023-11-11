@@ -17,10 +17,13 @@ public class ConfPartidaModel {
     private int cantJugadores;
     private Partida partida;
 
+
     public ConfPartidaModel() {
+        this.partida = new Partida();
     }
 
     public ConfPartidaModel(int cantFichas, int cantJugadores) {
+        this.partida = new Partida();
         this.cantFichas = cantFichas;
         this.cantJugadores = cantJugadores;
     }
