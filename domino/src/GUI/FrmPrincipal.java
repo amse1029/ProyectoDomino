@@ -76,7 +76,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     .addGroup(pnlFondoLayout.createSequentialGroup()
                         .addGap(130, 130, 130)
                         .addComponent(lblBienvenido)))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         pnlFondoLayout.setVerticalGroup(
             pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

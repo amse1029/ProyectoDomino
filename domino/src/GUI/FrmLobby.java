@@ -85,6 +85,7 @@ public class FrmLobby extends javax.swing.JFrame {
         getContentPane().add(pnlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 460, 410));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed

@@ -13,7 +13,7 @@ import GUI.FrmConfPartida;
  */
 public abstract class ConfPartidaPresenter implements IConfPartida {
     
-    private FrmConfPartida frmConfPartida = new FrmConfPartida(this, this);
+    private FrmConfPartida frmConfPartida = new FrmConfPartida(this);
     private ConfPartidaModel model = new ConfPartidaModel(); 
     private JugadorPresenter jugadorPresenter = new JugadorPresenter();
 

@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class FrmConfPartida extends javax.swing.JFrame {
 
     IConfPartida presenter;
-    ConfPartidaPresenter confPartidaPresenter;
+//    ConfPartidaPresenter confPartidaPresenter;
     
 //    private int cantFichas;
 //    private int cantJugadores;
@@ -23,9 +23,8 @@ public class FrmConfPartida extends javax.swing.JFrame {
     /**
      * Creates new form FrmConfPartida
      */
-    public FrmConfPartida(IConfPartida presenter, ConfPartidaPresenter confPartidaPresenter) {
+    public FrmConfPartida(IConfPartida presenter) {
         this.presenter = presenter;
-        this.confPartidaPresenter = confPartidaPresenter;
         initComponents();
     }
   
@@ -156,11 +155,11 @@ public class FrmConfPartida extends javax.swing.JFrame {
         int cantFichas = Integer.parseInt((String) this.cbxFichas.getSelectedItem());
         int cantJugadores = Integer.parseInt((String) this.cbxJugadores.getSelectedItem());
         presenter.selectGuardar(cantFichas, cantJugadores);
-        abrirPantJug();
+        this.abrirPantJug();
     }
 
     public void abrirPantJug(){
-       confPartidaPresenter.abrirPantallaJugador();
+       presenter.abrirPantallaJugador();
     }
     
     public void muestraMsjError() {
