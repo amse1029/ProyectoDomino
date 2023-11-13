@@ -7,7 +7,6 @@ package MVP;
 
 import GUI.FrmJugador;
 import dominio.Jugador;
-import javax.swing.JTextField;
 
 /**
  *
@@ -17,6 +16,7 @@ public class JugadorPresenter implements IJugador {
     
     private FrmJugador frmJugador = new FrmJugador(this);
     private JugadorModel model = new JugadorModel();
+    private LobbyPresenter lobbyPresenter = new LobbyPresenter();
     
     private String nombre = "";
 
@@ -24,6 +24,7 @@ public class JugadorPresenter implements IJugador {
     public void selectIniciar() {
         nombre = frmJugador.getTxtNombre();
         model.validarNombre(nombre);
+        lobbyPresenter.abrirPantLobby();
     }
     
     @Override

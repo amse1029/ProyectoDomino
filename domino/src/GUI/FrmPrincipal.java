@@ -104,10 +104,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUnirseActionPerformed
   
+    /**
+     * Método que abre la pantalla
+     */
     public void abrirPantalla() {
         this.setVisible(true);
     }
 
+    /**
+     * Método que indica cuando el jugador selecciona "crear partida"
+     */
     public void selectCrearPartida() {
         this.dispose();
         presenter.selectCrearPartida();

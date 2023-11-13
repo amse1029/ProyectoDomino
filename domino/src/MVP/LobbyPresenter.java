@@ -12,7 +12,7 @@ import GUI.FrmLobby;
  */
 public class LobbyPresenter implements ILobby {
 
-    private FrmLobby frmLobby;
+    private FrmLobby frmLobby = new FrmLobby(this);
     
     @Override
     public void abrirPantLobby() {

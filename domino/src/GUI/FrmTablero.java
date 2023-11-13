@@ -3,24 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
-import Graphics.*;
+import MVP.ITablero;
 import MVP.TableroPresenter;
 import dominio.Ficha;
-import java.awt.*;
-import java.awt.geom.*;
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author alexa
  */
 public class FrmTablero extends javax.swing.JFrame {
-private Ficha ficha;
-TableroPresenter tableroPresenter;
+
+    private Ficha ficha;
+    ITablero tableroPresenter;
+
     /**
      * Creates new form FrmTablero
      */
@@ -30,7 +26,7 @@ TableroPresenter tableroPresenter;
 
     }
 
- 
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -113,11 +109,38 @@ TableroPresenter tableroPresenter;
     } catch (IOException ex) {
         Logger.getLogger(FrmTablero.class.getName()).log(Level.SEVERE, null, ex);
     }
-        */
+         */
     }//GEN-LAST:event_colocarFichaActionPerformed
 
-  public void muestraMensajeError(){}
-  public void msjCambioTurno(){}
+    public void colocaFicha() {
+        tableroPresenter.colocaFicha();
+    }
+
+    public void muestraMensajeError() {
+        JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error",
+                JOptionPane.ERROR_MESSAGE);
+    }
+
+    public void msjCambioTurno() {
+        JOptionPane.showMessageDialog(null, "El jugador cambio de turno", "Advertencia",
+                JOptionPane.WARNING_MESSAGE);
+    }
+
+    public void actPantallaTableroFicha() {
+
+    }
+    
+    public void actPantallaTableroPozo() {
+
+    }
+
+    public void tomaPozo() {
+        tableroPresenter.tomaPozo();
+    }
+    
+    public void pasarTurno() {
+        tableroPresenter.pasarTurno();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton colocarFicha;
     private javax.swing.JLabel jLabel1;

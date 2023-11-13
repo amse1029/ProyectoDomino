@@ -16,6 +16,9 @@ public class PrincipalPresenter implements IPrincipal {
     private IConfPartida presenterConfPartida = new ConfPartidaPresenter() {};
     private FrmPrincipal frmPrincipal = new FrmPrincipal(this);
 
+    /**
+     * Constructor por defecto
+     */
     public PrincipalPresenter() {
     }
 
@@ -23,21 +26,28 @@ public class PrincipalPresenter implements IPrincipal {
         this.presenterConfPartida = presenterConfPartida;
     }
 
+    /**
+     * Método que indica cuando el jugador selecciona "crear partida"
+     */
     @Override
     public void selectCrearPartida() {
         abrirPantPartida();
     }
 
+    /**
+     * Método que abre la pantalla de configuración de la partida
+     */
     @Override
     public void abrirPantPartida() {
         presenterConfPartida.abrirPantallaConf();
     }
 
+    /**
+     * Método que abre la pantalla principal
+     */
     @Override
     public void abrirPantPrincipal() {
         frmPrincipal.abrirPantalla();
     }
     
-    
-
 }

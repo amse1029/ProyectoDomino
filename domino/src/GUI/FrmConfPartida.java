@@ -146,22 +146,39 @@ public class FrmConfPartida extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxJugadoresActionPerformed
     
+    /**
+     * Método que abre la pantalla de configuración partida
+     */
     public void abrirPantConf() {
         this.setVisible(true);
     }
     
+    /**
+     * Método que indica que guarda la configuración de la partida
+     */
     public void selectGuardar() {
         this.dispose();
-        int cantFichas = Integer.parseInt((String) this.cbxFichas.getSelectedItem());
-        int cantJugadores = Integer.parseInt((String) this.cbxJugadores.getSelectedItem());
-        presenter.selectGuardar(cantFichas, cantJugadores);
-        this.abrirPantJug();
+        try {
+            int cantFichas = Integer.parseInt((String) this.cbxFichas.getSelectedItem());
+            int cantJugadores = Integer.parseInt((String) this.cbxJugadores.getSelectedItem());
+            presenter.selectGuardar(cantFichas, cantJugadores);
+            this.abrirPantJug();
+        } catch (Exception e) {
+            this.muestraMsjError();
+        }
+
     }
 
+    /**
+     * Método que abre la pantalla del jugador
+     */
     public void abrirPantJug(){
        presenter.abrirPantallaJugador();
     }
     
+    /**
+     * Método que muestra un mensaje de error
+     */
     public void muestraMsjError() {
         JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", 
                 JOptionPane.ERROR_MESSAGE);

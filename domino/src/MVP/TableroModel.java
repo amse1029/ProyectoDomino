@@ -5,40 +5,26 @@
  */
 package MVP;
 
-import Graphics.DibujaFicha;
-import dominio.Ficha;
 import dominio.FichaJugador;
-import dominio.FichaTablero;
-import dominio.Jugador;
+
 import dominio.Partida;
-import dominio.Pozo;
 import dominio.Tablero;
+import interfaces.ITableroModelSFicha;
+import interfaces.ITableroModelSPozo;
+
 
 /**
  *
  * @author usuario
  */
-public class TableroModel {
-    Partida partida;
-
-    public TableroModel() {
-    }
-
-    public TableroModel(Partida partida) {
-        this.partida = partida;
-    }
-
-    public Partida getPartida() {
-        return partida;
-    }
-
-    public void setPartida(Partida partida) {
-        this.partida = partida;
-    }
+public class TableroModel implements ITableroModelSFicha, ITableroModelSPozo {
     
+    Partida partida;
+    ITablero presenter;
+
     //Este metodo realiza la operacion colocar ficha
-    public void colocaFicha(FichaJugador ficha) {
-        //METODO EN CONSTRUCCION    
+    public void colocaFicha() {
+        partida.validaFicha();
     }
  
     //Se manda a llamar a la logica para validar si el pozo esta vacio
@@ -46,8 +32,43 @@ public class TableroModel {
         //EN CONSTRUCCIÓN
        return false;
     }
-    public void CambiarTurno(){}//EN CONSTRUCCION
+    public void cambiarTurno(){
+        partida.cambiarTurno();
+    }
     public void notificarCambioTurno(){}//EN CONSTRUCCION
     public void validaFicha(){}//EN CONSTRUCCION
     public void validaMano(){}//EN CONSTRUCCION
+    
+    public void actPantTableroFicha() {
+        presenter.actPantallaTableroFicha();
+    }
+    
+    public void actPantTableroPozo() {
+        presenter.notificarCambioTurno();
+        presenter.actPantallaTableroPozo();
+    }
+    
+    public void tomaPozo() {
+        partida.validaPozo();
+    }
+
+    @Override
+    public void getFichasTab(Tablero tablero) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void getJugadores(Partida partida) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void getIJugadores() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void getCantPozo() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
