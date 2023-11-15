@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class FrmConfPartida extends javax.swing.JFrame {
 
     IConfPartida presenter;
-    ConfPartidaPresenter confPartidaPresenter;
+//    ConfPartidaPresenter confPartidaPresenter;
     
 //    private int cantFichas;
 //    private int cantJugadores;
@@ -23,9 +23,8 @@ public class FrmConfPartida extends javax.swing.JFrame {
     /**
      * Creates new form FrmConfPartida
      */
-    public FrmConfPartida(IConfPartida presenter, ConfPartidaPresenter confPartidaPresenter) {
+    public FrmConfPartida(IConfPartida presenter) {
         this.presenter = presenter;
-        this.confPartidaPresenter = confPartidaPresenter;
         initComponents();
     }
   
@@ -147,22 +146,39 @@ public class FrmConfPartida extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxJugadoresActionPerformed
     
+    /**
+     * Método que abre la pantalla de configuración partida
+     */
     public void abrirPantConf() {
         this.setVisible(true);
     }
     
+    /**
+     * Método que indica que guarda la configuración de la partida
+     */
     public void selectGuardar() {
         this.dispose();
-        int cantFichas = Integer.parseInt((String) this.cbxFichas.getSelectedItem());
-        int cantJugadores = Integer.parseInt((String) this.cbxJugadores.getSelectedItem());
-        presenter.selectGuardar(cantFichas, cantJugadores);
-        abrirPantJug();
+        try {
+            int cantFichas = Integer.parseInt((String) this.cbxFichas.getSelectedItem());
+            int cantJugadores = Integer.parseInt((String) this.cbxJugadores.getSelectedItem());
+            presenter.selectGuardar(cantFichas, cantJugadores);
+            this.abrirPantJug();
+        } catch (Exception e) {
+            this.muestraMsjError();
+        }
+
     }
 
+    /**
+     * Método que abre la pantalla del jugador
+     */
     public void abrirPantJug(){
-       confPartidaPresenter.abrirPantallaJugador();
+       presenter.abrirPantallaJugador();
     }
     
+    /**
+     * Método que muestra un mensaje de error
+     */
     public void muestraMsjError() {
         JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", 
                 JOptionPane.ERROR_MESSAGE);

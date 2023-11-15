@@ -40,6 +40,10 @@ public class FrmJugador extends javax.swing.JFrame {
         lblAvatar = new javax.swing.JLabel();
         btnListo = new javax.swing.JButton();
         txtNombre = new javax.swing.JTextField();
+        btnAvatar1 = new javax.swing.JButton();
+        btnAvatar2 = new javax.swing.JButton();
+        btnAvatar3 = new javax.swing.JButton();
+        btnAvatar4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,83 +69,125 @@ public class FrmJugador extends javax.swing.JFrame {
             }
         });
 
+        txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        btnAvatar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/avatar1.jpg"))); // NOI18N
+        btnAvatar1.setMargin(new java.awt.Insets(0, 0, 0, 0));
+
+        btnAvatar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/avatar2.jpg"))); // NOI18N
+
+        btnAvatar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/avatar3.jpg"))); // NOI18N
+
+        btnAvatar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/avatar4.jpg"))); // NOI18N
+
         javax.swing.GroupLayout pnlFondoLayout = new javax.swing.GroupLayout(pnlFondo);
         pnlFondo.setLayout(pnlFondoLayout);
         pnlFondoLayout.setHorizontalGroup(
             pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlFondoLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
                 .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlFondoLayout.createSequentialGroup()
-                        .addGap(131, 131, 131)
-                        .addComponent(lblJugador))
+                        .addComponent(lblAvatar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnAvatar2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(pnlFondoLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlFondoLayout.createSequentialGroup()
-                                .addComponent(lblNombre)
-                                .addGap(27, 27, 27)
-                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblAvatar)))
+                        .addComponent(lblNombre)
+                        .addGap(26, 26, 26)
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlFondoLayout.createSequentialGroup()
-                        .addGap(160, 160, 160)
-                        .addComponent(btnListo)))
-                .addContainerGap(103, Short.MAX_VALUE))
+                        .addComponent(btnAvatar3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAvatar4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnListo))
+                .addContainerGap(48, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFondoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblJugador)
+                .addGap(283, 283, 283))
         );
         pnlFondoLayout.setVerticalGroup(
             pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlFondoLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addGap(48, 48, 48)
                 .addComponent(lblJugador)
-                .addGap(37, 37, 37)
-                .addComponent(lblAvatar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                .addGap(39, 39, 39)
+                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAvatar2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAvatar3, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAvatar4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblAvatar)
+                        .addComponent(btnAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNombre)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54)
-                .addComponent(btnListo)
-                .addGap(35, 35, 35))
+                    .addComponent(btnListo))
+                .addGap(34, 34, 34))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(pnlFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
        
     private void btnListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListoActionPerformed
         this.selectIniciar();
     }//GEN-LAST:event_btnListoActionPerformed
     
+    /**
+     * Método que abre la pantalla jugador
+     */
     public void abrirPantJugador() {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
 
+    /**
+     * Método que indica cuando el jugador selecciona "iniciar"
+     */
     public void selectIniciar() {
         this.dispose();
         presenterJug.selectIniciar();
     }
 
+    /**
+     * Método que muestra un mensaje de error
+     */
     public void muestraMsjError() {
         JOptionPane.showMessageDialog(null, "Seleccione un nombre sin caracteres especiales   ", "Error", 
                 JOptionPane.ERROR_MESSAGE);
         abrirPantJugador();
     }
     
+    /**
+     * Método que obtiene el nombre del jugador
+     * @return Nombre del jugador
+     */
     public String getTxtNombre(){
         String nombre = txtNombre.getText();
         return nombre;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAvatar1;
+    private javax.swing.JButton btnAvatar2;
+    private javax.swing.JButton btnAvatar3;
+    private javax.swing.JButton btnAvatar4;
     private javax.swing.JButton btnListo;
     private javax.swing.JLabel lblAvatar;
     private javax.swing.JLabel lblJugador;

@@ -4,6 +4,8 @@
  */
 package dominio;
 
+import MVP.TableroModel;
+
 /**
  *
  * @author alexa
@@ -15,6 +17,7 @@ public class Partida {
     private Pozo pozo;
     private int cantFichas;
     private int cantJugadores;
+    private TableroModel model;
 
     public Partida() {
     }
@@ -73,14 +76,40 @@ public class Partida {
     //public boolean validaFicha(FichaJugador ficha, ArrayList<FichaTablero>){}
     //Este metodo va a validar la mano de jugador, por lo tanto recibe como parametro
     //un arraylist tipo FichaJugador
-    //public boolean validaMano(ArrayList<FichaJugador> fichas){}
-    //public boolean validaPozo(ArratList<Ficha> fichas){}
-    //public void restarPozo(FichaJugador ficha){}
-    //public void restaFichasJugador(FichaJugador ficha,ArrayList<FichaJugador fichas>){}
-    //public void sumaFichasJugador(FichaJugador ficha,ArrayList<FichaJugador fichas>){}
-    //public void cambiarTurno(){}
-    //public void notificarCambioTurno(){}
-    //public void actTablero(){}
+
+    public void validaPozo() {
+        this.restarPozo();
+        this.sumaFichasJugador();
+        this.actTableroPozo();
+        this.cambiarTurno();
+        this.actTableroPozo();
+    }
+    
+    public void validaFicha() {
+        this.restaFichasJugador();
+        this.actTableroFicha();
+        model.actPantTableroFicha();
+    }
+    
+    public void restarPozo(){}
+    
+    public void restaFichasJugador(){
+    }
+    
+    public void sumaFichasJugador(){
+    }
+   
+    public void cambiarTurno(){
+    
+    }
+   
+    public void actTableroFicha(){
+        model.actPantTableroFicha();
+    }
+    
+    public void actTableroPozo() {
+        model.actPantTableroPozo();
+    }
 
     @Override
     public String toString() {

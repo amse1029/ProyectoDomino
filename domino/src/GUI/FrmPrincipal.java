@@ -76,7 +76,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     .addGroup(pnlFondoLayout.createSequentialGroup()
                         .addGap(130, 130, 130)
                         .addComponent(lblBienvenido)))
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         pnlFondoLayout.setVerticalGroup(
             pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,10 +104,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUnirseActionPerformed
   
+    /**
+     * Método que abre la pantalla
+     */
     public void abrirPantalla() {
         this.setVisible(true);
     }
 
+    /**
+     * Método que indica cuando el jugador selecciona "crear partida"
+     */
     public void selectCrearPartida() {
         this.dispose();
         presenter.selectCrearPartida();

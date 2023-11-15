@@ -32,6 +32,11 @@ public class ConfPartidaModel {
         this.partida = partida;
     }
     
+    /**
+     * Método que guarda la configuración de la partida
+     * @param cantFichas Cantidad de fichas de la partida
+     * @param cantJugadores Cantidad de jugadores en la partida
+     */
     public void guardaConfiguracion(int cantFichas, int cantJugadores) {
         partida.setCantFichas(cantFichas);
         partida.setCantJugadores(cantJugadores);

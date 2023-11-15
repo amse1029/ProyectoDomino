@@ -4,6 +4,7 @@
  */
 package pruebas;
 
+import MVP.IPrincipal;
 import MVP.PrincipalPresenter;
 
 /**
@@ -17,7 +18,7 @@ public class Inicial {
      */
     public static void main(String[] args) {
         
-        PrincipalPresenter presenter = new PrincipalPresenter();
+        IPrincipal presenter = new PrincipalPresenter();
         presenter.abrirPantPrincipal();
     }  
 }

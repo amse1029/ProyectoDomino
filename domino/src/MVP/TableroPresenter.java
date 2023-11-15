@@ -12,8 +12,9 @@ import GUI.FrmTablero;
  * @author usuario
  */
 public class TableroPresenter implements ITablero{
-    FrmTablero frmTablero;
-    TableroModel tableroModel;
+    
+    private FrmTablero frmTablero;
+    private TableroModel tableroModel;
 
     public TableroPresenter() {
     }
@@ -32,20 +33,34 @@ public class TableroPresenter implements ITablero{
     }
     
     
+    @Override
     public void colocaFicha(){
-        //EN CONSTRUCCION
+        tableroModel.colocaFicha();
     }
+    
+    @Override
     public void tomaPozo(){
-        //EN CONSTRUCCION
+        tableroModel.tomaPozo();
     }
+    
+    @Override
     public void pasarTurno(){
-        //EN CONSTRUCCION
+        tableroModel.cambiarTurno();
     }
+    
+    @Override
     public void notificarCambioTurno(){
-        //EN CONSTRUCCION
+        frmTablero.msjCambioTurno();
     }
-    public void actPantallaTablero(){
-        //EN CONSTRUCCION
+    
+    @Override
+    public void actPantallaTableroFicha(){
+        frmTablero.actPantallaTableroFicha();
+    }
+    
+    @Override
+    public void actPantallaTableroPozo(){
+        frmTablero.actPantallaTableroPozo();
     }
 
     @Override
