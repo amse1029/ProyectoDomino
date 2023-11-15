@@ -15,8 +15,16 @@ import javax.swing.JTextField;
  */
 public class JugadorPresenter implements IJugador {
     
+    private LobbyPresenter lobbyPresenter = new LobbyPresenter();
     private FrmJugador frmJugador = new FrmJugador(this);
     private JugadorModel model = new JugadorModel();
+    
+    public JugadorPresenter(){   
+    }
+    
+    public JugadorPresenter(LobbyPresenter lobbyPresenter){
+        this.lobbyPresenter = lobbyPresenter;
+    }
     
     private String nombre = "";
     private boolean validar;
@@ -28,6 +36,9 @@ public class JugadorPresenter implements IJugador {
         if (validar==false){
             msjError();
         }
+        else {
+            abrirPantallaLobby();
+        }
     }
     
     @Override
@@ -37,5 +48,10 @@ public class JugadorPresenter implements IJugador {
     
     public void msjError(){
         frmJugador.muestraMsjError();
+    }
+    
+    @Override
+    public void abrirPantallaLobby(){
+        lobbyPresenter.abrirPantLobby();
     }
 }

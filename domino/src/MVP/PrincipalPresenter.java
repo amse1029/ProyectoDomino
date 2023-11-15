@@ -25,11 +25,11 @@ public class PrincipalPresenter implements IPrincipal {
 
     @Override
     public void selectCrearPartida() {
-        abrirPantPartida();
+        abrirPantConf();
     }
 
     @Override
-    public void abrirPantPartida() {
+    public void abrirPantConf() {
         presenterConfPartida.abrirPantallaConf();
     }
 

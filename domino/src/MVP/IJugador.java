@@ -13,4 +13,5 @@ public interface IJugador {
 
     public void abrirPantallaJug ();
     public void selectIniciar ();
+    public void abrirPantallaLobby();
 }

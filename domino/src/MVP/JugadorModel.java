@@ -30,7 +30,7 @@ public class JugadorModel {
             return false;
         }
         for(char c: nombre.toCharArray()){
-            if(!Character.isLetter(c)){
+            if(!Character.isLetter(c) && !Character.isSpaceChar(c)){
                 return false;
             }  
         }

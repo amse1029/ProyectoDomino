@@ -12,6 +12,6 @@ package MVP;
 public interface IPrincipal {
     
     public void selectCrearPartida();
-    public void abrirPantPartida();
+    public void abrirPantConf();
     public void abrirPantPrincipal();
 }

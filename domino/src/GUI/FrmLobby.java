@@ -13,13 +13,13 @@ import MVP.ILobby;
  */
 public class FrmLobby extends javax.swing.JFrame {
 
-    ILobby presenter;
+    ILobby presenterLobby;
     
     /**
      * Creates new form FrmLobby
      */
-    public FrmLobby(ILobby presenter) {
-        this.presenter = presenter;
+    public FrmLobby(ILobby presenterLobby) {
+        this.presenterLobby = presenterLobby;
         initComponents();
     }
 
@@ -92,7 +92,10 @@ public class FrmLobby extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     public void abrirPantLobby(){
+       this.setLocationRelativeTo(null);
        this.setVisible(true);
+       this.toFront();
+       this.requestFocus();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

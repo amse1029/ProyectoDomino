@@ -122,16 +122,19 @@ public class FrmJugador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListoActionPerformed
     
     public void abrirPantJugador() {
+        this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
 
     public void selectIniciar() {
+        this.dispose();
         presenterJug.selectIniciar();
     }
 
     public void muestraMsjError() {
         JOptionPane.showMessageDialog(null, "Seleccione un nombre sin caracteres especiales   ", "Error", 
                 JOptionPane.ERROR_MESSAGE);
+        abrirPantJugador();
     }
     
     public String getTxtNombre(){
