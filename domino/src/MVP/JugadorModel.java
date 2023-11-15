@@ -14,32 +14,32 @@ import dominio.Jugador;
  */
 public class JugadorModel {
 
-    private String nombre;
-    private Jugador jugador;
     private String nombreInicio = "";
-    private Jugador jugadorInicio = new Jugador(nombreInicio);
+    private Jugador jugador= new Jugador(nombreInicio);
     
     
     public JugadorModel() {
     }
 
     public JugadorModel(String nombre) {
-        this.nombre = nombre;
+        this.jugador = new Jugador(nombre);
     }
 
-    public void validarNombre(String nombre){
-        jugadorInicio.setNombre(nombre);
-        nombre = jugadorInicio.getNombre();
-        if(nombre != " "){
-            guardarJugador();
-            System.out.println(nombre);
+    public boolean validarNombre(String nombre){
+        if(nombre == null || nombre.trim().isEmpty()){
+            return false;
         }
-        else{
-            
+        for(char c: nombre.toCharArray()){
+            if(!Character.isLetter(c)){
+                return false;
+            }  
         }
+        guardaJugador(nombre);
+        System.out.println(jugador.getNombre());
+        return true;        
     }
     
-    public void guardarJugador(){
-        jugadorInicio.setNombre(nombre);
+    public void guardaJugador(String name){
+        jugador.setNombre(name);
     }
 }

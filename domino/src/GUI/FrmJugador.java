@@ -116,7 +116,7 @@ public class FrmJugador extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+       
     private void btnListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListoActionPerformed
         this.selectIniciar();
     }//GEN-LAST:event_btnListoActionPerformed
@@ -130,7 +130,7 @@ public class FrmJugador extends javax.swing.JFrame {
     }
 
     public void muestraMsjError() {
-        JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", 
+        JOptionPane.showMessageDialog(null, "Seleccione un nombre sin caracteres especiales   ", "Error", 
                 JOptionPane.ERROR_MESSAGE);
     }
     

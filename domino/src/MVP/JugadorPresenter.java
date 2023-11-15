@@ -19,11 +19,15 @@ public class JugadorPresenter implements IJugador {
     private JugadorModel model = new JugadorModel();
     
     private String nombre = "";
+    private boolean validar;
 
     @Override
     public void selectIniciar() {
         nombre = frmJugador.getTxtNombre();
-        model.validarNombre(nombre);
+        validar = model.validarNombre(nombre);
+        if (validar==false){
+            msjError();
+        }
     }
     
     @Override
