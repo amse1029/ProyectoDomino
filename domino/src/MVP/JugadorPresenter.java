@@ -27,12 +27,14 @@ public class JugadorPresenter implements IJugador {
     }
     
     private String nombre = "";
+    private String avatar ="";
     private boolean validar;
 
     @Override
     public void selectIniciar() {
         nombre = frmJugador.getTxtNombre();
-        validar = model.validarNombre(nombre);
+        avatar = frmJugador.getAvatar();
+        validar = model.validarNombre(nombre, avatar);
         if (validar==false){
             msjError();
         }

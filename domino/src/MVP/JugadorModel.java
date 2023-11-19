@@ -15,18 +15,19 @@ import dominio.Jugador;
 public class JugadorModel {
 
     private String nombreInicio = "";
-    private Jugador jugador= new Jugador(nombreInicio);
+    private String avatarInicio = "";
+    private Jugador jugador= new Jugador(nombreInicio, avatarInicio);
     
     
     public JugadorModel() {
     }
 
-    public JugadorModel(String nombre) {
-        this.jugador = new Jugador(nombre);
+    public JugadorModel(String nombre, String avatar) {
+        this.jugador = new Jugador(nombre, avatar);
     }
 
-    public boolean validarNombre(String nombre){
-        if(nombre == null || nombre.trim().isEmpty()){
+    public boolean validarNombre(String nombre, String avatar){
+        if(nombre == null || nombre.trim().isEmpty() || (avatar == "" || nombre.trim().isEmpty())){
             return false;
         }
         for(char c: nombre.toCharArray()){
@@ -34,12 +35,13 @@ public class JugadorModel {
                 return false;
             }  
         }
-        guardaJugador(nombre);
-        System.out.println(jugador.getNombre());
+        guardaJugador(nombre, avatar);
+        System.out.println(jugador.getNombre() + " " + jugador.getUrlAvatar());
         return true;        
     }
     
-    public void guardaJugador(String name){
+    public void guardaJugador(String name, String avatar){
         jugador.setNombre(name);
+        jugador.setUrlAvatar(avatar);
     }
 }

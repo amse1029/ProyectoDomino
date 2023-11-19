@@ -24,10 +24,6 @@ public class Jugador implements IJugadorPartida, IJugadorTurno{
         this.urlAvatar = urlAvatar;
     }
 
-    public Jugador(String nombre) {
-        this.nombre = nombre;
-    }
-
     public Jugador(String nombre, String urlAvatar){
         this.nombre = nombre;
         this.urlAvatar = urlAvatar;

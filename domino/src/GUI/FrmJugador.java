@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 public class FrmJugador extends javax.swing.JFrame {
     
     IJugador presenterJug;
+    private String avatarIcono = "";
    
     /**
      * Creates new form FrmJugador
@@ -71,14 +72,34 @@ public class FrmJugador extends javax.swing.JFrame {
 
         txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        btnAvatar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/avatar1.jpg"))); // NOI18N
+        btnAvatar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/avatar5.png"))); // NOI18N
         btnAvatar1.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        btnAvatar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvatar1ActionPerformed(evt);
+            }
+        });
 
-        btnAvatar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/avatar2.jpg"))); // NOI18N
+        btnAvatar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/avatar6.png"))); // NOI18N
+        btnAvatar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvatar2ActionPerformed(evt);
+            }
+        });
 
-        btnAvatar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/avatar3.jpg"))); // NOI18N
+        btnAvatar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/avatar7.png"))); // NOI18N
+        btnAvatar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvatar3ActionPerformed(evt);
+            }
+        });
 
-        btnAvatar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/avatar4.jpg"))); // NOI18N
+        btnAvatar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/avatar8.png"))); // NOI18N
+        btnAvatar4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvatar4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlFondoLayout = new javax.swing.GroupLayout(pnlFondo);
         pnlFondo.setLayout(pnlFondoLayout);
@@ -149,7 +170,23 @@ public class FrmJugador extends javax.swing.JFrame {
     private void btnListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListoActionPerformed
         this.selectIniciar();
     }//GEN-LAST:event_btnListoActionPerformed
-    
+
+    private void btnAvatar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvatar1ActionPerformed
+        avatarIcono = "avatar5.png";
+    }//GEN-LAST:event_btnAvatar1ActionPerformed
+
+    private void btnAvatar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvatar2ActionPerformed
+        avatarIcono = "avatar6.png";
+    }//GEN-LAST:event_btnAvatar2ActionPerformed
+
+    private void btnAvatar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvatar3ActionPerformed
+        avatarIcono = "avatar7.png";
+    }//GEN-LAST:event_btnAvatar3ActionPerformed
+
+    private void btnAvatar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvatar4ActionPerformed
+        avatarIcono = "avatar8.png";
+    }//GEN-LAST:event_btnAvatar4ActionPerformed
+
     /**
      * Método que abre la pantalla jugador
      */
@@ -170,7 +207,7 @@ public class FrmJugador extends javax.swing.JFrame {
      * Método que muestra un mensaje de error
      */
     public void muestraMsjError() {
-        JOptionPane.showMessageDialog(null, "Seleccione un nombre sin caracteres especiales   ", "Error", 
+        JOptionPane.showMessageDialog(null, "Seleccione avatar y un nombre sin caracteres especiales   ", "Error", 
                 JOptionPane.ERROR_MESSAGE);
         abrirPantJugador();
     }
@@ -183,6 +220,11 @@ public class FrmJugador extends javax.swing.JFrame {
         String nombre = txtNombre.getText();
         return nombre;
     }
+    
+    public String getAvatar(){
+        return avatarIcono;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvatar1;
     private javax.swing.JButton btnAvatar2;
