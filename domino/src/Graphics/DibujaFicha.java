@@ -2,6 +2,12 @@ package Graphics;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class DibujaFicha extends JPanel {
@@ -184,15 +190,38 @@ public class DibujaFicha extends JPanel {
                 g.fillOval(recX+54, recY+200, 15, 15);
                 g.fillOval(recX+54, recY+135, 15, 15);
                 break;
-        }
-        
+            }
+        }     
     }
-}
-/* 
-public static void main(String[] args) {
+    
+    public void guardaImagen(String ruta){
+        
+        BufferedImage imagen = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TYPE_INT_RGB);
+        Graphics2D g2d = imagen.createGraphics();
+        this.paint(g2d);
+        try {
+            ImageIO.write(imagen, "png", new File(ruta));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static BufferedImage escalarImagen(BufferedImage imagenOriginal, int ancho, int alto) {
+        BufferedImage imagenEscalada = new BufferedImage(ancho, alto, imagenOriginal.getType());
+        Graphics2D g = imagenEscalada.createGraphics();
+        
+        g.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g.drawImage(imagenOriginal, 0, 0, ancho, alto, 0, 0, imagenOriginal.getWidth(), imagenOriginal.getHeight(), null);
+        g.dispose();
+        
+        return imagenEscalada;
+    }
+    
+   /* 
+    public static void main(String[] args) {
         
         JFrame frame = new JFrame("Ficha");
-        Ficha ficha = new Ficha(6,6);
+        DibujaFicha ficha = new DibujaFicha(5,6);
         
         int izquierda = ficha.getValorIzquierda();
         int derecha = ficha.getValorDerecha();
@@ -211,6 +240,32 @@ public static void main(String[] args) {
         frame.setSize(500, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+        
+        // Especificar la ruta del archivo
+        String ruta = "src/Graphics/Fichas/Normal/ficha" + izquierda + derecha + ".png";
+        
+        // Guardar la ficha como una imagen
+        ficha.guardaImagen(ruta);
+        
+        // Leer la imagen guardada
+        BufferedImage imagenOriginal = null;
+        try {
+            imagenOriginal = ImageIO.read(new File(ruta));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Escalar la imagen
+        if (imagenOriginal != null) {
+            BufferedImage imagenEscalada = DibujaFicha.escalarImagen(imagenOriginal, 48, 25);
+
+            // Guardar la imagen escalada
+            try {
+                ImageIO.write(imagenEscalada, "png", new File("src/Graphics/Fichas/Escalada/ficha"+izquierda+derecha+".png"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
     */
 }
