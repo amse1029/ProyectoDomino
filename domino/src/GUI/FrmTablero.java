@@ -113,7 +113,6 @@ public class FrmTablero extends javax.swing.JFrame {
     }//GEN-LAST:event_colocarFichaActionPerformed
 
     public void colocaFicha() {
-        tableroPresenter.colocaFicha();
     }
 
     public void muestraMensajeError() {
@@ -126,21 +125,6 @@ public class FrmTablero extends javax.swing.JFrame {
                 JOptionPane.WARNING_MESSAGE);
     }
 
-    public void actPantallaTableroFicha() {
-
-    }
-    
-    public void actPantallaTableroPozo() {
-
-    }
-
-    public void tomaPozo() {
-        tableroPresenter.tomaPozo();
-    }
-    
-    public void pasarTurno() {
-        tableroPresenter.pasarTurno();
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton colocarFicha;
     private javax.swing.JLabel jLabel1;

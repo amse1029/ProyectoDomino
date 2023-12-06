@@ -6,8 +6,6 @@
 package MVP;
 
 import GUI.FrmJugador;
-import dominio.Jugador;
-import javax.swing.JTextField;
 
 /**
  *
@@ -15,14 +13,14 @@ import javax.swing.JTextField;
  */
 public class JugadorPresenter implements IJugador {
     
-    private LobbyPresenter lobbyPresenter = new LobbyPresenter();
+    private ILobby lobbyPresenter;
     private FrmJugador frmJugador = new FrmJugador(this);
     private JugadorModel model = new JugadorModel();
     
     public JugadorPresenter(){   
     }
     
-    public JugadorPresenter(LobbyPresenter lobbyPresenter){
+    public JugadorPresenter(ILobby lobbyPresenter){
         this.lobbyPresenter = lobbyPresenter;
     }
     

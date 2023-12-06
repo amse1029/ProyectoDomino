@@ -5,14 +5,13 @@
 package dominio;
 
 import interfaces.IJugadorPartida;
-import interfaces.IJugadorTurno;
 import java.util.ArrayList;
 
 /**
  *
  * @author alexa
  */
-public class Jugador implements IJugadorPartida, IJugadorTurno{
+public class Jugador implements IJugadorPartida {
     
     private String nombre;
     private ArrayList <FichaJugador> fichas;
@@ -53,18 +52,19 @@ public class Jugador implements IJugadorPartida, IJugadorTurno{
         this.urlAvatar = urlAvatar;
     }
     
-    public void restarFichasJugador(ArrayList<FichaJugador> fichas,Ficha fichaDelete){
+    public void restarFichasJugador(){
         //EN CONSTRUCCION
-        for(int i=0;i<fichas.size();i++){
-            if(fichas.get(i)==fichaDelete){
-                fichas.remove(i);
-            }
-        }
+//        for(int i=0;i<fichas.size();i++){
+//            if(fichas.get(i)==fichaDelete){
+//                fichas.remove(i);
+//            }
+//        }
     }
-    public void sumarFichasJugador(ArrayList<Ficha> fichas,Ficha fichaSum){
+    public void sumarFichasJugador(){
         //EN CONSTRUCCION
-       fichas.add(fichaSum);
+//       fichas.add(fichaSum);
     }
+    
     public void validarMano(){}//EN CONSTRUCCION
     public void tomarTurno(){}//EN CONSTRUCCION
     public void dibujarAvatar(){}//EN CONSTRUCCION

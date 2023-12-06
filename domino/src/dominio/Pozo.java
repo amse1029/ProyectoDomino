@@ -34,14 +34,15 @@ public class Pozo {
         }
         return false;
     }
-    public void restarPozo(ArrayList<Ficha> fichas,FichaJugador fichaDelete){
+    public void restarPozo(){
         //EN CONSTRUCCION
-        for(int i=0;i<fichas.size();i++){
-            if(fichas.get(i)==fichaDelete){
-                fichas.remove(fichas.get(i));
-            }
-        }
+//        for(int i=0;i<fichas.size();i++){
+//            if(fichas.get(i)==fichaDelete){
+//                fichas.remove(fichas.get(i));
+//            }
+//        }
     }
-    public void sumarPozo(ArrayList<Ficha> fichas[],FichaJugador ficha){}//EN CONSTRUCCIÓN
+    
+    public void sumarPozo(){}//EN CONSTRUCCIÓN
     
 }

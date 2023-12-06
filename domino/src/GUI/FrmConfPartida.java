@@ -15,10 +15,6 @@ import javax.swing.JOptionPane;
 public class FrmConfPartida extends javax.swing.JFrame {
 
     IConfPartida presenter;
-//    ConfPartidaPresenter confPartidaPresenter;
-    
-//    private int cantFichas;
-//    private int cantJugadores;
     
     /**
      * Creates new form FrmConfPartida

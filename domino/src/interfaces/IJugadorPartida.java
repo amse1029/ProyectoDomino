@@ -15,5 +15,6 @@ public interface IJugadorPartida {
     public void getNombre(Jugador jugador);
     public void getNumFichas(Jugador jugador);
     public void getAvatar(Jugador jugador);
+    public void getFichasJugador(Jugador jugador);
     
 }

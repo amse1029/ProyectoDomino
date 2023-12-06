@@ -4,12 +4,17 @@
  */
 package interfaces;
 
+import dominio.Partida;
+import dominio.Pozo;
+import dominio.Tablero;
+
 /**
  *
  * @author alexa
  */
-public interface ITableroModelSPozo {
+public interface ITableroModelS {
     
-    public void getIJugadores();
-    public void getCantPozo();
+    public void getFichasTab(Tablero tablero);
+    public void getJugadores(Partida partida);
+    public void getCantPozo(Pozo pozo);
 }

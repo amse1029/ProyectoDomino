@@ -11,7 +11,7 @@ import GUI.FrmConfPartida;
  *
  * @author usuario
  */
-public abstract class ConfPartidaPresenter implements IConfPartida {
+public class ConfPartidaPresenter implements IConfPartida {
     
     private FrmConfPartida frmConfPartida = new FrmConfPartida(this);
     private ConfPartidaModel model = new ConfPartidaModel(); 
@@ -21,10 +21,15 @@ public abstract class ConfPartidaPresenter implements IConfPartida {
      * Constructor por defecto
      */
     public ConfPartidaPresenter() {
+        
+    }
+    
+    @Override
+    public IConfPartida crearInstancia(){
+        return new ConfPartidaPresenter();
     }
 
-    public ConfPartidaPresenter(FrmConfPartida frmConfPartida, ConfPartidaModel model, IJugador jugadorPresenter) {
-        this.frmConfPartida = frmConfPartida;
+    public ConfPartidaPresenter(ConfPartidaModel model, IJugador jugadorPresenter) {
         this.jugadorPresenter = jugadorPresenter;
         this.model = model;
     }

@@ -9,22 +9,23 @@ import GUI.FrmPrincipal;
 
 /**
  *
- * @author usuario
+ * @author 
  */
 public class PrincipalPresenter implements IPrincipal {
     
     private IConfPartida presenterConfPartida;
     private FrmPrincipal frmPrincipal = new FrmPrincipal(this);
 
-    /**
-     * Constructor por defecto
-     */
-    public PrincipalPresenter() {
-    }
-
     public PrincipalPresenter(IConfPartida presenterConfPartida) {
         this.presenterConfPartida = presenterConfPartida;
     }
+
+    public PrincipalPresenter() {
+    }
+    
+//    public static IPrincipal crearInstancia(){
+//        return new PrincipalPresenter();
+//    }
 
     /**
      * Método que indica cuando el jugador selecciona "crear partida"
@@ -49,5 +50,7 @@ public class PrincipalPresenter implements IPrincipal {
     public void abrirPantPrincipal() {
         frmPrincipal.abrirPantalla();
     }
+    
+    
     
 }
