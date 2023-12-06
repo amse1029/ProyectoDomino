@@ -15,17 +15,18 @@ public class PrincipalPresenter implements IPrincipal {
     
     private IConfPartida presenterConfPartida;
     private FrmPrincipal frmPrincipal = new FrmPrincipal(this);
-
-    public PrincipalPresenter(IConfPartida presenterConfPartida) {
-        this.presenterConfPartida = presenterConfPartida;
+    
+    private volatile static PrincipalPresenter instance;
+     public static synchronized PrincipalPresenter getInstance() {
+        if (instance == null) {
+            instance = new PrincipalPresenter();
+        }
+        return instance;
     }
 
     public PrincipalPresenter() {
+        this.presenterConfPartida = ConfPartidaPresenter.getInstance();
     }
-    
-//    public static IPrincipal crearInstancia(){
-//        return new PrincipalPresenter();
-//    }
 
     /**
      * Método que indica cuando el jugador selecciona "crear partida"

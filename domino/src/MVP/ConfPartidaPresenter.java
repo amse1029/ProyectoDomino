@@ -16,6 +16,15 @@ public class ConfPartidaPresenter implements IConfPartida {
     private FrmConfPartida frmConfPartida = new FrmConfPartida(this);
     private ConfPartidaModel model = new ConfPartidaModel(); 
     private IJugador jugadorPresenter;
+   
+    private volatile static ConfPartidaPresenter instance;
+
+    public static synchronized ConfPartidaPresenter getInstance() {
+        if (instance == null) {
+            instance = new ConfPartidaPresenter();
+        }
+        return instance;
+    }
 
     /**
      * Constructor por defecto
@@ -23,12 +32,7 @@ public class ConfPartidaPresenter implements IConfPartida {
     public ConfPartidaPresenter() {
         
     }
-    
-    @Override
-    public IConfPartida crearInstancia(){
-        return new ConfPartidaPresenter();
-    }
-
+   
     public ConfPartidaPresenter(ConfPartidaModel model, IJugador jugadorPresenter) {
         this.jugadorPresenter = jugadorPresenter;
         this.model = model;

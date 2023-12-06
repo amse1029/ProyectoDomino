@@ -18,12 +18,12 @@ public class FrmConfPartida extends javax.swing.JFrame {
     
     /**
      * Creates new form FrmConfPartida
+     * @param presenter
      */
     public FrmConfPartida(IConfPartida presenter) {
         this.presenter = presenter;
         initComponents();
     }
-  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -158,7 +158,7 @@ public class FrmConfPartida extends javax.swing.JFrame {
             int cantFichas = Integer.parseInt((String) this.cbxFichas.getSelectedItem());
             int cantJugadores = Integer.parseInt((String) this.cbxJugadores.getSelectedItem());
             presenter.selectGuardar(cantFichas, cantJugadores);
-            this.abrirPantJug();
+            this.abrirPantConf();
         } catch (Exception e) {
             this.muestraMsjError();
         }

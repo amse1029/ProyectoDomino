@@ -14,5 +14,5 @@ public interface IConfPartida {
     public void abrirPantallaConf();
     public void selectGuardar(int cantFichas, int cantJugadores);
     public void abrirPantallaJugador();
-    public IConfPartida crearInstancia();
+    
 }
