@@ -15,7 +15,7 @@ public abstract class ConfPartidaPresenter implements IConfPartida {
     
     private FrmConfPartida frmConfPartida = new FrmConfPartida(this);
     private ConfPartidaModel model = new ConfPartidaModel(); 
-    private JugadorPresenter jugadorPresenter = new JugadorPresenter();
+    private IJugador jugadorPresenter;
 
     /**
      * Constructor por defecto
@@ -23,7 +23,7 @@ public abstract class ConfPartidaPresenter implements IConfPartida {
     public ConfPartidaPresenter() {
     }
 
-    public ConfPartidaPresenter(FrmConfPartida frmConfPartida, ConfPartidaModel model, JugadorPresenter jugadorPresenter) {
+    public ConfPartidaPresenter(FrmConfPartida frmConfPartida, ConfPartidaModel model, IJugador jugadorPresenter) {
         this.frmConfPartida = frmConfPartida;
         this.jugadorPresenter = jugadorPresenter;
         this.model = model;
