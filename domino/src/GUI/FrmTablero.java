@@ -116,8 +116,8 @@ public class FrmTablero extends javax.swing.JFrame {
     }
 
     public void muestraMensajeError() {
-        JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error",
-                JOptionPane.ERROR_MESSAGE);
+//        JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error",
+//                JOptionPane.ERROR_MESSAGE);
     }
 
     public void msjCambioTurno() {

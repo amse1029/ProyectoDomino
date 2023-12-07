@@ -16,6 +16,15 @@ public class JugadorPresenter implements IJugador {
     private ILobby lobbyPresenter;
     private FrmJugador frmJugador = new FrmJugador(this);
     private JugadorModel model = new JugadorModel();
+
+    private volatile static JugadorPresenter instance;
+
+    public static synchronized JugadorPresenter getInstance() {
+        if (instance == null) {
+            instance = new JugadorPresenter();
+        }
+        return instance;
+    }
     
     public JugadorPresenter(){   
     }

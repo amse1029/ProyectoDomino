@@ -51,7 +51,5 @@ public class PrincipalPresenter implements IPrincipal {
     public void abrirPantPrincipal() {
         frmPrincipal.abrirPantalla();
     }
-    
-    
-    
+
 }

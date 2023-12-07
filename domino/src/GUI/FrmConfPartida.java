@@ -5,7 +5,6 @@
 package GUI;
 
 import MVP.IConfPartida;
-import MVP.ConfPartidaPresenter;
 import javax.swing.JOptionPane;
 
 /**
@@ -154,15 +153,10 @@ public class FrmConfPartida extends javax.swing.JFrame {
      */
     public void selectGuardar() {
         this.dispose();
-        try {
-            int cantFichas = Integer.parseInt((String) this.cbxFichas.getSelectedItem());
-            int cantJugadores = Integer.parseInt((String) this.cbxJugadores.getSelectedItem());
-            presenter.selectGuardar(cantFichas, cantJugadores);
-            this.abrirPantConf();
-        } catch (Exception e) {
-            this.muestraMsjError();
-        }
-
+        int cantFichas = Integer.parseInt((String) this.cbxFichas.getSelectedItem());
+        int cantJugadores = Integer.parseInt((String) this.cbxJugadores.getSelectedItem());
+        presenter.selectGuardar(cantFichas, cantJugadores);
+        this.abrirPantJug();
     }
 
     /**
@@ -176,10 +170,9 @@ public class FrmConfPartida extends javax.swing.JFrame {
      * Método que muestra un mensaje de error
      */
     public void muestraMsjError() {
-        JOptionPane.showMessageDialog(null, "Ha ocurrido un error", "Error", 
+        JOptionPane.showMessageDialog(null, "Ha ocurrido un error!!!!!!!", "Error", 
                 JOptionPane.ERROR_MESSAGE);
     }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
     private javax.swing.JComboBox<String> cbxFichas;

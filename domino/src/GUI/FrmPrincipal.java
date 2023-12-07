@@ -5,7 +5,6 @@
 package GUI;
 
 import MVP.IPrincipal;
-import MVP.PrincipalPresenter;
 
 /**
  *

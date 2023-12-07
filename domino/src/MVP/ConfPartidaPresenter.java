@@ -25,17 +25,14 @@ public class ConfPartidaPresenter implements IConfPartida {
         }
         return instance;
     }
-
-    /**
-     * Constructor por defecto
-     */
-    public ConfPartidaPresenter() {
-        
-    }
    
-    public ConfPartidaPresenter(ConfPartidaModel model, IJugador jugadorPresenter) {
-        this.jugadorPresenter = jugadorPresenter;
+    public ConfPartidaPresenter(ConfPartidaModel model) {
+        this.jugadorPresenter = JugadorPresenter.getInstance();
         this.model = model;
+    }
+
+    private ConfPartidaPresenter() {
+        
     }
 
     /**

@@ -19,6 +19,7 @@ public class FrmJugador extends javax.swing.JFrame {
    
     /**
      * Creates new form FrmJugador
+     * @param presenterJug
      */
     public FrmJugador(IJugador presenterJug) {
         this.presenterJug = presenterJug;
@@ -191,7 +192,7 @@ public class FrmJugador extends javax.swing.JFrame {
      * Método que abre la pantalla jugador
      */
     public void abrirPantJugador() {
-        this.setLocationRelativeTo(null);
+//        this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
 
