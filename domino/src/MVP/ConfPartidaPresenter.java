@@ -15,7 +15,7 @@ public class ConfPartidaPresenter implements IConfPartida {
     
     private FrmConfPartida frmConfPartida = new FrmConfPartida(this);
     private ConfPartidaModel model = new ConfPartidaModel(); 
-    private IJugador jugadorPresenter;
+    IJugador jugadorPresenter;
    
     private volatile static ConfPartidaPresenter instance;
 

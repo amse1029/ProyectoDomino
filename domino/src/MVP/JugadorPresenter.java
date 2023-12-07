@@ -26,11 +26,8 @@ public class JugadorPresenter implements IJugador {
         return instance;
     }
     
-    public JugadorPresenter(){   
-    }
-    
-    public JugadorPresenter(ILobby lobbyPresenter){
-        this.lobbyPresenter = lobbyPresenter;
+    public JugadorPresenter() {
+        this.lobbyPresenter = LobbyPresenter.getInstance();
     }
     
     private String nombre = "";
