@@ -173,19 +173,19 @@ public class FrmJugador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListoActionPerformed
 
     private void btnAvatar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvatar1ActionPerformed
-        avatarIcono = "avatar1.png";
+        avatarIcono = "avatar1.jpg";
     }//GEN-LAST:event_btnAvatar1ActionPerformed
 
     private void btnAvatar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvatar2ActionPerformed
-        avatarIcono = "avatar2.png";
+        avatarIcono = "avatar2.jpg";
     }//GEN-LAST:event_btnAvatar2ActionPerformed
 
     private void btnAvatar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvatar3ActionPerformed
-        avatarIcono = "avatar3.png";
+        avatarIcono = "avatar3.jpg";
     }//GEN-LAST:event_btnAvatar3ActionPerformed
 
     private void btnAvatar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvatar4ActionPerformed
-        avatarIcono = "avatar4.png";
+        avatarIcono = "avatar4.jpg";
     }//GEN-LAST:event_btnAvatar4ActionPerformed
 
     /**
