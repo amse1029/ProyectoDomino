@@ -15,24 +15,25 @@ import java.net.ServerSocket;
 public class Servidor {
     
     private ServerSocket server;
+    private Broker broker;
     
     public void iniciar(Partida partida) {
         
     }
     
     public void enviarFicha(FichaJugador ficha) {
-        
+        broker.mandaFicha();
     }
     
     public void actPozo() {
-        
+        broker.mandaPozo();
     }
     
     public void actTablero() {
-        
+        broker.mandaTablero();
     }
     
     public void pasarTurno() {
-        
+        broker.mandaTurno();
     }
 }

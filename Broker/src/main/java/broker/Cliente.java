@@ -23,7 +23,7 @@ public class Cliente {
     }
 
     public void enviarFicha(FichaJugador ficha) {
-        broker.recibeFicha(ficha);
+        broker.enviarFicha(ficha);
     }
     
     public void tomaPozo() {
@@ -32,6 +32,22 @@ public class Cliente {
     
     public void pasarTurno() {
         broker.pasarTurno();
+    }
+    
+    public void recibeFicha() {
+
+    }
+    
+    public void recibePozo() {
+        
+    }
+    
+    public void recibeTablero() {
+        
+    }
+    
+    public void recibeTurno() {
+        
     }
     
 }

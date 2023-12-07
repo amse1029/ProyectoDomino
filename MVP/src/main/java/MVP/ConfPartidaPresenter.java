@@ -26,13 +26,13 @@ public class ConfPartidaPresenter implements IConfPartida {
         return instance;
     }
    
-    public ConfPartidaPresenter(ConfPartidaModel model) {
-        this.jugadorPresenter = JugadorPresenter.getInstance();
-        this.model = model;
-    }
+//    public ConfPartidaPresenter(ConfPartidaModel model) {
+//        this.jugadorPresenter = JugadorPresenter.getInstance();
+//        this.model = model;
+//    }
 
     private ConfPartidaPresenter() {
-        
+        this.jugadorPresenter = JugadorPresenter.getInstance();
     }
 
     /**

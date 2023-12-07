@@ -15,6 +15,7 @@ import java.util.List;
 public class Broker {
     
     private List<Cliente> clientes;
+    private Cliente cliente;
     private Servidor servidor;
     private Partida partida;
 
@@ -25,7 +26,7 @@ public class Broker {
         servidor.iniciar(partida);
     }
     
-    public void recibeFicha(FichaJugador ficha) {
+    public void enviarFicha(FichaJugador ficha) {
         servidor.enviarFicha(ficha);
         servidor.actTablero();
     }
@@ -38,5 +39,21 @@ public class Broker {
     public void pasarTurno() {
         servidor.pasarTurno();
         servidor.actTablero();
+    }
+    
+    public void mandaPozo() {
+        cliente.recibePozo();
+    }
+    
+    public void mandaFicha() {
+        cliente.recibeFicha();
+    }
+    
+    public void mandaTablero() {
+        cliente.recibeTablero();
+    }
+    
+    public void mandaTurno() {
+        cliente.pasarTurno();
     }
 }
