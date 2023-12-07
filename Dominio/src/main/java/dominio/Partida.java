@@ -4,7 +4,6 @@
  */
 package dominio;
 
-//import MVP.TableroModel;
 
 /**
  *
@@ -17,7 +16,6 @@ public class Partida {
     private Pozo pozo;
     private int cantFichas;
     private int cantJugadores;
-//    private TableroModel model;
 
     public Partida() {
     }
@@ -67,7 +65,6 @@ public class Partida {
         this.cantJugadores = cantJugadores;
     }
     
-    
     //TODOS ESTOS METODOS SE VAN IMPLEMENTAR EN SUS RESPECTIVAS CLASES, AQUI
     //SOLO SE LLAMARAN
     //Este metodo va a validar la ficha que se quiere poner en el tablero si es 
@@ -76,40 +73,6 @@ public class Partida {
     //public boolean validaFicha(FichaJugador ficha, ArrayList<FichaTablero>){}
     //Este metodo va a validar la mano de jugador, por lo tanto recibe como parametro
     //un arraylist tipo FichaJugador
-
-    public void validaPozo() {
-        this.restarPozo();
-        this.sumaFichasJugador();
-        this.actTableroPozo();
-        this.cambiarTurno();
-        this.actTableroPozo();
-    }
-    
-    public void validaFicha() {
-        this.restaFichasJugador();
-        this.actTableroFicha();
-//        model.actPantTableroFicha();
-    }
-    
-    public void restarPozo(){}
-    
-    public void restaFichasJugador(){
-    }
-    
-    public void sumaFichasJugador(){
-    }
-   
-    public void cambiarTurno(){
-    
-    }
-   
-    public void actTableroFicha(){
-//        model.actPantTableroFicha();
-    }
-    
-    public void actTableroPozo() {
-//        model.actPantTableroPozo();
-    }
 
     @Override
     public String toString() {

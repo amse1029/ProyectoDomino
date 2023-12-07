@@ -6,8 +6,6 @@
 package MVP;
 
 import GUI.FrmJugador;
-import dominio.Jugador;
-import javax.swing.JTextField;
 
 /**
  *
@@ -15,24 +13,32 @@ import javax.swing.JTextField;
  */
 public class JugadorPresenter implements IJugador {
     
-    private LobbyPresenter lobbyPresenter = new LobbyPresenter();
+    private ILobby lobbyPresenter;
     private FrmJugador frmJugador = new FrmJugador(this);
     private JugadorModel model = new JugadorModel();
-    
-    public JugadorPresenter(){   
+
+    private volatile static JugadorPresenter instance;
+
+    public static synchronized JugadorPresenter getInstance() {
+        if (instance == null) {
+            instance = new JugadorPresenter();
+        }
+        return instance;
     }
     
-    public JugadorPresenter(LobbyPresenter lobbyPresenter){
-        this.lobbyPresenter = lobbyPresenter;
+    public JugadorPresenter() {
+        this.lobbyPresenter = LobbyPresenter.getInstance();
     }
     
     private String nombre = "";
+    private String avatar ="";
     private boolean validar;
 
     @Override
     public void selectIniciar() {
         nombre = frmJugador.getTxtNombre();
-        validar = model.validarNombre(nombre);
+        avatar = frmJugador.getAvatar();
+        validar = model.validarNombre(nombre, avatar);
         if (validar==false){
             msjError();
         }

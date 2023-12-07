@@ -11,19 +11,9 @@ package MVP;
  */
 public interface ITablero {
 
-    public void colocaFicha();
-
-    public void tomaPozo();
-
-    public void pasarTurno();
-
-    public void notificarCambioTurno();
-
-    public void actPantallaTableroFicha();
-    
-    public void actPantallaTableroPozo();
-
+        public void colocaFicha();
+        public void tomaPozo();
+        public void pasarTurno();
     public void muestraMensajeError();
-
     public void msjCambioTurno();
 }

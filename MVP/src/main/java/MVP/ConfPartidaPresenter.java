@@ -11,22 +11,28 @@ import GUI.FrmConfPartida;
  *
  * @author usuario
  */
-public abstract class ConfPartidaPresenter implements IConfPartida {
+public class ConfPartidaPresenter implements IConfPartida {
     
     private FrmConfPartida frmConfPartida = new FrmConfPartida(this);
     private ConfPartidaModel model = new ConfPartidaModel(); 
-    private JugadorPresenter jugadorPresenter = new JugadorPresenter();
+    IJugador jugadorPresenter;
+   
+    private volatile static ConfPartidaPresenter instance;
 
-    /**
-     * Constructor por defecto
-     */
-    public ConfPartidaPresenter() {
+    public static synchronized ConfPartidaPresenter getInstance() {
+        if (instance == null) {
+            instance = new ConfPartidaPresenter();
+        }
+        return instance;
+    }
+   
+    public ConfPartidaPresenter(ConfPartidaModel model) {
+        this.jugadorPresenter = JugadorPresenter.getInstance();
+        this.model = model;
     }
 
-    public ConfPartidaPresenter(FrmConfPartida frmConfPartida, ConfPartidaModel model, JugadorPresenter jugadorPresenter) {
-        this.frmConfPartida = frmConfPartida;
-        this.jugadorPresenter = jugadorPresenter;
-        this.model = model;
+    private ConfPartidaPresenter() {
+        
     }
 
     /**

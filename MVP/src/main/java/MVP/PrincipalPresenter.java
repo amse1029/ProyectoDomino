@@ -9,21 +9,24 @@ import GUI.FrmPrincipal;
 
 /**
  *
- * @author usuario
+ * @author 
  */
 public class PrincipalPresenter implements IPrincipal {
     
-    private IConfPartida presenterConfPartida = new ConfPartidaPresenter() {};
+    private IConfPartida presenterConfPartida;
     private FrmPrincipal frmPrincipal = new FrmPrincipal(this);
-
-    /**
-     * Constructor por defecto
-     */
-    public PrincipalPresenter() {
+    
+    private volatile static PrincipalPresenter instance;
+    
+     public static synchronized PrincipalPresenter getInstance() {
+        if (instance == null) {
+            instance = new PrincipalPresenter();
+        }
+        return instance;
     }
 
-    public PrincipalPresenter(IConfPartida presenterConfPartida) {
-        this.presenterConfPartida = presenterConfPartida;
+    public PrincipalPresenter() {
+        this.presenterConfPartida = ConfPartidaPresenter.getInstance();
     }
 
     /**
@@ -49,5 +52,5 @@ public class PrincipalPresenter implements IPrincipal {
     public void abrirPantPrincipal() {
         frmPrincipal.abrirPantalla();
     }
-    
+
 }

@@ -13,6 +13,7 @@ import dominio.Partida;
  */
 public class ConfPartidaModel {
 
+    MVPBroker broker;
     private int cantFichas;
     private int cantJugadores;
     private Partida partida;
@@ -41,5 +42,8 @@ public class ConfPartidaModel {
         partida.setCantFichas(cantFichas);
         partida.setCantJugadores(cantJugadores);
         System.out.println(partida);
+//        broker.recibirPartida(partida);
     }
+    
+    
 }
