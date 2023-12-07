@@ -19,11 +19,6 @@ public class DibujaFicha extends JPanel {
         recY = 0;
     }
     
-    public String getFicha(String ficha){
-        String ubicacionFicha="src/Graphics/Fichas/Escalada/ficha"+ficha+".png";
-        return ubicacionFicha;
-    }
-    
     public int getValorIzquierda(){
         return valorIzquierda;
     }
