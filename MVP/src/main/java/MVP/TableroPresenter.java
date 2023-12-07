@@ -41,7 +41,11 @@ public class TableroPresenter implements ITablero{
     public void msjCambioTurno() {
         frmTablero.msjCambioTurno();
     }
-
+    
+    public void abrirPantalla(){
+        frmTablero.abrirPantalla();
+    }
+    
     @Override
     public void colocaFicha() {
         
