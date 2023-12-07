@@ -10,19 +10,25 @@ import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+
+
 public class DibujaFicha extends JPanel {
     
     private int valorIzquierda;
     private int valorDerecha;
     int recX;
     int recY;
-
     
     public DibujaFicha(int leftValue, int rightValue) {
         valorIzquierda = leftValue;
         valorDerecha = rightValue;
         recX = 0;
         recY = 0;
+    }
+    
+    public String getFicha(String ficha){
+        String ubicacionFicha="src/Graphics/Fichas/Escalada/ficha"+ficha+".png";
+        return ubicacionFicha;
     }
     
     public int getValorIzquierda(){

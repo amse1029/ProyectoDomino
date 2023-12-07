@@ -10,10 +10,11 @@ package MVP;
  * @author usuario
  */
 public interface ITablero {
-
+        public void abrirPantalla();
         public void colocaFicha();
         public void tomaPozo();
         public void pasarTurno();
     public void muestraMensajeError();
     public void msjCambioTurno();
+    
 }

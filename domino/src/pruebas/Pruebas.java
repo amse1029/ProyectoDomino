@@ -4,8 +4,10 @@
  */
 package pruebas;
 
-import MVP.ConfPartidaModel;
-import dominio.Partida;
+import MVP.ITablero;
+import MVP.TableroModel;
+import MVP.TableroPresenter;
+import dominio.Tablero;
 
 /**
  *
@@ -18,7 +20,9 @@ public class Pruebas {
      */
     public static void main(String[] args) {
         
-        
+
+        ITablero tablero = new TableroPresenter();
+        tablero.abrirPantalla();
     }
     
 }

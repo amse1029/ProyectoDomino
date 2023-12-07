@@ -7,6 +7,12 @@ import MVP.ITablero;
 import MVP.TableroPresenter;
 import dominio.Ficha;
 import javax.swing.JOptionPane;
+import javax.swing.JLabel;
+import Graphics.DibujaFicha;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -15,6 +21,7 @@ import javax.swing.JOptionPane;
 public class FrmTablero extends javax.swing.JFrame {
 
     private Ficha ficha;
+    private DibujaFicha dibujaFicha;
     ITablero tableroPresenter;
 
     /**
@@ -93,7 +100,12 @@ public class FrmTablero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void colocarFichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colocarFichaActionPerformed
-    /*
+        int izquierda;
+        int derecha;
+        izquierda = ficha.getEspacio1();
+        derecha = ficha.getEspacio2();
+        dibujaFicha(izquierda, derecha);
+        /*
         try {
         
         // Creamos un panel con una imagen
@@ -111,8 +123,51 @@ public class FrmTablero extends javax.swing.JFrame {
     }
          */
     }//GEN-LAST:event_colocarFichaActionPerformed
+    
+    public void abrirPantalla(){
+        this.setVisible(true);
+    }
+    
+    public void colocaFicha(String ficha, int x, int y) {
+        String ruta = dibujaFicha.getFicha(ficha);
+        JLabel labelFicha = new JLabel();
+        labelFicha.setIcon(new ImageIcon(ruta));
+        labelFicha.setBounds(x, y, 48,25);
+        getContentPane().add(labelFicha);
+    }
+    
+    public void dibujaFicha(int izquierda, int derecha){
+        DibujaFicha dibujoFicha = new DibujaFicha(izquierda, derecha);
+        if(izquierda != derecha){
+            dibujoFicha.setBounds(0, 0, 240, 125);
+        }
+        else{
+          dibujoFicha.setBounds(0, 0, 125, 240);  
+        }
+         // Especificar la ruta del archivo
+        String ruta = "src/Graphics/Fichas/Normal/ficha" + izquierda + derecha + ".png";
+        
+        // Guardar la ficha como una imagen
+        dibujoFicha.guardaImagen(ruta);
+        
+        // Leer la imagen guardada
+        BufferedImage imagenOriginal = null;
+        try {
+            imagenOriginal = ImageIO.read(new File(ruta));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // Escalar la imagen
+        if (imagenOriginal != null) {
+            BufferedImage imagenEscalada = DibujaFicha.escalarImagen(imagenOriginal, 48, 25);
 
-    public void colocaFicha() {
+            // Guardar la imagen escalada
+            try {
+                ImageIO.write(imagenEscalada, "png", new File("src/Graphics/Fichas/Escalada/ficha"+izquierda+derecha+".png"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void muestraMensajeError() {
