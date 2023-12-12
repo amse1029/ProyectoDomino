@@ -42,6 +42,7 @@ public class FrmJugador extends javax.swing.JFrame {
         lblAvatar = new javax.swing.JLabel();
         btnListo = new javax.swing.JButton();
         txtNombre = new javax.swing.JTextField();
+        btnAvatar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +70,8 @@ public class FrmJugador extends javax.swing.JFrame {
 
         txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
+        btnAvatar1.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Desktop\\ProyectoDomino\\MVP\\src\\main\\java\\img\\avatar1.jpg")); // NOI18N
+
         javax.swing.GroupLayout pnlFondoLayout = new javax.swing.GroupLayout(pnlFondo);
         pnlFondo.setLayout(pnlFondoLayout);
         pnlFondoLayout.setHorizontalGroup(
@@ -82,7 +85,10 @@ public class FrmJugador extends javax.swing.JFrame {
                         .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(117, 117, 117)
                         .addComponent(btnListo))
-                    .addComponent(lblAvatar))
+                    .addGroup(pnlFondoLayout.createSequentialGroup()
+                        .addComponent(lblAvatar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAvatar1)))
                 .addContainerGap(216, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFondoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -95,7 +101,9 @@ public class FrmJugador extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addComponent(lblJugador)
                 .addGap(48, 48, 48)
-                .addComponent(lblAvatar)
+                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblAvatar)
+                    .addComponent(btnAvatar1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
                 .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -162,6 +170,7 @@ public class FrmJugador extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAvatar1;
     private javax.swing.JButton btnListo;
     private javax.swing.JLabel lblAvatar;
     private javax.swing.JLabel lblJugador;
