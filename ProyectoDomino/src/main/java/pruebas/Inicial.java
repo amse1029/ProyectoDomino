@@ -18,7 +18,7 @@ public class Inicial {
      */
     public static void main(String[] args) {
         
-        IPrincipal presenter = PrincipalPresenter.getInstance();
+        IPrincipal presenter = new PrincipalPresenter();
         presenter.abrirPantPrincipal();
     }  
 }

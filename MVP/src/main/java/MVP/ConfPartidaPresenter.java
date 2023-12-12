@@ -17,22 +17,13 @@ public class ConfPartidaPresenter implements IConfPartida {
     private ConfPartidaModel model = new ConfPartidaModel(); 
     IJugador jugadorPresenter;
    
-    private volatile static ConfPartidaPresenter instance;
-
-    public static synchronized ConfPartidaPresenter getInstance() {
-        if (instance == null) {
-            instance = new ConfPartidaPresenter();
-        }
-        return instance;
+    public ConfPartidaPresenter(IJugador jugadorPresenter, ConfPartidaModel model) {
+        this.jugadorPresenter = jugadorPresenter;
+        this.model = model;
     }
-   
-//    public ConfPartidaPresenter(ConfPartidaModel model) {
-//        this.jugadorPresenter = JugadorPresenter.getInstance();
-//        this.model = model;
-//    }
 
-    private ConfPartidaPresenter() {
-        this.jugadorPresenter = JugadorPresenter.getInstance();
+    public ConfPartidaPresenter(IJugador jugadorPresenter) {
+        this.jugadorPresenter = jugadorPresenter;
     }
 
     /**

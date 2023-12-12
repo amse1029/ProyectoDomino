@@ -16,26 +16,14 @@ public class JugadorPresenter implements IJugador {
     private ILobby lobbyPresenter;
     private FrmJugador frmJugador = new FrmJugador(this);
     private JugadorModel model = new JugadorModel();
-
-    private volatile static JugadorPresenter instance;
-
-    public static synchronized JugadorPresenter getInstance() {
-        if (instance == null) {
-            instance = new JugadorPresenter();
-        }
-        return instance;
-    }
-    
-    
-    
-    public JugadorPresenter() {
-        this.lobbyPresenter = LobbyPresenter.getInstance();
-    }
-    
     private String nombre = "";
-    private String avatar ="";
+    private String avatar = "";
     private boolean validar;
 
+    public JugadorPresenter(ILobby lobbyPresenter) {
+        this.lobbyPresenter = lobbyPresenter;
+    }
+    
     @Override
     public void selectIniciar() {
         nombre = frmJugador.getTxtNombre();

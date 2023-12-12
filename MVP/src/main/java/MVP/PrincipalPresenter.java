@@ -16,17 +16,11 @@ public class PrincipalPresenter implements IPrincipal {
     private IConfPartida presenterConfPartida;
     private FrmPrincipal frmPrincipal = new FrmPrincipal(this);
     
-    private volatile static PrincipalPresenter instance;
-    
-     public static synchronized PrincipalPresenter getInstance() {
-        if (instance == null) {
-            instance = new PrincipalPresenter();
-        }
-        return instance;
+    public PrincipalPresenter() {
     }
 
-    public PrincipalPresenter() {
-        this.presenterConfPartida = ConfPartidaPresenter.getInstance();
+    public PrincipalPresenter(IConfPartida presenterConfPartida) {
+        this.presenterConfPartida = presenterConfPartida;
     }
 
     /**

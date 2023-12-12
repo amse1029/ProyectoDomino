@@ -13,16 +13,10 @@ import GUI.FrmLobby;
 public class LobbyPresenter implements ILobby {
 
     private FrmLobby frmLobby = new FrmLobby(this);
-    
-    private volatile static LobbyPresenter instance;
 
-    public static synchronized LobbyPresenter getInstance() {
-        if (instance == null) {
-            instance = new LobbyPresenter();
-        }
-        return instance;
+    public LobbyPresenter() {
     }
-    
+
     @Override
     public void abrirPantLobby() {
         frmLobby.abrirPantLobby();
