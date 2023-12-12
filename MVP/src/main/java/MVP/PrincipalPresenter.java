@@ -13,7 +13,7 @@ import GUI.FrmPrincipal;
  */
 public class PrincipalPresenter implements IPrincipal {
     
-    private IConfPartida presenterConfPartida;
+    private IConfPartida presenterConfPartida = new ConfPartidaPresenter();
     private FrmPrincipal frmPrincipal = new FrmPrincipal(this);
     
     public PrincipalPresenter() {

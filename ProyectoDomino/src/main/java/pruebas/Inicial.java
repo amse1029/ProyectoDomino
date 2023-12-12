@@ -20,5 +20,7 @@ public class Inicial {
         
         IPrincipal presenter = new PrincipalPresenter();
         presenter.abrirPantPrincipal();
+//FrmPrincipal frm = new FrmPrincipal(presenter);
+//frm.setVisible(true);
     }  
 }

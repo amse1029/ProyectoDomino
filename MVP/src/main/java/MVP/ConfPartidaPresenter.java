@@ -15,7 +15,10 @@ public class ConfPartidaPresenter implements IConfPartida {
     
     private FrmConfPartida frmConfPartida = new FrmConfPartida(this);
     private ConfPartidaModel model = new ConfPartidaModel(); 
-    IJugador jugadorPresenter;
+    IJugador jugadorPresenter = new JugadorPresenter();
+
+    public ConfPartidaPresenter() {
+    }
    
     public ConfPartidaPresenter(IJugador jugadorPresenter, ConfPartidaModel model) {
         this.jugadorPresenter = jugadorPresenter;

@@ -45,21 +45,26 @@ public class FrmConfPartida extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlFondo.setBackground(new java.awt.Color(0, 102, 51));
+        pnlFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblConf.setFont(new java.awt.Font("Stencil", 0, 36)); // NOI18N
         lblConf.setForeground(new java.awt.Color(255, 255, 255));
         lblConf.setText("Configuración de la partida");
+        pnlFondo.add(lblConf, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 44, -1, -1));
 
         lblCantFichas.setFont(new java.awt.Font("Yu Gothic", 0, 18)); // NOI18N
         lblCantFichas.setForeground(new java.awt.Color(255, 255, 255));
         lblCantFichas.setText("Cantidad de fichas (2-7)");
+        pnlFondo.add(lblCantFichas, new org.netbeans.lib.awtextra.AbsoluteConstraints(336, 124, -1, -1));
 
         lblCantJug.setFont(new java.awt.Font("Yu Gothic", 0, 18)); // NOI18N
         lblCantJug.setForeground(new java.awt.Color(255, 255, 255));
         lblCantJug.setText("Cantidad de jugadores");
+        pnlFondo.add(lblCantJug, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 124, -1, -1));
 
         cbxFichas.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
         cbxFichas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2", "3", "4", "5", "6", "7" }));
+        pnlFondo.add(cbxFichas, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 171, -1, -1));
 
         btnGuardar.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         btnGuardar.setText("Guardar");
@@ -68,6 +73,7 @@ public class FrmConfPartida extends javax.swing.JFrame {
                 btnGuardarActionPerformed(evt);
             }
         });
+        pnlFondo.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 337, -1, -1));
 
         cbxJugadores.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 18)); // NOI18N
         cbxJugadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2", "3", "4" }));
@@ -76,56 +82,7 @@ public class FrmConfPartida extends javax.swing.JFrame {
                 cbxJugadoresActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout pnlFondoLayout = new javax.swing.GroupLayout(pnlFondo);
-        pnlFondo.setLayout(pnlFondoLayout);
-        pnlFondoLayout.setHorizontalGroup(
-            pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlFondoLayout.createSequentialGroup()
-                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlFondoLayout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(lblConf))
-                    .addGroup(pnlFondoLayout.createSequentialGroup()
-                        .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlFondoLayout.createSequentialGroup()
-                                .addGap(81, 81, 81)
-                                .addComponent(lblCantJug))
-                            .addGroup(pnlFondoLayout.createSequentialGroup()
-                                .addGap(126, 126, 126)
-                                .addComponent(cbxJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(63, 63, 63)
-                        .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCantFichas, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(pnlFondoLayout.createSequentialGroup()
-                                .addGap(61, 61, 61)
-                                .addComponent(cbxFichas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(48, 48, 48))))
-                    .addGroup(pnlFondoLayout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addComponent(btnGuardar)))
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-        pnlFondoLayout.setVerticalGroup(
-            pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlFondoLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(lblConf)
-                .addGap(43, 43, 43)
-                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlFondoLayout.createSequentialGroup()
-                        .addComponent(lblCantFichas)
-                        .addGap(18, 18, 18)
-                        .addComponent(cbxFichas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
-                        .addComponent(btnGuardar)
-                        .addGap(30, 30, 30))
-                    .addGroup(pnlFondoLayout.createSequentialGroup()
-                        .addComponent(lblCantJug)
-                        .addGap(26, 26, 26)
-                        .addComponent(cbxJugadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
+        pnlFondo.add(cbxJugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 179, -1, -1));
 
         getContentPane().add(pnlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
 

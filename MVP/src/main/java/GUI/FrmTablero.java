@@ -4,7 +4,6 @@
  */
 package GUI;
 import MVP.ITablero;
-import MVP.TableroPresenter;
 import dominio.Ficha;
 import javax.swing.JOptionPane;
 

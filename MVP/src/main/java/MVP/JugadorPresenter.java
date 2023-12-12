@@ -13,7 +13,7 @@ import GUI.FrmJugador;
  */
 public class JugadorPresenter implements IJugador {
     
-    private ILobby lobbyPresenter;
+    private ILobby lobbyPresenter = new LobbyPresenter();
     private FrmJugador frmJugador = new FrmJugador(this);
     private JugadorModel model = new JugadorModel();
     private String nombre = "";
@@ -23,11 +23,14 @@ public class JugadorPresenter implements IJugador {
     public JugadorPresenter(ILobby lobbyPresenter) {
         this.lobbyPresenter = lobbyPresenter;
     }
+
+    public JugadorPresenter() {
+    }
     
     @Override
     public void selectIniciar() {
         nombre = frmJugador.getTxtNombre();
-        avatar = frmJugador.getAvatar();
+//        avatar = frmJugador.getAvatar();
         validar = model.validarNombre(nombre, avatar);
         if (validar==false){
             msjError();

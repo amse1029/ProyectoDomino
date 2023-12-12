@@ -6,7 +6,6 @@ package GUI;
 
 import MVP.IJugador;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 /**
  *
@@ -15,7 +14,7 @@ import javax.swing.JTextField;
 public class FrmJugador extends javax.swing.JFrame {
     
     IJugador presenterJug;
-    private String avatarIcono = "";
+//    private String avatarIcono = "";
    
     /**
      * Creates new form FrmJugador
@@ -43,22 +42,30 @@ public class FrmJugador extends javax.swing.JFrame {
         btnListo = new javax.swing.JButton();
         txtNombre = new javax.swing.JTextField();
         btnAvatar1 = new javax.swing.JButton();
+        btnAvatar2 = new javax.swing.JButton();
+        btnAvatar3 = new javax.swing.JButton();
+        btnAvatar4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlFondo.setBackground(new java.awt.Color(0, 102, 51));
+        pnlFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblJugador.setFont(new java.awt.Font("Stencil", 0, 36)); // NOI18N
         lblJugador.setForeground(new java.awt.Color(255, 255, 255));
         lblJugador.setText("jugador");
+        pnlFondo.add(lblJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 48, -1, -1));
 
         lblNombre.setFont(new java.awt.Font("Yu Gothic", 0, 18)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(255, 255, 255));
         lblNombre.setText("Nombre:");
+        pnlFondo.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
 
         lblAvatar.setFont(new java.awt.Font("Yu Gothic", 0, 18)); // NOI18N
         lblAvatar.setForeground(new java.awt.Color(255, 255, 255));
         lblAvatar.setText("Seleccione un avatar:");
+        pnlFondo.add(lblAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
         btnListo.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         btnListo.setText("Listo");
@@ -67,61 +74,16 @@ public class FrmJugador extends javax.swing.JFrame {
                 btnListoActionPerformed(evt);
             }
         });
+        pnlFondo.add(btnListo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 290, -1, -1));
 
         txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        pnlFondo.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 206, -1));
+        pnlFondo.add(btnAvatar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 90, 70));
+        pnlFondo.add(btnAvatar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 90, 70));
+        pnlFondo.add(btnAvatar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 90, 70));
+        pnlFondo.add(btnAvatar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 90, 70));
 
-        btnAvatar1.setIcon(new javax.swing.ImageIcon("C:\\Users\\alexa\\OneDrive\\Desktop\\ProyectoDomino\\MVP\\src\\main\\java\\img\\avatar1.jpg")); // NOI18N
-
-        javax.swing.GroupLayout pnlFondoLayout = new javax.swing.GroupLayout(pnlFondo);
-        pnlFondo.setLayout(pnlFondoLayout);
-        pnlFondoLayout.setHorizontalGroup(
-            pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlFondoLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlFondoLayout.createSequentialGroup()
-                        .addComponent(lblNombre)
-                        .addGap(26, 26, 26)
-                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(117, 117, 117)
-                        .addComponent(btnListo))
-                    .addGroup(pnlFondoLayout.createSequentialGroup()
-                        .addComponent(lblAvatar)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAvatar1)))
-                .addContainerGap(216, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFondoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblJugador)
-                .addGap(283, 283, 283))
-        );
-        pnlFondoLayout.setVerticalGroup(
-            pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlFondoLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(lblJugador)
-                .addGap(48, 48, 48)
-                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblAvatar)
-                    .addComponent(btnAvatar1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
-                .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNombre)
-                    .addComponent(btnListo))
-                .addGap(34, 34, 34))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlFondo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
+        getContentPane().add(pnlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 360));
 
         pack();
         setLocationRelativeTo(null);
@@ -165,12 +127,15 @@ public class FrmJugador extends javax.swing.JFrame {
         return nombre;
     }
     
-    public String getAvatar(){
-        return avatarIcono;
-    }
+//    public String getAvatar(){
+//        return avatarIcono;
+//    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvatar1;
+    private javax.swing.JButton btnAvatar2;
+    private javax.swing.JButton btnAvatar3;
+    private javax.swing.JButton btnAvatar4;
     private javax.swing.JButton btnListo;
     private javax.swing.JLabel lblAvatar;
     private javax.swing.JLabel lblJugador;
