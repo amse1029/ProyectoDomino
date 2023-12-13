@@ -4,7 +4,13 @@
  */
 package GUI;
 
+import MVP.IJugador;
 import MVP.IPrincipal;
+import broker.Broker;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -12,13 +18,15 @@ import MVP.IPrincipal;
  */
 public class FrmPrincipal extends javax.swing.JFrame {
 
-    private IPrincipal presenter;
+    private IPrincipal principalPresenter;
+    private IJugador jugadorPresenter;
     
     /**
      * Creates new form FrmPrincipal
      */
-    public FrmPrincipal(IPrincipal presenter) {
-        this.presenter = presenter;
+    public FrmPrincipal(IPrincipal principalPresenter, IJugador jugadorPresenter) {
+        this.principalPresenter = principalPresenter;
+        this.jugadorPresenter = jugadorPresenter;
         initComponents();
     }
 
@@ -75,7 +83,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     .addGroup(pnlFondoLayout.createSequentialGroup()
                         .addGap(130, 130, 130)
                         .addComponent(lblBienvenido)))
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         pnlFondoLayout.setVerticalGroup(
             pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,10 +94,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addGroup(pnlFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCrearPartida)
                     .addComponent(btnUnirse))
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
-        getContentPane().add(pnlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 460));
+        getContentPane().add(pnlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 350));
 
         pack();
         setLocationRelativeTo(null);
@@ -100,7 +108,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearPartidaActionPerformed
 
     private void btnUnirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnirseActionPerformed
-        // TODO add your handling code here:
+        try {
+            this.selectUnirse();
+        } catch (IOException ex) {
+            this.muestraMsjError();
+        }
     }//GEN-LAST:event_btnUnirseActionPerformed
   
     /**
@@ -115,7 +127,21 @@ public class FrmPrincipal extends javax.swing.JFrame {
      */
     public void selectCrearPartida() {
         this.dispose();
-        presenter.selectCrearPartida();
+        principalPresenter.selectCrearPartida();
+    }
+    
+    public void selectUnirse() throws IOException {
+        Broker broker = new Broker();
+        if(broker.getServer().isClosed()) {
+            this.muestraMsjError();
+        } else {
+        jugadorPresenter.abrirPantallaJug();
+        }
+    }
+    
+    public void muestraMsjError() {
+        JOptionPane.showMessageDialog(null, "No hay partida", "Error", 
+                JOptionPane.ERROR_MESSAGE);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearPartida;

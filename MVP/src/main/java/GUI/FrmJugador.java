@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class FrmJugador extends javax.swing.JFrame {
     
     IJugador presenterJug;
-//    private String avatarIcono = "";
+    private String avatarIcono = "";
    
     /**
      * Creates new form FrmJugador
@@ -47,6 +47,7 @@ public class FrmJugador extends javax.swing.JFrame {
         btnAvatar4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Jugador");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlFondo.setBackground(new java.awt.Color(0, 102, 51));
@@ -113,7 +114,7 @@ public class FrmJugador extends javax.swing.JFrame {
      * Método que muestra un mensaje de error
      */
     public void muestraMsjError() {
-        JOptionPane.showMessageDialog(null, "Seleccione avatar y un nombre sin caracteres especiales   ", "Error", 
+        JOptionPane.showMessageDialog(null, "Seleccione avatar y un nombre sin caracteres especiales", "Error", 
                 JOptionPane.ERROR_MESSAGE);
         abrirPantJugador();
     }
@@ -127,9 +128,9 @@ public class FrmJugador extends javax.swing.JFrame {
         return nombre;
     }
     
-//    public String getAvatar(){
-//        return avatarIcono;
-//    }
+    public String getAvatar(){
+        return avatarIcono;
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAvatar1;

@@ -7,6 +7,8 @@ package MVP;
 
 import GUI.FrmConfPartida;
 import java.io.IOException;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,7 +16,7 @@ import java.util.logging.Logger;
  *
  * @author usuario
  */
-public class ConfPartidaPresenter implements IConfPartida {
+public class ConfPartidaPresenter implements IConfPartida, Observer {
     
     private FrmConfPartida frmConfPartida = new FrmConfPartida(this);
     private ConfPartidaModel model = new ConfPartidaModel(); 
@@ -60,5 +62,10 @@ public class ConfPartidaPresenter implements IConfPartida {
     @Override
     public void abrirPantallaJugador() {
         jugadorPresenter.abrirPantallaJug();
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
+
     }
 }

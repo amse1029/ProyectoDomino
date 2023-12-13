@@ -6,12 +6,14 @@
 package MVP;
 
 import GUI.FrmJugador;
+import java.util.Observable;
+import java.util.Observer;
 
 /**
  *
  * @author usuario
  */
-public class JugadorPresenter implements IJugador {
+public class JugadorPresenter implements IJugador, Observer {
     
     private ILobby lobbyPresenter = new LobbyPresenter();
     private FrmJugador frmJugador = new FrmJugador(this);
@@ -30,7 +32,7 @@ public class JugadorPresenter implements IJugador {
     @Override
     public void selectIniciar() {
         nombre = frmJugador.getTxtNombre();
-//        avatar = frmJugador.getAvatar();
+        avatar = frmJugador.getAvatar();
         validar = model.validarNombre(nombre, avatar);
         if (validar==false){
             msjError();
@@ -52,5 +54,9 @@ public class JugadorPresenter implements IJugador {
     @Override
     public void abrirPantallaLobby(){
         lobbyPresenter.abrirPantLobby();
+    }
+
+    @Override
+    public void update(Observable o, Object arg) {
     }
 }

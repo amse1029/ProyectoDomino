@@ -19,45 +19,52 @@ import java.net.Socket;
  */
 public class Servidor {
 
-    private static final int PUERTO = 8080;
-    private ServerSocket server = new ServerSocket(PUERTO);
-//    private Broker broker;
+    private static final int PUERTO = 123;
+    ServerSocket server;
 
     public Servidor() throws IOException {
-
+        this.server = new ServerSocket(PUERTO);
     }
 
     public void iniciar(Partida partida) throws IOException {
         try {
-            // Crea un servidor socket que escuche en el puerto 8080
-            
-
             // Espera una conexión entrante de un cliente
-            Socket socket = server.accept();
+            while (true) {
+                
+                Socket socket = server.accept();
 
-            // Obtiene un objeto de la clase ObjectInputStream para leer los datos del cliente
-            ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
+                // Obtiene un objeto de la clase ObjectInputStream para leer los datos del cliente
+                ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
 
-            // Lee el objeto Partida del cliente
-            partida = (Partida) objectInputStream.readObject();
+                // Lee el objeto Partida del cliente
+                partida = (Partida) objectInputStream.readObject();
 
-            // Muestra la información de la partida
-            System.out.println("Jugadores: " + partida.getJugadores());
-            System.out.println("Tablero: " + partida.getTablero());
-            System.out.println("Pozo: " + partida.getPozo());
-            System.out.println("Cantidad de fichas: " + partida.getCantFichas());
+                // Muestra la información de la partida
+                System.out.println("Configuración de la partida");
+                System.out.println("Cantidad de jugadores: " + partida.getCantJugadores());
+                System.out.println("Cantidad de fichas: " + partida.getCantFichas());
 
-            // Obtiene un objeto de la clase ObjectOutputStream para enviar datos al cliente
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+                // Obtiene un objeto de la clase ObjectOutputStream para enviar datos al cliente
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
 
-            // Envia la información de la partida al cliente
-            objectOutputStream.writeObject(partida);
+                // Envia la información de la partida al cliente
+                objectOutputStream.writeObject(partida);
 
-            // Cierra el socket
-            socket.close();
+                // Cierra el socket
+                socket.close();
+                server.close();
+            }
         } catch (Exception e) {
 
         }
+    }
+    
+    public ServerSocket getServer() {
+        return server;
+    }
+
+    public void setServer(ServerSocket server) {
+        this.server = server;
     }
 
 //    public void enviarFicha(FichaJugador ficha) {
@@ -75,4 +82,6 @@ public class Servidor {
 //    public void pasarTurno() {
 //        broker.mandaTurno();
 //    }
+
+   
 }

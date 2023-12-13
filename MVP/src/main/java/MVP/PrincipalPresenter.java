@@ -14,7 +14,8 @@ import GUI.FrmPrincipal;
 public class PrincipalPresenter implements IPrincipal {
     
     private IConfPartida presenterConfPartida = new ConfPartidaPresenter();
-    private FrmPrincipal frmPrincipal = new FrmPrincipal(this);
+    private IJugador presenterJugador = new JugadorPresenter();
+    private FrmPrincipal frmPrincipal = new FrmPrincipal(this, presenterJugador);
     
     public PrincipalPresenter() {
     }

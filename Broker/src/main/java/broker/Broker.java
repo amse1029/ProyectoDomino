@@ -4,9 +4,11 @@
  */
 package broker;
 
-import dominio.FichaJugador;
 import dominio.Partida;
 import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,16 +17,20 @@ import java.util.List;
  */
 public class Broker {
     
+    List<Socket> clientes = new ArrayList();
     private Servidor servidor;
     private Partida partida;
 
-    public Broker() {
-        
+    public Broker() throws IOException {
+        this.servidor = new Servidor();
     }
     
     public void recibirPartida(Partida partida) throws IOException {
-        this.servidor = new Servidor();
         servidor.iniciar(partida);
+    }
+    
+    public ServerSocket getServer() {
+        return servidor.getServer();
     }
     
 //    public void enviarFicha(FichaJugador ficha) {

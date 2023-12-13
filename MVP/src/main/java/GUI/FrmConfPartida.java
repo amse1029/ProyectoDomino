@@ -42,6 +42,7 @@ public class FrmConfPartida extends javax.swing.JFrame {
         cbxJugadores = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Configuración de la partida");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         pnlFondo.setBackground(new java.awt.Color(0, 102, 51));
@@ -109,11 +110,15 @@ public class FrmConfPartida extends javax.swing.JFrame {
      * Método que indica que guarda la configuración de la partida
      */
     public void selectGuardar() {
+        try {
         this.dispose();
         int cantFichas = Integer.parseInt((String) this.cbxFichas.getSelectedItem());
         int cantJugadores = Integer.parseInt((String) this.cbxJugadores.getSelectedItem());
         presenter.selectGuardar(cantFichas, cantJugadores);
         this.abrirPantJug();
+        } catch (Exception e) {
+            this.muestraMsjError();
+        }
     }
 
     /**

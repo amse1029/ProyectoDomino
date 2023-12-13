@@ -5,24 +5,41 @@
 package broker;
 
 import dominio.FichaJugador;
+import dominio.Partida;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.InetAddress;
 import java.net.Socket;
+import java.net.UnknownHostException;
+import java.util.Observable;
 
 /**
  *
  * @author alexa
  */
-public class Cliente implements Runnable {
-    
+public class Cliente extends Observable implements Runnable {
+
     private Socket clientSocket;
     private ObjectOutputStream out;
     private ObjectInputStream in;
     private Broker broker;
     private int puerto;
-    
-    
+
+    public void unirsePartida(Partida partida) throws Exception {
+        // Crea un objeto Socket
+        clientSocket = new Socket(InetAddress.getByName("localhost"), 123);
+
+        // Obtiene un objeto ObjectInputStream para leer los datos del servidor
+        in = new ObjectInputStream(clientSocket.getInputStream());
+
+        // Lee el objeto Partida del servidor
+        partida = (Partida) in.readObject();
+
+        // Cierra el socket
+        clientSocket.close();
+    }
+
     public Cliente(Socket clientSocket) {
         this.clientSocket = clientSocket;
         try {
@@ -74,5 +91,5 @@ public class Cliente implements Runnable {
     public void run() {
         
     }
-    
+
 }
