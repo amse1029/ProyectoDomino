@@ -6,6 +6,7 @@ package broker;
 
 import dominio.FichaJugador;
 import dominio.Partida;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -20,42 +21,43 @@ public class Broker {
     private Partida partida;
 
     public Broker() {
+        this.servidor = new Servidor();
     }
     
-    public void recibirPartida(Partida partida) {
+    public void recibirPartida(Partida partida) throws IOException {
         servidor.iniciar(partida);
     }
     
-    public void enviarFicha(FichaJugador ficha) {
-        servidor.enviarFicha(ficha);
-        servidor.actTablero();
-    }
-    
-    public void tomaPozo() {
-        servidor.actPozo();
-        servidor.actTablero();
-    }
-    
-    public void pasarTurno() {
-        servidor.pasarTurno();
-        servidor.actTablero();
-    }
-    
-    public void mandaPozo() {
-        cliente.recibePozo();
-    }
-    
-    public void mandaFicha() {
-        cliente.recibeFicha();
-    }
-    
-    public void mandaTablero() {
-        cliente.recibeTablero();
-    }
-    
-    public void mandaTurno() {
-        cliente.pasarTurno();
-    }
+//    public void enviarFicha(FichaJugador ficha) {
+//        servidor.enviarFicha(ficha);
+//        servidor.actTablero();
+//    }
+//    
+//    public void tomaPozo() {
+//        servidor.actPozo();
+//        servidor.actTablero();
+//    }
+//    
+//    public void pasarTurno() {
+//        servidor.pasarTurno();
+//        servidor.actTablero();
+//    }
+//    
+//    public void mandaPozo() {
+//        cliente.recibePozo();
+//    }
+//    
+//    public void mandaFicha() {
+//        cliente.recibeFicha();
+//    }
+//    
+//    public void mandaTablero() {
+//        cliente.recibeTablero();
+//    }
+//    
+//    public void mandaTurno() {
+//        cliente.pasarTurno();
+//    }
     
     
 }

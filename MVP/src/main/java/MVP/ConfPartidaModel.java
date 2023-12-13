@@ -6,6 +6,7 @@
 package MVP;
 
 import dominio.Partida;
+import java.io.IOException;
 
 /**
  *
@@ -13,11 +14,10 @@ import dominio.Partida;
  */
 public class ConfPartidaModel {
 
-    MVPBroker broker;
+    MVPBroker broker = new MVPBroker();
     private int cantFichas;
     private int cantJugadores;
     private Partida partida;
-
 
     public ConfPartidaModel() {
         this.partida = new Partida();
@@ -38,11 +38,11 @@ public class ConfPartidaModel {
      * @param cantFichas Cantidad de fichas de la partida
      * @param cantJugadores Cantidad de jugadores en la partida
      */
-    public void guardaConfiguracion(int cantFichas, int cantJugadores) {
+    public void guardaConfiguracion(int cantFichas, int cantJugadores) throws IOException {
         partida.setCantFichas(cantFichas);
         partida.setCantJugadores(cantJugadores);
         System.out.println(partida);
-//        broker.recibirPartida(partida);
+        broker.recibirPartida(partida);
     }
     
     

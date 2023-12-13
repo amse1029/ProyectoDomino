@@ -38,40 +38,38 @@ public class Cliente implements Runnable {
         this.puerto = puerto;
     }
 
-    public void enviarFicha(FichaJugador ficha) {
-        broker.enviarFicha(ficha);
-    }
-    
-    public void tomaPozo() {
-        broker.tomaPozo();
-    }
-    
-    public void pasarTurno() {
-        broker.pasarTurno();
-    }
-    
-    public void recibeFicha() {
-
-    }
-    
-    public void recibePozo() {
-        
-    }
-    
-    public void recibeTablero() {
-        
-    }
-    
-    public void recibeTurno() {
-        
-    }
+//    public void enviarFicha(FichaJugador ficha) {
+//        broker.enviarFicha(ficha);
+//    }
+//    
+//    public void tomaPozo() {
+//        broker.tomaPozo();
+//    }
+//    
+//    public void pasarTurno() {
+//        broker.pasarTurno();
+//    }
+//    
+//    public void recibeFicha() {
+//
+//    }
+//    
+//    public void recibePozo() {
+//        
+//    }
+//    
+//    public void recibeTablero() {
+//        
+//    }
+//    
+//    public void recibeTurno() {
+//        
+//    }
 
     public Socket getClientSocket() {
         return clientSocket;
     }
-    
-    
-
+   
     @Override
     public void run() {
         

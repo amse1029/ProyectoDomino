@@ -24,37 +24,37 @@ public class TableroModel implements ITableroModelS {
 
     //Este metodo realiza la operacion colocar ficha
     public void colocaFicha() {
-        broker.colocaFicha();
+//        broker.colocaFicha();
         jugador.restarFichasJugador();
-        broker.actTablero();
-        broker.cambiarTurnoB();
+//        broker.actTablero();
+//        broker.cambiarTurnoB();
     }
     
-    public void tomaPozo() {
-        broker.tomaPozo();
-        pozo.restarPozo();
-        jugador.sumarFichasJugador();
-        broker.cambiarTurnoB();
-        broker.actTablero();
-    }
-    
-    public void pasarTurno() {
-        broker.cambiarTurnoB();
-        broker.actTablero();
-    }
+//    public void tomaPozo() {
+//        broker.tomaPozo();
+//        pozo.restarPozo();
+//        jugador.sumarFichasJugador();
+//        broker.cambiarTurnoB();
+//        broker.actTablero();
+//    }
+//    
+//    public void pasarTurno() {
+//        broker.cambiarTurnoB();
+//        broker.actTablero();
+//    }
  
     @Override
     public void getFichasTab(Tablero tablero) {
-        
+        tablero.getFichasTablero();
     }
 
     @Override
     public void getJugadores(Partida partida) {
-        
+        partida.getJugadores();
     }
 
     @Override
     public void getCantPozo(Pozo pozo) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        pozo.getCantPozo();
     }
 }

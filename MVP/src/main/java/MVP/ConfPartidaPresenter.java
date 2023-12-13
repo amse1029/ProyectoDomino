@@ -6,6 +6,9 @@
 package MVP;
 
 import GUI.FrmConfPartida;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -36,7 +39,11 @@ public class ConfPartidaPresenter implements IConfPartida {
      */
     @Override
     public void selectGuardar(int cantFichas, int cantJugadores) {
-        model.guardaConfiguracion(cantFichas, cantJugadores);
+        try {
+            model.guardaConfiguracion(cantFichas, cantJugadores);
+        } catch (IOException ex) {
+            Logger.getLogger(ConfPartidaPresenter.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

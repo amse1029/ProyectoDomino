@@ -45,4 +45,7 @@ public class Pozo {
     
     public void sumarPozo(){}//EN CONSTRUCCIÓN
     
+    public int getCantPozo() {
+        return fichasPozo.size();
+    }
 }

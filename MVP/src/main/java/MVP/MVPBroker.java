@@ -4,34 +4,42 @@
  */
 package MVP;
 
+import broker.Broker;
+import dominio.Partida;
+import java.io.IOException;
+
 /**
  *
  * @author alexa
  */
 public class MVPBroker {
     
-    public void recibirPartida() {
-        
+    Broker broker = new Broker();
+    
+    public void recibirPartida(Partida partida) throws IOException {
+        broker.recibirPartida(partida);
     }
     
-    public void hayPartida() {
-        
-    }
+//    public void hayPartida() {
+//        
+//    }
+//    
+//    public void actTablero() {
+//        
+//    }
+//    
+//    public void cambiarTurnoB() {
+//        
+//    }
+//    
+//    public void colocaFicha() {
+//        
+//    }
+//    
+//    public void tomaPozo() {
+//        
+//    }
+
     
-    public void actTablero() {
-        
-    }
-    
-    public void cambiarTurnoB() {
-        
-    }
-    
-    public void colocaFicha() {
-        
-    }
-    
-    public void tomaPozo() {
-        
-    }
     
 }
