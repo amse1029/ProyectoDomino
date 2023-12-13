@@ -15,16 +15,15 @@ import java.util.List;
  */
 public class Broker {
     
-    private List<Cliente> clientes;
-    private Cliente cliente;
     private Servidor servidor;
     private Partida partida;
 
     public Broker() {
-        this.servidor = new Servidor();
+        
     }
     
     public void recibirPartida(Partida partida) throws IOException {
+        this.servidor = new Servidor();
         servidor.iniciar(partida);
     }
     

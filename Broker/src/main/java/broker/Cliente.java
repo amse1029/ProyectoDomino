@@ -16,7 +16,7 @@ import java.net.Socket;
  */
 public class Cliente implements Runnable {
     
-     private Socket clientSocket;
+    private Socket clientSocket;
     private ObjectOutputStream out;
     private ObjectInputStream in;
     private Broker broker;

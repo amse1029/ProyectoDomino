@@ -19,17 +19,18 @@ import java.net.Socket;
  */
 public class Servidor {
 
-    private ServerSocket server;
-//    private Broker broker;
     private static final int PUERTO = 8080;
+    private ServerSocket server = new ServerSocket(PUERTO);
+//    private Broker broker;
 
-    public Servidor() {
+    public Servidor() throws IOException {
+
     }
 
     public void iniciar(Partida partida) throws IOException {
         try {
             // Crea un servidor socket que escuche en el puerto 8080
-            server = new ServerSocket(PUERTO);
+            
 
             // Espera una conexión entrante de un cliente
             Socket socket = server.accept();

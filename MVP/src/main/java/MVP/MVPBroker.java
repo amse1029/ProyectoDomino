@@ -5,6 +5,7 @@
 package MVP;
 
 import broker.Broker;
+import broker.Servidor;
 import dominio.Partida;
 import java.io.IOException;
 
@@ -14,9 +15,12 @@ import java.io.IOException;
  */
 public class MVPBroker {
     
-    Broker broker = new Broker();
+    private Broker broker;
+    private Servidor servidor;
     
     public void recibirPartida(Partida partida) throws IOException {
+        this.servidor = new Servidor();
+        this.broker = new Broker();
         broker.recibirPartida(partida);
     }
     
