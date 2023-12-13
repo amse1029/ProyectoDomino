@@ -17,7 +17,7 @@ public class MVPBroker {
     
     private Broker broker;
 
-    public MVPBroker() throws IOException {
+    public MVPBroker() {
         
     }
     
@@ -27,7 +27,7 @@ public class MVPBroker {
     }
     
     public void getClientesConectados() {
-        this.broker.getClientesConectados();
+//        this.broker.getClientesConectados();
     }
  
 //    public void hayPartida() {
