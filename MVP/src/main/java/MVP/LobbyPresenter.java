@@ -22,4 +22,5 @@ public class LobbyPresenter implements ILobby {
         frmLobby.abrirPantLobby();
     }
     
+    
 }

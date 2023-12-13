@@ -111,13 +111,17 @@ public class FrmConfPartida extends javax.swing.JFrame {
      */
     public void selectGuardar() {
         try {
-        this.dispose();
-        int cantFichas = Integer.parseInt((String) this.cbxFichas.getSelectedItem());
-        int cantJugadores = Integer.parseInt((String) this.cbxJugadores.getSelectedItem());
-        presenter.selectGuardar(cantFichas, cantJugadores);
-        this.abrirPantJug();
+            this.dispose();
+            int cantFichas = Integer.parseInt((String) this.cbxFichas.getSelectedItem());
+            int cantJugadores = Integer.parseInt((String) this.cbxJugadores.getSelectedItem());
+            presenter.selectGuardar(cantFichas, cantJugadores);
+            try {
+                this.abrirPantJug();
+            } catch (Exception e) {
+                this.muestraMsjError("Ocurrió un error al abrir la pantalla jugador");
+            }
         } catch (Exception e) {
-            this.muestraMsjError();
+            this.muestraMsjError("Ocurrió un error al guardar la Partida");
         }
     }
 
@@ -131,8 +135,8 @@ public class FrmConfPartida extends javax.swing.JFrame {
     /**
      * Método que muestra un mensaje de error
      */
-    public void muestraMsjError() {
-        JOptionPane.showMessageDialog(null, "Ha ocurrido un error!!!!!!!", "Error", 
+    public void muestraMsjError(String mensaje) {
+        JOptionPane.showMessageDialog(null, mensaje, "Error", 
                 JOptionPane.ERROR_MESSAGE);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables

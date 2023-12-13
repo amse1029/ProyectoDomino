@@ -4,7 +4,6 @@
  */
 package broker;
 
-import dominio.FichaJugador;
 import dominio.Partida;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -12,6 +11,10 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,17 +22,16 @@ import java.net.Socket;
  */
 public class Servidor {
 
-    private static final int PUERTO = 123;
+    private static final int PUERTO = 8080;
     ServerSocket server;
+//    List<Socket> clientes = new ArrayList();
 
     public Servidor() throws IOException {
-
         this.server = new ServerSocket(PUERTO);
     }
 
     public void iniciar(Partida partida) throws IOException {
         try {
-//            this.server.close();
             // Espera una conexión entrante de un cliente
             while (true) {
                 Socket socket = server.accept();
@@ -53,10 +55,10 @@ public class Servidor {
 
                 // Cierra el socket
                 socket.close();
-                
-            }
-        } catch (Exception e) {
 
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

@@ -38,13 +38,8 @@ public class FrmJugador extends javax.swing.JFrame {
         pnlFondo = new javax.swing.JPanel();
         lblJugador = new javax.swing.JLabel();
         lblNombre = new javax.swing.JLabel();
-        lblAvatar = new javax.swing.JLabel();
         btnListo = new javax.swing.JButton();
         txtNombre = new javax.swing.JTextField();
-        btnAvatar1 = new javax.swing.JButton();
-        btnAvatar2 = new javax.swing.JButton();
-        btnAvatar3 = new javax.swing.JButton();
-        btnAvatar4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Jugador");
@@ -56,17 +51,12 @@ public class FrmJugador extends javax.swing.JFrame {
         lblJugador.setFont(new java.awt.Font("Stencil", 0, 36)); // NOI18N
         lblJugador.setForeground(new java.awt.Color(255, 255, 255));
         lblJugador.setText("jugador");
-        pnlFondo.add(lblJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 48, -1, -1));
+        pnlFondo.add(lblJugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, -1, -1));
 
         lblNombre.setFont(new java.awt.Font("Yu Gothic", 0, 18)); // NOI18N
         lblNombre.setForeground(new java.awt.Color(255, 255, 255));
         lblNombre.setText("Nombre:");
-        pnlFondo.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
-
-        lblAvatar.setFont(new java.awt.Font("Yu Gothic", 0, 18)); // NOI18N
-        lblAvatar.setForeground(new java.awt.Color(255, 255, 255));
-        lblAvatar.setText("Seleccione un avatar:");
-        pnlFondo.add(lblAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
+        pnlFondo.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
         btnListo.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
         btnListo.setText("Listo");
@@ -75,16 +65,12 @@ public class FrmJugador extends javax.swing.JFrame {
                 btnListoActionPerformed(evt);
             }
         });
-        pnlFondo.add(btnListo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 290, -1, -1));
+        pnlFondo.add(btnListo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
 
         txtNombre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        pnlFondo.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 206, -1));
-        pnlFondo.add(btnAvatar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 90, 70));
-        pnlFondo.add(btnAvatar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 90, 70));
-        pnlFondo.add(btnAvatar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 150, 90, 70));
-        pnlFondo.add(btnAvatar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 90, 70));
+        pnlFondo.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 206, -1));
 
-        getContentPane().add(pnlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 360));
+        getContentPane().add(pnlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 360));
 
         pack();
         setLocationRelativeTo(null);
@@ -133,12 +119,7 @@ public class FrmJugador extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAvatar1;
-    private javax.swing.JButton btnAvatar2;
-    private javax.swing.JButton btnAvatar3;
-    private javax.swing.JButton btnAvatar4;
     private javax.swing.JButton btnListo;
-    private javax.swing.JLabel lblAvatar;
     private javax.swing.JLabel lblJugador;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JPanel pnlFondo;

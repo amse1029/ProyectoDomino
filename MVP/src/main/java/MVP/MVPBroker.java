@@ -18,12 +18,17 @@ public class MVPBroker {
     private Broker broker;
     private Servidor servidor;
     
+    
     public void recibirPartida(Partida partida) throws IOException {
         this.servidor = new Servidor();
         this.broker = new Broker();
         broker.recibirPartida(partida);
     }
     
+    public void getClientesConectados() {
+        this.broker.getClientesConectados();
+    }
+ 
 //    public void hayPartida() {
 //        
 //    }

@@ -17,7 +17,7 @@ public class JugadorModel {
     private String nombreInicio = "";
     private String avatarInicio = "";
     private Jugador jugador= new Jugador(nombreInicio, avatarInicio);
-    
+    MVPBroker broker = new MVPBroker();
     
     public JugadorModel() {
     }
@@ -26,7 +26,7 @@ public class JugadorModel {
         this.jugador = new Jugador(nombre, avatar);
     }
 
-    public boolean validarNombre(String nombre, String avatar){
+    public boolean validarNombreAvatar(String nombre, String avatar){
         if(nombre == null || nombre.trim().isEmpty() || (avatar == "" || nombre.trim().isEmpty())){
             return false;
         }
@@ -40,8 +40,30 @@ public class JugadorModel {
         return true;        
     }
     
+    public boolean validarNombre(String nombre){
+        if(nombre == null || nombre.trim().isEmpty()){
+            return false;
+        }
+        for(char c: nombre.toCharArray()){
+            if(!Character.isLetter(c) && !Character.isSpaceChar(c)){
+                return false;
+            }  
+        }
+        guardaJugadorNombre(nombre);
+        System.out.println(jugador.getNombre());
+        return true;        
+    }
+    
     public void guardaJugador(String name, String avatar){
         jugador.setNombre(name);
         jugador.setUrlAvatar(avatar);
+    }
+    
+    public void guardaJugadorNombre(String name){
+        jugador.setNombre(name);
+    }
+    
+    public void getJugadoresPartida() {
+        broker.getClientesConectados();
     }
 }

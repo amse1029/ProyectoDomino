@@ -28,7 +28,7 @@ public class Cliente extends Observable implements Runnable {
 
     public void unirsePartida(Partida partida) throws Exception {
         // Crea un objeto Socket
-        clientSocket = new Socket(InetAddress.getByName("localhost"), 123);
+        clientSocket = new Socket(("localhost"), 8081);
 
         // Obtiene un objeto ObjectInputStream para leer los datos del servidor
         in = new ObjectInputStream(clientSocket.getInputStream());
@@ -36,6 +36,8 @@ public class Cliente extends Observable implements Runnable {
         // Lee el objeto Partida del servidor
         partida = (Partida) in.readObject();
 
+        broker.añadirCliente(clientSocket);
+        
         // Cierra el socket
         clientSocket.close();
     }

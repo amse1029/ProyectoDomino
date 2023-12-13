@@ -32,8 +32,7 @@ public class JugadorPresenter implements IJugador, Observer {
     @Override
     public void selectIniciar() {
         nombre = frmJugador.getTxtNombre();
-        avatar = frmJugador.getAvatar();
-        validar = model.validarNombre(nombre, avatar);
+        validar = model.validarNombre(nombre);
         if (validar==false){
             msjError();
         }

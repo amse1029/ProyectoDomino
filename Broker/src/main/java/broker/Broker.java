@@ -17,9 +17,8 @@ import java.util.List;
  */
 public class Broker {
     
-    List<Socket> clientes = new ArrayList();
     private Servidor servidor;
-    private Partida partida;
+    List<Socket> clientes = new ArrayList();
 
     public Broker() throws IOException {
         this.servidor = new Servidor();
@@ -33,6 +32,17 @@ public class Broker {
         return servidor.getServer();
     }
     
+    public void añadirCliente(Socket cliente) {
+        clientes.add(cliente);
+    }
+    
+    public void getClientesConectados() {
+        for (Socket cliente : clientes) {
+            System.out.println("El cliente: " + cliente.getLocalAddress()
+                    + " está conectado");
+        }
+    }
+
 //    public void enviarFicha(FichaJugador ficha) {
 //        servidor.enviarFicha(ficha);
 //        servidor.actTablero();
