@@ -23,14 +23,15 @@ public class Servidor {
     ServerSocket server;
 
     public Servidor() throws IOException {
+
         this.server = new ServerSocket(PUERTO);
     }
 
     public void iniciar(Partida partida) throws IOException {
         try {
+//            this.server.close();
             // Espera una conexión entrante de un cliente
             while (true) {
-                
                 Socket socket = server.accept();
 
                 // Obtiene un objeto de la clase ObjectInputStream para leer los datos del cliente
@@ -52,7 +53,7 @@ public class Servidor {
 
                 // Cierra el socket
                 socket.close();
-                server.close();
+                
             }
         } catch (Exception e) {
 
