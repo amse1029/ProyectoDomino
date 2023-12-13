@@ -41,7 +41,7 @@ public class ConfPartidaModel {
     public void guardaConfiguracion(int cantFichas, int cantJugadores) throws IOException {
         partida.setCantFichas(cantFichas);
         partida.setCantJugadores(cantJugadores);
-        broker.recibirPartida(partida);
         System.out.println(partida);
+        broker.recibirPartida(partida);
     }
 }

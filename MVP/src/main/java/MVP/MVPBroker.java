@@ -16,11 +16,12 @@ import java.io.IOException;
 public class MVPBroker {
     
     private Broker broker;
-    private Servidor servidor;
-    
+
+    public MVPBroker() throws IOException {
+        
+    }
     
     public void recibirPartida(Partida partida) throws IOException {
-        this.servidor = new Servidor();
         this.broker = new Broker();
         broker.recibirPartida(partida);
     }
