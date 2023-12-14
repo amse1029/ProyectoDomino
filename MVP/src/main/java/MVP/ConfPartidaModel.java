@@ -42,6 +42,8 @@ public class ConfPartidaModel {
         partida.setCantFichas(cantFichas);
         partida.setCantJugadores(cantJugadores);
         System.out.println(partida);
-        broker.recibirPartida(partida);
+        //DE AQUI SE HACE LA PETICION POR MEDIO DEL MVP BROKER
+        broker.CrearPartida(this.partida, "");
+        //broker.recibirPartida(partida);
     }
 }

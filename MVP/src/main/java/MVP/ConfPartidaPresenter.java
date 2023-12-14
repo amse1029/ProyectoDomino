@@ -45,8 +45,7 @@ public class ConfPartidaPresenter implements IConfPartida, Observer {
         try {
             model.guardaConfiguracion(cantFichas, cantJugadores);
         } catch (IOException ex) {
-            Logger.getLogger(ConfPartidaPresenter.class.getName()).log(Level.SEVERE, 
-                    "Error al guardar", ex);
+            Logger.getLogger(ConfPartidaPresenter.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

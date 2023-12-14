@@ -27,8 +27,8 @@ public class Jugador implements IJugadorPartida {
         this.urlAvatar = urlAvatar;
     }
 
-    public Jugador(String string) {
-
+    public Jugador(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getNombre() {

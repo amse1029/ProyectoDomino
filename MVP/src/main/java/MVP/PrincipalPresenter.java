@@ -63,10 +63,10 @@ public class PrincipalPresenter implements IPrincipal {
         try {
             return model.getServer();
         } catch (IOException ex) {
-            Logger.getLogger(PrincipalPresenter.class.getName()).log(Level.SEVERE, 
-                    "Error al verificar el server", ex);
+            Logger.getLogger(PrincipalPresenter.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
+   
 
 }

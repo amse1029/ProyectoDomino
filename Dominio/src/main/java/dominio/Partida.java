@@ -4,14 +4,17 @@
  */
 package dominio;
 
+import java.io.Serializable;
+import java.util.List;
+
 
 /**
  *
  * @author alexa
  */
-public class Partida {
+public class Partida implements Serializable {
     
-    private Jugador jugadores[];
+    private List <String> jugadores;
     private Tablero tablero;
     private Pozo pozo;
     private int cantFichas;
@@ -25,11 +28,11 @@ public class Partida {
         this.cantJugadores = cantJugadores;
     }
     
-    public Jugador[] getJugadores() {
+    public List<String> getJugadores() {
         return jugadores;
     }
 
-    public void setJugadores(Jugador[] jugadores) {
+    public void setJugadores(List <String> jugadores) {
         this.jugadores = jugadores;
     }
 

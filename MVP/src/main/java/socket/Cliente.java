@@ -8,6 +8,7 @@ import broker.Broker;
 import dominio.FichaJugador;
 import dominio.Jugador;
 import dominio.Partida;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -22,7 +23,7 @@ import java.util.Observable;
  * @author alexa
  */
 public class Cliente extends Observable implements Runnable {
-
+    
     private Socket clientSocket;
     private ObjectOutputStream out;
     private ObjectInputStream in;
@@ -49,7 +50,7 @@ public class Cliente extends Observable implements Runnable {
         // Envia un mensaje al servidor indicando que el jugador quiere unirse a la partida
         out.writeObject(partida);
         out.flush();
-
+  
         // Recibe un mensaje del servidor indicando si la operación fue exitosa
         String respuesta = (String) in.readObject();
         if (respuesta.equals("OK")) {

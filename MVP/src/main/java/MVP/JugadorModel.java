@@ -6,6 +6,10 @@
 package MVP;
 
 import dominio.Jugador;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
+import socket.Cliente;
 
 
 /**
@@ -62,8 +66,30 @@ public class JugadorModel {
     public void guardaJugadorNombre(String name){
         jugador.setNombre(name);
     }
-    
-    public void getJugadoresPartida() {
-        broker.getClientesConectados();
+
+    public String getNombreInicio() {
+        return nombreInicio;
     }
+    
+//    public void getJugadoresPartida() {
+//        broker.getClientesConectados();
+//    }
+    public void unirsePartida() throws IOException{
+        Socket socket;
+        String ipAddress;
+        String ip;
+        InetAddress inetAddress = InetAddress.getLocalHost();
+        ipAddress =inetAddress.getHostAddress();
+        ip=ipAddress;
+        socket = new Socket(ip, 8080);
+        Cliente cliente = new Cliente(socket);
+    }
+     public Cliente crearClienteSocket() throws IOException {
+         Socket socket = new Socket ("localhost",8080);
+         Cliente cliente = new Cliente(socket);
+         return cliente;
+   }
+     public void actualizarLobbyCrearPartida(Jugador jugador){
+         broker.actualizarLobbyCrearPartida(jugador.getNombre());
+     }
 }
