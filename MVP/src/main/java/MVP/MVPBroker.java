@@ -17,7 +17,7 @@ public class MVPBroker {
     
     private Broker broker;
 
-    public MVPBroker() throws IOException {
+    public MVPBroker() {
     }
     
     public void recibirPartida(Partida partida) throws IOException {

@@ -6,7 +6,10 @@
 package MVP;
 
 import GUI.FrmPrincipal;
+import java.io.IOException;
 import java.net.ServerSocket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -57,7 +60,13 @@ public class PrincipalPresenter implements IPrincipal {
     
     @Override
     public ServerSocket verificarServer() {
-        return model.getServer();
+        try {
+            return model.getServer();
+        } catch (IOException ex) {
+            Logger.getLogger(PrincipalPresenter.class.getName()).log(Level.SEVERE, 
+                    "Error al verificar el server", ex);
+        }
+        return null;
     }
 
 }

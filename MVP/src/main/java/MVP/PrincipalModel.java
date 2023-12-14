@@ -4,6 +4,7 @@
  */
 package MVP;
 
+import java.io.IOException;
 import java.net.ServerSocket;
 
 /**
@@ -14,7 +15,7 @@ public class PrincipalModel {
     
     MVPBroker broker = new MVPBroker();
     
-    public ServerSocket getServer() {
+    public ServerSocket getServer() throws IOException {
         return broker.getServer();
     }
 }

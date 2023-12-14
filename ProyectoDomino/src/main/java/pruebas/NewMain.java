@@ -5,6 +5,7 @@
 package pruebas;
 
 import broker.Broker;
+import broker.Servidor;
 import java.io.IOException;
 
 /**
@@ -18,7 +19,8 @@ public class NewMain {
      */
     public static void main(String[] args) throws IOException {
         Broker broker = new Broker();
-//        broker.getServer().close();
+        Servidor servidor = new Servidor();
+        broker.getServer().close();
         if(broker.getServer().isClosed()) {
             System.out.println("error");
         } else {
