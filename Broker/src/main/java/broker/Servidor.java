@@ -4,12 +4,10 @@
  */
 package broker;
 
+import socket.Cliente;
 import dominio.Jugador;
 import dominio.Partida;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -45,6 +43,8 @@ public class Servidor {
                 Cliente client = new Cliente(clientSocket, clients, jugador);
                 clients.add(client);
                 new Thread(client).start();
+                clientSocket.close();
+                server.close();
 
 //            while (true) {
 //                Socket socket = server.accept();
@@ -69,6 +69,7 @@ public class Servidor {
 //                // Cierra el socket
 //                socket.close();
             }
+            
         } catch (Exception ex) {
             Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -5,9 +5,9 @@
 package MVP;
 
 import broker.Broker;
-import broker.Servidor;
 import dominio.Partida;
 import java.io.IOException;
+import java.net.ServerSocket;
 
 /**
  *
@@ -17,8 +17,7 @@ public class MVPBroker {
     
     private Broker broker;
 
-    public MVPBroker() {
-        
+    public MVPBroker() throws IOException {
     }
     
     public void recibirPartida(Partida partida) throws IOException {
@@ -28,6 +27,11 @@ public class MVPBroker {
     
     public void getClientesConectados() {
 //        this.broker.getClientesConectados();
+    }
+    
+    public ServerSocket getServer() throws IOException {
+        this.broker = new Broker();
+        return broker.getServer();
     }
  
 //    public void hayPartida() {

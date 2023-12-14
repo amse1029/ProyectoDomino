@@ -6,6 +6,7 @@
 package MVP;
 
 import GUI.FrmPrincipal;
+import java.net.ServerSocket;
 
 /**
  *
@@ -16,6 +17,7 @@ public class PrincipalPresenter implements IPrincipal {
     private IConfPartida presenterConfPartida = new ConfPartidaPresenter();
     private IJugador presenterJugador = new JugadorPresenter();
     private FrmPrincipal frmPrincipal = new FrmPrincipal(this, presenterJugador);
+    PrincipalModel model = new PrincipalModel();
     
     public PrincipalPresenter() {
     }
@@ -46,6 +48,16 @@ public class PrincipalPresenter implements IPrincipal {
     @Override
     public void abrirPantPrincipal() {
         frmPrincipal.abrirPantalla();
+    }
+
+    @Override
+    public void selectUnirsePartida() {
+//        model.getServer();
+    }
+    
+    @Override
+    public ServerSocket verificarServer() {
+        return model.getServer();
     }
 
 }

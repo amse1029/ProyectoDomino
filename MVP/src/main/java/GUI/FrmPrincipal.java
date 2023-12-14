@@ -131,8 +131,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
     
     public void selectUnirse() throws IOException {
-        Broker broker = new Broker();
-        if(broker.getServer().isClosed()) {
+        this.dispose();
+        if(principalPresenter.verificarServer().isClosed()) {
            this.muestraMsjError();
         } else {
             jugadorPresenter.abrirPantallaJug();

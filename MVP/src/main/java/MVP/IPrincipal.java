@@ -5,6 +5,8 @@
  */
 package MVP;
 
+import java.net.ServerSocket;
+
 /**
  *
  * @author usuario
@@ -14,4 +16,6 @@ public interface IPrincipal {
     public void selectCrearPartida();
     public void abrirPantConf();
     public void abrirPantPrincipal();
+    public void selectUnirsePartida();
+    public ServerSocket verificarServer();
 }
