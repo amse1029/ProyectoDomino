@@ -22,6 +22,7 @@ public class Broker {
 
     public Broker() throws IOException {
         this.servidor = new Servidor();
+        servidor.iniciar(new Partida());
     }
     
     public void recibirPartida(Partida partida) throws IOException {

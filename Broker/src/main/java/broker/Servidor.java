@@ -23,7 +23,7 @@ import java.util.logging.Logger;
  */
 public class Servidor {
 
-    private static final int PUERTO = 8080;
+    private static final int PUERTO = 80;
     ServerSocket server;
     private static List<Cliente> clients = new ArrayList();
 

@@ -46,7 +46,7 @@ public class Cliente extends Observable implements Runnable {
 
     public void unirsePartida(Partida partida) throws Exception {
         // Envia un mensaje al servidor indicando que el jugador quiere unirse a la partida
-        out.writeObject("JOIN_PARTIDA");
+        out.writeObject(partida);
         out.flush();
 
         // Recibe un mensaje del servidor indicando si la operación fue exitosa
