@@ -19,7 +19,7 @@ public class JugadorPresenter implements IJugador, Observer {
     private ILobby lobbyPresenter = new LobbyPresenter();
     private FrmJugador frmJugador = new FrmJugador(this);
     private JugadorModel model = new JugadorModel();
-    private Jugador jugador;
+    private Jugador jugador = new Jugador();
     private boolean validar;
 
     public JugadorPresenter(ILobby lobbyPresenter) {
@@ -31,7 +31,6 @@ public class JugadorPresenter implements IJugador, Observer {
     
     @Override
     public void selectIniciar() {
-       
         jugador.setNombre(frmJugador.getTxtNombre());
         validar = model.validarNombre(jugador.getNombre());
         if (validar==false){

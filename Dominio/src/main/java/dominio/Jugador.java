@@ -16,6 +16,9 @@ public class Jugador implements IJugadorPartida {
     private ArrayList <FichaJugador> fichas;
     private String urlAvatar;
 
+    public Jugador() {
+    }
+
     public Jugador(String nombre, ArrayList<FichaJugador> fichas, String urlAvatar) {
         this.nombre = nombre;
         this.fichas = fichas;

@@ -4,48 +4,41 @@
  */
 package broker;
 
-import socket.Cliente;
+import DTO.JugadorDTO;
+import DTO.PartidaDTO;
 import dominio.Jugador;
 import dominio.Partida;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
  * @author alexa
  */
 public class Servidor{
-     Partida partida;
+     PartidaDTO partidaDTO;
 
     public Servidor() {
-        this.partida = new Partida();
+        this.partidaDTO = new PartidaDTO();
     }
 
 
-   public void crearPartidaServidor(Partida partida){
-       this.setPartida(partida);
+   public void crearPartidaServidor(PartidaDTO partidaDTO){
+       this.setPartida(partidaDTO);
    }
 
-   public void agregarJugador(String jugador){
-       this.partida.getJugadores().add(jugador);
+   public void agregarJugador(JugadorDTO jugadorDTO){
+       this.partidaDTO.getJugadores().add(jugadorDTO);
    }
    
    public void unirsePartida(){
        
    }
-    public Partida getPartida() {
-        return partida;
+    public PartidaDTO getPartida() {
+        return partidaDTO;
     }
 
-    public void setPartida(Partida partida) {
-        this.partida = partida;
+    public void setPartida(PartidaDTO partidaDTO) {
+        this.partidaDTO = partidaDTO;
     }
    
    
