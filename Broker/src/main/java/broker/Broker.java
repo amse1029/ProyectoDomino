@@ -75,8 +75,8 @@ public class Broker implements Runnable {
                     this.servicios.crearPartidaServidor(peticionDTO.getPartidaDTO());
 //                    System.out.println("Se agrego el jugador a la partida del servidor");
                     System.out.println("Se creo la nueva partida en el servidor");
-                    this.getClients().add(clientSocket); 
-                    System.out.println("Se agrego el cliente a la lista de sockets");
+//                    this.getClients().add(clientSocket); 
+//                    System.out.println("Se agrego el cliente a la lista de sockets");
                 }
                 if (peticionDTO.getPeticion().equals(Peticiones.UNIRSE_PARTIDA)) {
                     this.servicios.agregarJugador(peticionDTO.getJugadorDTO());

@@ -6,6 +6,7 @@ package pruebas;
 
 import MVP.IPrincipal;
 import MVP.PrincipalPresenter;
+import broker.Broker;
 
 /**
  *
@@ -20,7 +21,16 @@ public class Inicial {
         
         IPrincipal presenter = new PrincipalPresenter();
         presenter.abrirPantPrincipal();
+        
+//         Broker broker = new Broker();
+////        broker.getServer().close();
+//        if(broker.getServer().isClosed()) {
+//            System.out.println("error");
+//        } else {
+//            System.out.println("server abierto");
+//        }
+    }
 //FrmPrincipal frm = new FrmPrincipal(presenter);
 //frm.setVisible(true);
     }  
-}
+//}
