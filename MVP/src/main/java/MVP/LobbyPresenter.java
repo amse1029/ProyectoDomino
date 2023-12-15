@@ -5,6 +5,10 @@
 package MVP;
 
 import GUI.FrmLobby;
+import java.io.IOException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -13,7 +17,7 @@ import GUI.FrmLobby;
 public class LobbyPresenter implements ILobby {
 
     private FrmLobby frmLobby = new FrmLobby(this);
-
+    
     public LobbyPresenter() {
     }
 
@@ -21,6 +25,19 @@ public class LobbyPresenter implements ILobby {
     public void abrirPantLobby() {
         frmLobby.abrirPantLobby();
     }
+
+    @Override
+    public List<String> getNombres() {
+        try {
+            LobbyModel model=new LobbyModel();
+            return model.getNombres();
+        } catch (IOException ex) {
+            Logger.getLogger(LobbyPresenter.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+    
+   
     
     
 }

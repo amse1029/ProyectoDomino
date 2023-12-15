@@ -4,7 +4,6 @@
  */
 package MVP;
 
-import DTO.IPeticiones;
 import DTO.JugadorDTO;
 import DTO.PartidaDTO;
 import DTO.PeticionDTO;
@@ -19,6 +18,7 @@ import java.io.Serializable;
 import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.List;
 
 /**
  *
@@ -80,6 +80,25 @@ public class MVPBroker implements IPeticiones, Serializable, IMVPBroker{
         }
         return null;
     }
+    
+    public List<String> getIps() throws IOException {
+        try {
+            peticionDTO = new PeticionDTO(Peticiones.GET_IPS);
+            InetAddress inetAddress = InetAddress.getLocalHost();
+            String ipAddress = inetAddress.getHostAddress();
+            String ip = ipAddress;
+            Socket socket = new Socket(ip, 80);
+            ObjectOutputStream salidaDatos = new ObjectOutputStream(socket.getOutputStream());
+            ObjectInputStream recibirDatos = new ObjectInputStream(socket.getInputStream());
+            salidaDatos.writeObject(peticionDTO);//BOLITA
+            List<String> respuesta = (List<String>) recibirDatos.readObject();
+            socket.close();//ESTO PUDIERA SER UN BREAK
+            return respuesta;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
+    }
 
     @Override
     public JugadorDTO getJugador() {
@@ -104,6 +123,7 @@ public class MVPBroker implements IPeticiones, Serializable, IMVPBroker{
             String ip = ipAddress;
             Socket socket = new Socket(ip, 80);
             ObjectOutputStream salidaDatos = new ObjectOutputStream(socket.getOutputStream());
+            
             salidaDatos.writeObject(mvp);//BOLITA
             //Aqui se puede agregar la vuelta con el ObjectInputStream
             socket.close();//ESTO PUDIERA SER UN BREAK
@@ -180,6 +200,7 @@ public class MVPBroker implements IPeticiones, Serializable, IMVPBroker{
             String ip = ipAddress;
             Socket socket = new Socket(ip, 80);
             ObjectOutputStream salidaDatos = new ObjectOutputStream(socket.getOutputStream());
+            ObjectInputStream recibirDatos = new ObjectInputStream(socket.getInputStream());
             salidaDatos.writeObject(peticionDTO);//BOLITA
             //Aqui se puede agregar la vuelta con el ObjectInputStream
             socket.close();//ESTO PUDIERA SER UN BREAK

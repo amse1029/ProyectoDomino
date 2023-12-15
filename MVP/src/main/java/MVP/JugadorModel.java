@@ -64,21 +64,6 @@ public class JugadorModel {
         this.broker = broker;
     }
     
-    public void unirsePartida() throws IOException{
-        Socket socket;
-        String ipAddress;
-        String ip;
-        InetAddress inetAddress = InetAddress.getLocalHost();
-        ipAddress =inetAddress.getHostAddress();
-        ip=ipAddress;
-        socket = new Socket(ip, 8080);
-        Cliente cliente = new Cliente(socket);
-    }
-     public Cliente crearClienteSocket() throws IOException {
-         Socket socket = new Socket ("localhost",8080);
-         Cliente cliente = new Cliente(socket);
-         return cliente;
-   }
      public void actualizarLobbyCrearPartida(JugadorDTO jugador){
          broker.actualizarLobbyCrearPartida(jugador.getNombre());
      }

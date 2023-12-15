@@ -5,7 +5,7 @@
  */
 package MVP;
 
-import static DTO.IPeticiones.CREAR_PARTIDA;
+
 import DTO.PartidaDTO;
 import DTO.Peticiones;
 import dominio.Partida;

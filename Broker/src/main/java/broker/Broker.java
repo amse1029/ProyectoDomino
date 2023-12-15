@@ -86,6 +86,15 @@ public class Broker implements Runnable {
                      this.getClients().add(clientSocket); 
                      System.out.println("Se agrego el cliente a la lista de sockets");
                 }
+                if (peticionDTO.getPeticion().equals(Peticiones.GET_IPS)) {
+                    List <String> ips = new ArrayList();
+                    
+                    for (int i = 0; i < this.getClients().size(); i++) {
+                     ips.add(this.getClients().get(i).getLocalAddress().getHostName());
+                    }
+                     mandarDatos.writeObject(ips);
+                    System.out.println("Se estan mandando la lista de jugadores");
+                }
                 if (peticionDTO.getPeticion().equals(Peticiones.GET_SERVER)) {
                     mandarDatos.writeObject(this.getServer());
                 }

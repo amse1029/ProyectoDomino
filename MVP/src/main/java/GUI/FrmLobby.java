@@ -6,6 +6,8 @@
 package GUI;
 
 import MVP.ILobby;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -20,7 +22,9 @@ public class FrmLobby extends javax.swing.JFrame {
      */
     public FrmLobby(ILobby presenterLobby) {
         this.presenterLobby = presenterLobby;
+//        this.LlenarLobby();
         initComponents();
+        
     }
 
     /**
@@ -55,7 +59,8 @@ public class FrmLobby extends javax.swing.JFrame {
 
         lblNombre1.setFont(new java.awt.Font("Yu Gothic", 0, 18)); // NOI18N
         lblNombre1.setForeground(new java.awt.Color(255, 255, 255));
-        lblNombre1.setText("...");
+        lblNombre1.setText("Esperando jugador");
+        lblNombre1.setName(""); // NOI18N
         pnlFondo.add(lblNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, -1, -1));
 
         btnSalir.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 24)); // NOI18N
@@ -97,8 +102,29 @@ public class FrmLobby extends javax.swing.JFrame {
        this.setVisible(true);
        this.toFront();
        this.requestFocus();
+       this.LlenarLobby();
     }
 
+    public void LlenarLobby(){
+        List<String> nombres = this.presenterLobby.getNombres();
+        
+       
+               for (int i = 0; i < nombres.size(); i++) {
+                 this.lblNombre1.setText(nombres.get(0));
+                 this.lblNombre2.setText(nombres.get(1));
+                 this.lblNombre3.setText(nombres.get(2));
+                 this.lblNombre4.setText(nombres.get(3));
+            }
+ 
+                
+               
+                
+               
+            
+            //System.out.println("quienes esta en la partida "+nombres.get(i));
+        System.out.println("Si llegooooo");
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalir;
     private javax.swing.JLabel lblJugador;

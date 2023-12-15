@@ -4,6 +4,8 @@
  */
 package MVP;
 
+import java.util.List;
+
 /**
  *
  * @author alexa
@@ -11,4 +13,5 @@ package MVP;
 public interface ILobby {
     
     public void abrirPantLobby();
+    public List<String> getNombres();
 }

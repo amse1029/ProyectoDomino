@@ -15,7 +15,7 @@ import java.util.Observer;
  *
  * @author usuario
  */
-public class JugadorPresenter implements IJugador, Observer {
+public class JugadorPresenter implements IJugador{
     
     private ILobby lobbyPresenter = new LobbyPresenter();
     private FrmJugador frmJugador = new FrmJugador(this);
@@ -41,6 +41,7 @@ public class JugadorPresenter implements IJugador, Observer {
         else {
             //Se debe de abrir la pantalla ya actualizada
            model.guardaJugador(jugador.getNombre());
+           
             abrirPantallaLobby();
         }
         }catch(Exception e){
@@ -61,11 +62,7 @@ public class JugadorPresenter implements IJugador, Observer {
     public void abrirPantallaLobby(){
         lobbyPresenter.abrirPantLobby();
     }
-
-    @Override
-    public void update(Observable o, Object arg) {
-    }
-    
+  
      public String guardarNombre(String nombre) {
          nombre= frmJugador.getTxtNombre();
        return nombre;
