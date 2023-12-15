@@ -55,10 +55,11 @@ public class PeticionDTO implements Serializable {
     public JugadorDTO getJugadorDTO() {
         return jugadorDTO;
     }
-
+   
     public void setJugadorDTO(JugadorDTO jugadorDTO) {
         this.jugadorDTO = jugadorDTO;
     }
+    
 
     public Peticiones getPeticion() {
         return peticion;

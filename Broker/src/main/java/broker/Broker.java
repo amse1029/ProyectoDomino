@@ -80,6 +80,7 @@ public class Broker implements Runnable {
                 }
                 if (peticionDTO.getPeticion().equals(Peticiones.UNIRSE_PARTIDA)) {
                     this.servicios.agregarJugador(peticionDTO.getJugadorDTO());
+                    //System.out.println(this.servicios.partidaDTO.toString());
                 }
                 if (peticionDTO.getPeticion().equals(Peticiones.AGREGAR_CLIENTE)) {
                      this.getClients().add(clientSocket); 
@@ -89,8 +90,14 @@ public class Broker implements Runnable {
                     mandarDatos.writeObject(this.getServer());
                 }
                 if (peticionDTO.getPeticion().equals(Peticiones.GUARDAR_JUGADOR)) {
-                   this.servicios.agregarJugador(peticionDTO.getJugadorDTO());
-                   System.out.println("Se esta agregando el jugador a la partida ");
+                    this.servicios.agregarJugador(peticionDTO.getJugadorDTO());
+                    System.out.println("Se agrego al jugador: " + peticionDTO.getJugadorDTO());
+                    //System.out.println(this.servicios.partidaDTO.toString());
+                    this.getClients().add(clientSocket);
+                    System.out.println("Se agrego el cliente a la lista de sockets");
+                    for (int i = 1; i < clients.size(); i++) {
+                        System.out.println("Cliente conectado con ip: " + clients.get(i).getLocalAddress().getHostName());
+                    }
                 }
             }
 

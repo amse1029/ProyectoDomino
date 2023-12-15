@@ -6,7 +6,6 @@ package GUI;
 
 import MVP.IJugador;
 import MVP.IPrincipal;
-import broker.Broker;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -108,11 +107,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearPartidaActionPerformed
 
     private void btnUnirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnirseActionPerformed
-        try {
-            this.selectUnirse();
-        } catch (IOException ex) {
-            this.muestraMsjError("Error al unirse");
-        }
+        this.selectUnirse();
     }//GEN-LAST:event_btnUnirseActionPerformed
   
     /**
@@ -130,14 +125,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
         principalPresenter.selectCrearPartida();
     }
     
-    public void selectUnirse() throws IOException {
+    public void selectUnirse() {
         this.dispose();
-        Broker broker = new Broker();
-        if(broker.getServer().isClosed()) {
-           this.muestraMsjError("Servidor cerrado");
-        } else {
-            jugadorPresenter.abrirPantallaJug();
-        }
+        jugadorPresenter.abrirPantallaJug();
     }
     
     public void muestraMsjError(String msj) {
