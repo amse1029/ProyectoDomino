@@ -111,7 +111,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         try {
             this.selectUnirse();
         } catch (IOException ex) {
-            this.muestraMsjError();
+            this.muestraMsjError("Error al unirse");
         }
     }//GEN-LAST:event_btnUnirseActionPerformed
   
@@ -132,15 +132,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
     
     public void selectUnirse() throws IOException {
         this.dispose();
-        if(principalPresenter.verificarServer().isClosed()) {
-           this.muestraMsjError();
+        Broker broker = new Broker();
+        if(broker.getServer().isClosed()) {
+           this.muestraMsjError("Servidor cerrado");
         } else {
             jugadorPresenter.abrirPantallaJug();
         }
     }
     
-    public void muestraMsjError() {
-        JOptionPane.showMessageDialog(null, "No hay partida", "Error", 
+    public void muestraMsjError(String msj) {
+        JOptionPane.showMessageDialog(null, msj, "Error", 
                 JOptionPane.ERROR_MESSAGE);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables

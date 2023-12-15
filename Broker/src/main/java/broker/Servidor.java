@@ -27,7 +27,7 @@ public class Servidor{
    }
 
    public void agregarJugador(JugadorDTO jugadorDTO){
-       this.partidaDTO.getJugadores().add(jugadorDTO);
+//       this.partidaDTO.getJugadores().add(jugadorDTO);
    }
    
    public void unirsePartida(){

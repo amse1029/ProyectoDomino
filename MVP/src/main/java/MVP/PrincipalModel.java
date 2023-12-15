@@ -16,6 +16,6 @@ public class PrincipalModel {
     MVPBroker broker = new MVPBroker();
     
     public ServerSocket getServer() throws IOException {
-        return broker.getServer();
+        return broker.serverIsClosed();
     }
 }

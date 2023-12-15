@@ -44,7 +44,6 @@ public class JugadorModel {
         return true;        
     }
     
-
     public String getNombreInicio() {
         return nombreInicio;
     }
@@ -65,9 +64,6 @@ public class JugadorModel {
         this.broker = broker;
     }
     
-//    public void getJugadoresPartida() {
-//        broker.getClientesConectados();
-//    }
     public void unirsePartida() throws IOException{
         Socket socket;
         String ipAddress;

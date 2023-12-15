@@ -38,11 +38,12 @@ public class PeticionDTO implements Serializable {
         this.jugadorDTO = jugadorDTO;
         this.peticion = peticion;
     }
-public PeticionDTO(Peticiones peticion, PartidaDTO partidaDTO) {
-    this.peticion = peticion;    
-    this.partidaDTO = partidaDTO;
-        
+    
+    public PeticionDTO(Peticiones peticion, PartidaDTO partidaDTO) {
+        this.peticion = peticion;
+        this.partidaDTO = partidaDTO;
     }
+    
     public PartidaDTO getPartidaDTO() {
         return partidaDTO;
     }

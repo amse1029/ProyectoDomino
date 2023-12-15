@@ -9,6 +9,7 @@ import DTO.JugadorDTO;
 import DTO.PartidaDTO;
 import DTO.PeticionDTO;
 import DTO.Peticiones;
+import broker.Broker;
 import dominio.Jugador;
 import dominio.Partida;
 import java.io.IOException;
@@ -55,6 +56,11 @@ public class MVPBroker implements IPeticiones, Serializable, IMVPBroker{
         this.peticionDTO = peticionDTO;
     }
 
+    public ServerSocket serverIsClosed() throws IOException {
+        Broker broker = new Broker();
+        return broker.getServer();
+    }
+    
     public ServerSocket getServer() throws IOException {
         try {
             peticionDTO = new PeticionDTO(Peticiones.GET_SERVER);
@@ -108,7 +114,7 @@ public class MVPBroker implements IPeticiones, Serializable, IMVPBroker{
 
     public void AgregarCliente() {
         try {
-             peticionDTO = new PeticionDTO(Peticiones.AGREGAR_CLIENTE);
+            peticionDTO = new PeticionDTO(Peticiones.AGREGAR_CLIENTE);
             InetAddress inetAddress = InetAddress.getLocalHost();
             String ipAddress = inetAddress.getHostAddress();
             String ip = ipAddress;
@@ -131,9 +137,7 @@ public class MVPBroker implements IPeticiones, Serializable, IMVPBroker{
             Socket socket = new Socket(ip, 80);
             ObjectOutputStream salidaDatos = new ObjectOutputStream(socket.getOutputStream());
             //ObjectInputStream recibirDatos= new ObjectInputStream(socket.getInputStream());
-
-            salidaDatos.writeObject(this.partida.getJugadores());//BOLITA
-
+//            salidaDatos.writeObject(this.partida.getJugadores());//BOLITA
             // String respuesta = recibirDatos.readUTF();
             //Aqui se puede agregar la vuelta con el ObjectInputStream, hay que llamarle a un metodo de model
             //OTROS metodos para la respuesta

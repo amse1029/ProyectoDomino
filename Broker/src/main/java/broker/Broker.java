@@ -45,7 +45,8 @@ public class Broker implements Runnable {
     public void setServer(ServerSocket server) {
         this.server = server;
     }
- public  List<Socket> getClients() {
+
+    public List<Socket> getClients() {
         return clients;
     }
     //se van a mandar los nombres de los jugadores que halla en la lista
@@ -72,11 +73,12 @@ public class Broker implements Runnable {
                 //Que va hacer cuando reciba la partida
                 if (peticionDTO.getPeticion().equals(Peticiones.CREAR_PARTIDA)) {
                     this.servicios.crearPartidaServidor(peticionDTO.getPartidaDTO());
-                    System.out.println("Se agrego el jugador a la partida del servidor");
+//                    System.out.println("Se agrego el jugador a la partida del servidor");
                     System.out.println("Se creo la nueva partida en el servidor");
-
+                    this.getClients().add(clientSocket); 
+                    System.out.println("Se agrego el cliente a la lista de sockets");
                 }
-                if ("UnirsePartida".equals(peticionDTO.getPeticion())) {
+                if (peticionDTO.getPeticion().equals(Peticiones.UNIRSE_PARTIDA)) {
                     this.servicios.agregarJugador(peticionDTO.getJugadorDTO());
                 }
                 if (peticionDTO.getPeticion().equals(Peticiones.AGREGAR_CLIENTE)) {

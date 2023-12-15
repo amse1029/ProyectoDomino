@@ -14,7 +14,9 @@ import java.util.List;
 public class PartidaDTO implements Serializable{
     private int cantJugadores;
     private int cantFichas;
-    private List<JugadorDTO> jugadores;
+    private static final long serialVersionUID = 3418899240263661831L;
+
+//    private List<JugadorDTO> jugadores;
 
     public PartidaDTO() {
       
@@ -25,16 +27,16 @@ public class PartidaDTO implements Serializable{
         this.cantFichas = cantFichas;
     }
 
-    public PartidaDTO(int cantFichas, List<JugadorDTO> jugadores) {
-        this.cantFichas = cantFichas;
-        this.jugadores = jugadores;
-    }
+//    public PartidaDTO(int cantFichas, List<JugadorDTO> jugadores) {
+//        this.cantFichas = cantFichas;
+//        this.jugadores = jugadores;
+//    }
 
-    public PartidaDTO(int cantJugadores, int cantFichas, List<JugadorDTO> jugadores) {
-        this.cantJugadores = cantJugadores;
-        this.cantFichas = cantFichas;
-        this.jugadores = jugadores;
-    }
+//    public PartidaDTO(int cantJugadores, int cantFichas, List<JugadorDTO> jugadores) {
+//        this.cantJugadores = cantJugadores;
+//        this.cantFichas = cantFichas;
+//        this.jugadores = jugadores;
+//    }
 
     public int getCantFichas() {
         return cantFichas;
@@ -44,13 +46,13 @@ public class PartidaDTO implements Serializable{
         this.cantFichas = cantFichas;
     }
 
-    public List<JugadorDTO> getJugadores() {
-        return jugadores;
-    }
-
-    public void setJugadores(List<JugadorDTO> jugadores) {
-        this.jugadores = jugadores;
-    }
+//    public List<JugadorDTO> getJugadores() {
+//        return jugadores;
+//    }
+//
+//    public void setJugadores(List<JugadorDTO> jugadores) {
+//        this.jugadores = jugadores;
+//    }
 
     public int getCantJugadores() {
         return cantJugadores;
@@ -62,7 +64,7 @@ public class PartidaDTO implements Serializable{
 
     @Override
     public String toString() {
-        return "PartidaDTO{" + "cantJugadores=" + cantJugadores + ", cantFichas=" + cantFichas + ", jugadores=" + jugadores + '}';
+        return "PartidaDTO{" + "cantJugadores=" + cantJugadores + ", cantFichas=" + cantFichas + '}';
     }
     
 }
