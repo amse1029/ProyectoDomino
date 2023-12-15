@@ -4,20 +4,34 @@
  */
 package DTO;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author alexa
  */
-public class PartidaDTO {
-    
+public class PartidaDTO implements Serializable{
+    private int cantJugadores;
     private int cantFichas;
     private List<JugadorDTO> jugadores;
 
-    public PartidaDTO() {}
+    public PartidaDTO() {
+      
+    }
+
+    public PartidaDTO(int cantJugadores, int cantFichas) {
+        this.cantJugadores = cantJugadores;
+        this.cantFichas = cantFichas;
+    }
 
     public PartidaDTO(int cantFichas, List<JugadorDTO> jugadores) {
+        this.cantFichas = cantFichas;
+        this.jugadores = jugadores;
+    }
+
+    public PartidaDTO(int cantJugadores, int cantFichas, List<JugadorDTO> jugadores) {
+        this.cantJugadores = cantJugadores;
         this.cantFichas = cantFichas;
         this.jugadores = jugadores;
     }
@@ -37,4 +51,18 @@ public class PartidaDTO {
     public void setJugadores(List<JugadorDTO> jugadores) {
         this.jugadores = jugadores;
     }
+
+    public int getCantJugadores() {
+        return cantJugadores;
+    }
+
+    public void setCantJugadores(int cantJugadores) {
+        this.cantJugadores = cantJugadores;
+    }
+
+    @Override
+    public String toString() {
+        return "PartidaDTO{" + "cantJugadores=" + cantJugadores + ", cantFichas=" + cantFichas + ", jugadores=" + jugadores + '}';
+    }
+    
 }

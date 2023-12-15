@@ -70,24 +70,25 @@ public class Broker implements Runnable {
                 //Esto pudiera dar nulo buzo caperuzo aqui
                 peticionDTO = (PeticionDTO) recibirDatos.readObject();
                 //Que va hacer cuando reciba la partida
-                if (peticionDTO.getPeticion().equals(Peticiones.AGREGAR_CLIENTE)) {
-                    this.getClients().add(clientSocket);
-                    System.out.println("Se agrego un nuevo jugador a la lista de clientes");
-                }
                 if (peticionDTO.getPeticion().equals(Peticiones.CREAR_PARTIDA)) {
                     this.servicios.crearPartidaServidor(peticionDTO.getPartidaDTO());
+                    System.out.println("Se agrego el jugador a la partida del servidor");
                     System.out.println("Se creo la nueva partida en el servidor");
 
                 }
                 if ("UnirsePartida".equals(peticionDTO.getPeticion())) {
                     this.servicios.agregarJugador(peticionDTO.getJugadorDTO());
                 }
-                if ("GetServer".equals(peticionDTO.getPeticion())) {
+                if (peticionDTO.getPeticion().equals(Peticiones.AGREGAR_CLIENTE)) {
+                     this.getClients().add(clientSocket); 
+                     System.out.println("Se agrego el cliente a la lista de sockets");
+                }
+                if (peticionDTO.getPeticion().equals(Peticiones.GET_SERVER)) {
                     mandarDatos.writeObject(this.getServer());
                 }
-                if ("ActualizarLobbyCrearPartida".equals(peticionDTO.getPeticion())) {
-                    this.servicios.agregarJugador(peticionDTO.getJugadorDTO());
-                    System.out.println("Se agrego el jugador a la partida del servidor");
+                if (peticionDTO.getPeticion().equals(Peticiones.GUARDAR_JUGADOR)) {
+                   this.servicios.agregarJugador(peticionDTO.getJugadorDTO());
+                   System.out.println("Se esta agregando el jugador a la partida ");
                 }
             }
 

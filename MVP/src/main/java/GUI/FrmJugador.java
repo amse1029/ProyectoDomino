@@ -94,6 +94,7 @@ public class FrmJugador extends javax.swing.JFrame {
     public void selectIniciar() {
         this.dispose();
         presenterJug.selectIniciar();
+        
     }
 
     /**

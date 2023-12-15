@@ -5,6 +5,7 @@
  */
 package MVP;
 
+import DTO.JugadorDTO;
 import GUI.FrmJugador;
 import dominio.Jugador;
 import java.util.Observable;
@@ -19,7 +20,7 @@ public class JugadorPresenter implements IJugador, Observer {
     private ILobby lobbyPresenter = new LobbyPresenter();
     private FrmJugador frmJugador = new FrmJugador(this);
     private JugadorModel model = new JugadorModel();
-    private Jugador jugador = new Jugador();
+    private JugadorDTO jugador = new JugadorDTO();
     private boolean validar;
 
     public JugadorPresenter(ILobby lobbyPresenter) {
@@ -31,6 +32,7 @@ public class JugadorPresenter implements IJugador, Observer {
     
     @Override
     public void selectIniciar() {
+        try{
         jugador.setNombre(frmJugador.getTxtNombre());
         validar = model.validarNombre(jugador.getNombre());
         if (validar==false){
@@ -38,8 +40,11 @@ public class JugadorPresenter implements IJugador, Observer {
         }
         else {
             //Se debe de abrir la pantalla ya actualizada
-            model.actualizarLobbyCrearPartida(jugador);
+           model.guardaJugador(jugador.getNombre());
             abrirPantallaLobby();
+        }
+        }catch(Exception e){
+            System.out.println(e);
         }
     }
     

@@ -4,6 +4,8 @@
  */
 package MVP;
 
+import DTO.JugadorDTO;
+import DTO.PartidaDTO;
 import DTO.PeticionDTO;
 import dominio.Jugador;
 import dominio.Partida;
@@ -15,6 +17,6 @@ import dominio.Partida;
 public interface IMVPBroker {
     
     public PeticionDTO getPeticionDTO();
-    public Partida getPartida();
-    public Jugador getJugador();
+    public PartidaDTO getPartida();
+    public JugadorDTO getJugador();
 }

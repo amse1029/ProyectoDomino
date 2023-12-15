@@ -40,6 +40,11 @@ public class Servidor{
     public void setPartida(PartidaDTO partidaDTO) {
         this.partidaDTO = partidaDTO;
     }
+
+    @Override
+    public String toString() {
+        return "Servidor{" + "partidaDTO=" + partidaDTO + '}';
+    }
    
    
 }

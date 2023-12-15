@@ -5,7 +5,10 @@
 package MVP;
 
 import DTO.IPeticiones;
+import DTO.JugadorDTO;
+import DTO.PartidaDTO;
 import DTO.PeticionDTO;
+import DTO.Peticiones;
 import dominio.Jugador;
 import dominio.Partida;
 import java.io.IOException;
@@ -22,20 +25,20 @@ import java.net.Socket;
  */
 public class MVPBroker implements IPeticiones, Serializable, IMVPBroker{
     
-    private Partida partida;
+    private PartidaDTO partida;
     private PeticionDTO peticionDTO;
-    private Jugador jugador;
+    private JugadorDTO jugador;
     IMVPBroker mvp;
     
     public MVPBroker() {
     }
 
-    public MVPBroker(PeticionDTO peticionDTO, Partida partida) {
+    public MVPBroker(PeticionDTO peticionDTO, PartidaDTO partidaDTO) {
         this.peticionDTO = peticionDTO;
-        this.partida = partida;
+        this.partida = partidaDTO;
     }
 
-    public MVPBroker(PeticionDTO peticionDTO, Jugador jugador) {
+    public MVPBroker(PeticionDTO peticionDTO, JugadorDTO jugador) {
         this.peticionDTO = peticionDTO;
         this.jugador = jugador;
     }
@@ -44,7 +47,7 @@ public class MVPBroker implements IPeticiones, Serializable, IMVPBroker{
         this.peticionDTO = peticionDTO;
     }
 
-    public void setPartida(Partida partida) {
+    public void setPartida(PartidaDTO partida) {
         this.partida = partida;
     }
 
@@ -54,14 +57,14 @@ public class MVPBroker implements IPeticiones, Serializable, IMVPBroker{
 
     public ServerSocket getServer() throws IOException {
         try {
-            mvp = new MVPBroker(peticionDTO);
+            peticionDTO = new PeticionDTO(Peticiones.GET_SERVER);
             InetAddress inetAddress = InetAddress.getLocalHost();
             String ipAddress = inetAddress.getHostAddress();
             String ip = ipAddress;
             Socket socket = new Socket(ip, 80);
             ObjectOutputStream salidaDatos = new ObjectOutputStream(socket.getOutputStream());
             ObjectInputStream recibirDatos = new ObjectInputStream(socket.getInputStream());
-            salidaDatos.writeObject(mvp);//BOLITA
+            salidaDatos.writeObject(peticionDTO);//BOLITA
             ServerSocket respuesta = (ServerSocket) recibirDatos.readObject();
 
             socket.close();//ESTO PUDIERA SER UN BREAK
@@ -73,12 +76,12 @@ public class MVPBroker implements IPeticiones, Serializable, IMVPBroker{
     }
 
     @Override
-    public Jugador getJugador() {
+    public JugadorDTO getJugador() {
         return jugador;
     }
 
     @Override
-    public Partida getPartida() {
+    public PartidaDTO getPartida() {
         return partida;
     }
 
@@ -87,9 +90,9 @@ public class MVPBroker implements IPeticiones, Serializable, IMVPBroker{
         return peticionDTO;
     }
 
-    public void unirsePartida(PeticionDTO peticion, Jugador jugador) {
+    public void unirsePartida(Peticiones peticion, JugadorDTO jugadorDTO) {
         try {
-            mvp = new MVPBroker(peticionDTO, jugador);
+            peticionDTO = new PeticionDTO(peticion, jugadorDTO);
             InetAddress inetAddress = InetAddress.getLocalHost();
             String ipAddress = inetAddress.getHostAddress();
             String ip = ipAddress;
@@ -105,7 +108,7 @@ public class MVPBroker implements IPeticiones, Serializable, IMVPBroker{
 
     public void AgregarCliente() {
         try {
-            mvp = new MVPBroker(peticionDTO);
+             peticionDTO = new PeticionDTO(Peticiones.AGREGAR_CLIENTE);
             InetAddress inetAddress = InetAddress.getLocalHost();
             String ipAddress = inetAddress.getHostAddress();
             String ip = ipAddress;
@@ -141,23 +144,41 @@ public class MVPBroker implements IPeticiones, Serializable, IMVPBroker{
 
     }
 
-    public void CrearPartida(Partida partida, String peticion) {
+    public void CrearPartida(PartidaDTO partida,Peticiones peticion) {
         //Aqui se puede agregar la vuelta con el ObjectInputStream, hay que llamarle a un metodo de model y la ida
         //con el ObjectOutoutStream
 
         //Crear una interfaz
         try {
-            mvp = new MVPBroker(peticionDTO, partida);
+            peticionDTO = new PeticionDTO(peticion, partida);
             InetAddress inetAddress = InetAddress.getLocalHost();
             String ipAddress = inetAddress.getHostAddress();
             String ip = ipAddress;
             Socket socket = new Socket(ip, 80);
             ObjectOutputStream salidaDatos = new ObjectOutputStream(socket.getOutputStream());
-            salidaDatos.writeObject(mvp);//BOLITA
+            salidaDatos.writeObject(peticionDTO);//BOLITA
             //Aqui se puede agregar la vuelta con el ObjectInputStream
             socket.close();//ESTO PUDIERA SER UN BREAK
-            this.AgregarCliente();
+            //AQUI VA LO DE ACTUALIZAR EL LOBBY
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    public void GuardarJugador(JugadorDTO jugador,Peticiones peticion) {
+        //Aqui se puede agregar la vuelta con el ObjectInputStream, hay que llamarle a un metodo de model y la ida
+        //con el ObjectOutoutStream
 
+        //Crear una interfaz
+        try {
+            peticionDTO = new PeticionDTO(peticion, jugador);
+            InetAddress inetAddress = InetAddress.getLocalHost();
+            String ipAddress = inetAddress.getHostAddress();
+            String ip = ipAddress;
+            Socket socket = new Socket(ip, 80);
+            ObjectOutputStream salidaDatos = new ObjectOutputStream(socket.getOutputStream());
+            salidaDatos.writeObject(peticionDTO);//BOLITA
+            //Aqui se puede agregar la vuelta con el ObjectInputStream
+            socket.close();//ESTO PUDIERA SER UN BREAK
             //AQUI VA LO DE ACTUALIZAR EL LOBBY
         } catch (Exception e) {
             System.out.println(e);

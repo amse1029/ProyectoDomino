@@ -4,11 +4,13 @@
  */
 package DTO;
 
+import java.io.Serializable;
+
 /**
  *
  * @author alexa
  */
-public class PeticionDTO {
+public class PeticionDTO implements Serializable {
     
     private PartidaDTO partidaDTO;
     private JugadorDTO jugadorDTO;
@@ -20,6 +22,27 @@ public class PeticionDTO {
         this.peticion = peticion;
     }
 
+    public PeticionDTO(Peticiones peticion) {
+        this.peticion = peticion;
+    }
+
+    public PeticionDTO(JugadorDTO jugadorDTO) {
+        this.jugadorDTO = jugadorDTO;
+    }
+
+    public PeticionDTO(PartidaDTO partidaDTO) {
+        this.partidaDTO = partidaDTO;
+    }
+
+    public PeticionDTO(Peticiones peticion, JugadorDTO jugadorDTO) {
+        this.jugadorDTO = jugadorDTO;
+        this.peticion = peticion;
+    }
+public PeticionDTO(Peticiones peticion, PartidaDTO partidaDTO) {
+    this.peticion = peticion;    
+    this.partidaDTO = partidaDTO;
+        
+    }
     public PartidaDTO getPartidaDTO() {
         return partidaDTO;
     }

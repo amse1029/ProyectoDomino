@@ -5,6 +5,8 @@
  */
 package MVP;
 
+import DTO.JugadorDTO;
+import DTO.Peticiones;
 import dominio.Jugador;
 import java.io.IOException;
 import java.net.InetAddress;
@@ -18,30 +20,15 @@ import socket.Cliente;
  */
 public class JugadorModel {
 
-    private String nombreInicio = "";
-    private String avatarInicio = "";
-    private Jugador jugador= new Jugador(nombreInicio, avatarInicio);
+    private String nombreInicio;
+    private JugadorDTO jugador = new JugadorDTO();
     MVPBroker broker = new MVPBroker();
     
     public JugadorModel() {
     }
 
-    public JugadorModel(String nombre, String avatar) {
-        this.jugador = new Jugador(nombre, avatar);
-    }
-
-    public boolean validarNombreAvatar(String nombre, String avatar){
-        if(nombre == null || nombre.trim().isEmpty() || (avatar == "" || nombre.trim().isEmpty())){
-            return false;
-        }
-        for(char c: nombre.toCharArray()){
-            if(!Character.isLetter(c) && !Character.isSpaceChar(c)){
-                return false;
-            }  
-        }
-        guardaJugador(nombre, avatar);
-        System.out.println(jugador.getNombre() + " " + jugador.getUrlAvatar());
-        return true;        
+    public JugadorModel(String nombre) {
+        this.jugador = new JugadorDTO(nombre);
     }
     
     public boolean validarNombre(String nombre){
@@ -53,22 +40,29 @@ public class JugadorModel {
                 return false;
             }  
         }
-        guardaJugadorNombre(nombre);
-        System.out.println(jugador.getNombre());
+        System.out.println(nombre);
         return true;        
     }
     
-    public void guardaJugador(String name, String avatar){
-        jugador.setNombre(name);
-        jugador.setUrlAvatar(avatar);
-    }
-    
-    public void guardaJugadorNombre(String name){
-        jugador.setNombre(name);
-    }
 
     public String getNombreInicio() {
         return nombreInicio;
+    }
+
+    public JugadorDTO getJugador() {
+        return jugador;
+    }
+
+    public void setJugador(JugadorDTO jugador) {
+        this.jugador = jugador;
+    }
+
+    public MVPBroker getBroker() {
+        return broker;
+    }
+
+    public void setBroker(MVPBroker broker) {
+        this.broker = broker;
     }
     
 //    public void getJugadoresPartida() {
@@ -89,7 +83,15 @@ public class JugadorModel {
          Cliente cliente = new Cliente(socket);
          return cliente;
    }
-     public void actualizarLobbyCrearPartida(Jugador jugador){
+     public void actualizarLobbyCrearPartida(JugadorDTO jugador){
          broker.actualizarLobbyCrearPartida(jugador.getNombre());
      }
+     public void guardaJugador(String nombre) throws IOException {
+        Peticiones peticion = null;
+        jugador.setNombre(nombre);
+        System.out.println(nombre);
+        //DE AQUI SE HACE LA PETICION POR MEDIO DEL MVP BROKER
+        broker.GuardarJugador(this.jugador,peticion.GUARDAR_JUGADOR);
+        //broker.recibirPartida(partida);
+    }
 }
