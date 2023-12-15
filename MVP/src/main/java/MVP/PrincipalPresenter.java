@@ -5,6 +5,7 @@
  */
 package MVP;
 
+import DTO.PartidaDTO;
 import GUI.FrmPrincipal;
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -59,9 +60,9 @@ public class PrincipalPresenter implements IPrincipal {
     }
     
     @Override
-    public ServerSocket verificarServer() {
+    public PartidaDTO verificarPartida() {
         try {
-            return model.getServer();
+            return model.getPartida();
         } catch (IOException ex) {
             Logger.getLogger(PrincipalPresenter.class.getName()).log(Level.SEVERE, null, ex);
         }

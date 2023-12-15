@@ -15,5 +15,6 @@ public enum Peticiones {
     GET_SERVER,
     ACTUALIZAR_LOBBY_CREARPARTIDA,
     GUARDAR_JUGADOR,
-    GET_IPS
+    GET_IPS,
+    GET_PARTIDA
 }

@@ -5,6 +5,7 @@
  */
 package MVP;
 
+import DTO.PartidaDTO;
 import java.net.ServerSocket;
 
 /**
@@ -17,5 +18,5 @@ public interface IPrincipal {
     public void abrirPantConf();
     public void abrirPantPrincipal();
     public void selectUnirsePartida();
-    public ServerSocket verificarServer();
+    public PartidaDTO verificarPartida();
 }

@@ -110,10 +110,24 @@ public class FrmLobby extends javax.swing.JFrame {
         
        
                for (int i = 0; i < nombres.size(); i++) {
+                 if(nombres.size()==1){
+                   this.lblNombre1.setText(nombres.get(0));  
+                 }
+                 if(nombres.size()==2){
+                   this.lblNombre1.setText(nombres.get(0)); 
+                   this.lblNombre2.setText(nombres.get(1));
+                 }
+                 if(nombres.size()==3){
+                   this.lblNombre1.setText(nombres.get(0)); 
+                   this.lblNombre2.setText(nombres.get(1));
+                   this.lblNombre3.setText(nombres.get(2));
+                 }
+                 if(nombres.size()==4){
                  this.lblNombre1.setText(nombres.get(0));
                  this.lblNombre2.setText(nombres.get(1));
                  this.lblNombre3.setText(nombres.get(2));
                  this.lblNombre4.setText(nombres.get(3));
+                 }
             }
  
                 

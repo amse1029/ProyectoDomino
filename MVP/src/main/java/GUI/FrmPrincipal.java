@@ -4,7 +4,9 @@
  */
 package GUI;
 
+import DTO.PartidaDTO;
 import MVP.IJugador;
+import MVP.IMVPBroker;
 import MVP.IPrincipal;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -19,7 +21,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private IPrincipal principalPresenter;
     private IJugador jugadorPresenter;
-    
+    IMVPBroker mvp;
     /**
      * Creates new form FrmPrincipal
      */
@@ -126,8 +128,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
     
     public void selectUnirse() {
-        this.dispose();
-        jugadorPresenter.abrirPantallaJug();
+        PartidaDTO partida =principalPresenter.verificarPartida();
+        if(partida.getCantFichas()==0 && partida.getCantJugadores()==0){
+            this.muestraMsjError("No hay partida disponible");
+        }else{
+            this.dispose();
+           jugadorPresenter.abrirPantallaJug();
+        }
+        System.out.println("SI LLEGA LA PARTIDA AL FRAME" + partida.toString());
     }
     
     public void muestraMsjError(String msj) {

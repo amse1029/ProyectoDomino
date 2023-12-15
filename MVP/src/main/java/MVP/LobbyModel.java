@@ -19,9 +19,9 @@ public class LobbyModel {
         this.nombres = new ArrayList();
     }
 
-    public List<String> getNombres() throws IOException {
-        return mvp.getIps();
-    }
+  public List<String> getNombres() throws IOException {
+     return mvp.getIps();
+  }
 
     public void setNombres(List<String> nombres) {
         this.nombres = nombres;

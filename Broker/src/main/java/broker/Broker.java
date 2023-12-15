@@ -95,8 +95,9 @@ public class Broker implements Runnable {
                      mandarDatos.writeObject(ips);
                     System.out.println("Se estan mandando la lista de jugadores");
                 }
-                if (peticionDTO.getPeticion().equals(Peticiones.GET_SERVER)) {
-                    mandarDatos.writeObject(this.getServer());
+                if (peticionDTO.getPeticion().equals(Peticiones.GET_PARTIDA)) {
+                    mandarDatos.writeObject(this.servicios.getPartida());
+                    System.out.println("Si se manda la partida para validar, YUJUU");
                 }
                 if (peticionDTO.getPeticion().equals(Peticiones.GUARDAR_JUGADOR)) {
                     this.servicios.agregarJugador(peticionDTO.getJugadorDTO());

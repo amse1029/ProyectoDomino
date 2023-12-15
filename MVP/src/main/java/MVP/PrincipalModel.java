@@ -4,6 +4,7 @@
  */
 package MVP;
 
+import DTO.PartidaDTO;
 import java.io.IOException;
 import java.net.ServerSocket;
 
@@ -15,7 +16,7 @@ public class PrincipalModel {
     
     MVPBroker broker = new MVPBroker();
     
-    public ServerSocket getServer() throws IOException {
-        return broker.serverIsClosed();
+    public PartidaDTO getPartida() throws IOException {
+        return broker.partidaIsClosed();
     }
 }

@@ -19,6 +19,8 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -56,30 +58,26 @@ public class MVPBroker implements IPeticiones, Serializable, IMVPBroker{
         this.peticionDTO = peticionDTO;
     }
 
-    public ServerSocket serverIsClosed() throws IOException {
-        Broker broker = new Broker();
-        return broker.getServer();
-    }
     
-    public ServerSocket getServer() throws IOException {
-        try {
-            peticionDTO = new PeticionDTO(Peticiones.GET_SERVER);
-            InetAddress inetAddress = InetAddress.getLocalHost();
-            String ipAddress = inetAddress.getHostAddress();
-            String ip = ipAddress;
-            Socket socket = new Socket(ip, 80);
-            ObjectOutputStream salidaDatos = new ObjectOutputStream(socket.getOutputStream());
-            ObjectInputStream recibirDatos = new ObjectInputStream(socket.getInputStream());
-            salidaDatos.writeObject(peticionDTO);//BOLITA
-            ServerSocket respuesta = (ServerSocket) recibirDatos.readObject();
-
-            socket.close();//ESTO PUDIERA SER UN BREAK
-            return respuesta;
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return null;
-    }
+//    public ServerSocket getServer() throws IOException {
+//        try {
+//            peticionDTO = new PeticionDTO(Peticiones.GET_SERVER);
+//            InetAddress inetAddress = InetAddress.getLocalHost();
+//            String ipAddress = inetAddress.getHostAddress();
+//            String ip = ipAddress;
+//            Socket socket = new Socket(ip, 80);
+//            ObjectOutputStream salidaDatos = new ObjectOutputStream(socket.getOutputStream());
+//            ObjectInputStream recibirDatos = new ObjectInputStream(socket.getInputStream());
+//            salidaDatos.writeObject(peticionDTO);//BOLITA
+//            ServerSocket respuesta = (ServerSocket) recibirDatos.readObject();
+//
+//            socket.close();//ESTO PUDIERA SER UN BREAK
+//            return respuesta;
+//        } catch (Exception e) {
+//            System.out.println(e);
+//        }
+//        return null;
+//    }
     
     public List<String> getIps() throws IOException {
         try {
@@ -107,7 +105,23 @@ public class MVPBroker implements IPeticiones, Serializable, IMVPBroker{
 
     @Override
     public PartidaDTO getPartida() {
-        return partida;
+         try {
+            peticionDTO = new PeticionDTO(Peticiones.GET_PARTIDA);
+            InetAddress inetAddress = InetAddress.getLocalHost();
+            String ipAddress = inetAddress.getHostAddress();
+            String ip = ipAddress;
+            Socket socket = new Socket(ip, 80);
+            ObjectOutputStream salidaDatos = new ObjectOutputStream(socket.getOutputStream());
+            ObjectInputStream recibirDatos = new ObjectInputStream(socket.getInputStream());
+            salidaDatos.writeObject(peticionDTO);//BOLITA
+            PartidaDTO respuesta = (PartidaDTO) recibirDatos.readObject();
+
+            socket.close();//ESTO PUDIERA SER UN BREAK
+            return respuesta;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return null;
     }
 
     @Override
@@ -209,4 +223,11 @@ public class MVPBroker implements IPeticiones, Serializable, IMVPBroker{
             System.out.println(e);
         }
     }
+
+    @Override
+    public PartidaDTO partidaIsClosed() {
+        return this.getPartida();
+    }
+
+    
 }

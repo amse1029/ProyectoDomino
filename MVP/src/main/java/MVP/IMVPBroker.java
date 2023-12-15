@@ -9,6 +9,7 @@ import DTO.PartidaDTO;
 import DTO.PeticionDTO;
 import dominio.Jugador;
 import dominio.Partida;
+import java.net.ServerSocket;
 
 /**
  *
@@ -19,4 +20,5 @@ public interface IMVPBroker {
     public PeticionDTO getPeticionDTO();
     public PartidaDTO getPartida();
     public JugadorDTO getJugador();
+    public PartidaDTO partidaIsClosed();
 }
